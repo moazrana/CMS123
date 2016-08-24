@@ -1,0 +1,11 @@
+﻿@model CMS.Models.Add_ListofParticipant
+@{
+    ViewBag.Title = "Add_ListofParticipant";
+}
+
+<h2>Add_ListofParticipant</h2>
+
+@foreach (var user in Model.user)
+{
+    <h5>@Html.Action(user.name, "Add_ListofParticipant", new { id = user.id, a = @Model.id })</h5>
+}

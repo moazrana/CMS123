@@ -1,0 +1,139 @@
+﻿@model CMS.Models.Sessions
+@{
+    ViewBag.Title = "Add_Sessions";
+}
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+    <title>Conference Mangement System</title>
+</head>
+
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Home")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "Events")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+    </header>
+    <div class="margin"></div>
+    <section>
+        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Add Tutorials</h1></center>
+        <aside>
+            <div>
+                <h4>Manage basics</h4>
+                <li>@Html.ActionLink("Change name of conference", "organize")</li>
+                <li>@Html.ActionLink("Change Venue", "organize")</li>
+                <li>@Html.ActionLink("Change date", "organize")</li>
+                <li>@Html.ActionLink("Update Agenda", "organize")</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>Manage Guests</h4>
+                <li>@Html.ActionLink("Invite People","")</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipants")</li>
+                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker")</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>Manage Sessions</h4>
+                 <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>Manage Papers</h4>
+                <li>@Html.ActionLink("Change Submission link", "")</li>
+                <li>@Html.ActionLink("Update List of Accepted Papers", "")</li>
+            </div>
+        </aside>
+        <div id="leftDashBoard">
+            <div class="login">
+                <table>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+    <tr>
+        <td>
+            <label for="Title">Title</label>
+        </td>
+        <td>
+            <input id="Title" type="text" name="title"  maxlength="50" size="30">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="Day">Day</label>
+        </td>
+        <td>
+            <input id="Day" type="number" name="sdate" min="1" max="31">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="Start Time">Start Time</label>
+        </td>
+        <td><input id="Start Time" type="time" name="stime"></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="End Time">End Time</label>
+        </td>
+        <td><input id="End Time" type="time" name="etime"></td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="venue">venue</label>
+        </td>
+        <td>
+            <input id="venue" type="text" name="dis" maxlength="50" size="30">
+        </td>
+    </tr>
+
+    @*<tr>
+        <td>
+            <label for="Description">Description</label>
+        </td>
+        <td>
+            <textarea name="Description" maxlength="1000" cols="47" rows="6"></textarea>
+        </td>
+
+    </tr>*@
+
+                        <tr>
+                            <td colspan="2" style="text-align:center;">
+                                <!-- We are grateful to you for keeping this link in place. thank you. -->
+                                <input  type="submit" value="Submit" />
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

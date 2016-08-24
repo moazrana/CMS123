@@ -1,0 +1,71 @@
+﻿@model CMS.Models.conferenceUsersViewModel
+@{
+    ViewBag.Title = "ConferenceInvitedSpeakers";
+}
+
+@*<h2>ConferenceInvitedSpeakers</h2>
+<h2>InvitedSpeakers</h2>
+@foreach (var u in Model.participants)
+{
+    <h5>@Html.ActionLink(u.user_name, "UserProfile", new { id = u.user_id })</h5>
+}*@
+
+
+<html>
+<head>
+    <title>Conference Mangement System</title>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+</head>
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "myEvents")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+   
+    <section>
+        <aside style="margin-top:1px;">
+            <div style="height:100%;">
+                <h4>@Html.ActionLink("Wall Of Conference", "")</h4>
+                <li>@Html.ActionLink("Conference Website", "")</li>
+                <li>@Html.ActionLink("Organizing Committees", "")</li>
+                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
+                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
+                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
+                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
+                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
+                <li>@Html.ActionLink("Paper Submission Link", "")</li>
+                <li>@Html.ActionLink("Accepted Papers", "")</li>
+                <li>@Html.ActionLink("Registration Link", "")</li>
+                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+            </div>
+        </aside>
+
+        <div id="W_O_C">
+            <center><h2>Invited Speaker</h2></center>
+            <h3>List of Invited Speaker</h3>
+            <table id="WOC">
+                <tr>
+                    <td>
+                        @foreach (var u in Model.participants)
+                        {
+                            <h4>@Html.ActionLink(u.user_name, "UserProfile", new { id = u.user_id })</h4>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

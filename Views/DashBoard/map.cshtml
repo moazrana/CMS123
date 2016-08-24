@@ -1,0 +1,48 @@
+﻿@model CMS.Models.mapModel
+@{
+    ViewBag.Title = "map";
+}
+
+<h2>map</h2>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        height: 100%;
+    }
+</style>
+
+<div id="map" style="width:500px;height:500px"></div>
+<script>
+        var loc;
+        var map;
+        function initMap() {
+            loc='@Model.venue'
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                //center: { lat: -34.397, lng: 150.644 },
+                zoom: 10
+            });
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({ 'address': loc }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    window.alert('Geocode was not successful for the following reason: ' +
+                        status);
+                }
+            });
+
+        }
+</script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy53aWqqrqmwFWWNRyouciskjH7uBdl4A&callback=initMap" "></script>

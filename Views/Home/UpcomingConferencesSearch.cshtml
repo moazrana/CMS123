@@ -1,0 +1,57 @@
+﻿@model CMS.Models.AdvanceSearch
+@{
+    ViewBag.Title = "Upcoming Conference Search";
+}
+
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+<title>Conference Mangement System</title>
+
+</head>
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+
+            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "myEvents")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    @using (Html.BeginForm())
+    {
+        <div class="login">
+            <input type="text" placeholder="Search Event" name="user">
+            <input type="submit" value="Search"><br>
+            <p>Start Date</p><input type="text" placeholder="DD/MM/YY" name="user" style="margin-top:-10px;">
+            <p>End Date</p><input type="text" placeholder="DD/MM/YY" name="user" style="margin-top:-10px;">
+            <p>Discipline</p><input type="text" placeholder="Research-Area" name="user" style="margin-top:-10px;">
+            <p>City</p><input type="text" placeholder="City of Conference" name="user" style="margin-top:-10px;">
+            <p>Country</p><input type="text" placeholder="Country of Confernece" name="user" style="margin-top:-10px;margin-bottom:20px;">
+
+            <h1>Upcoming Conferences</h1>
+            <ul>
+                @foreach (var con in Model.conferences)
+                {
+                    <li>@con.id.ToString()</li>
+                    <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
+                    @*<li>@Html.ActionLink(con.n)</li>*@
+                }
+            </ul>
+
+        </div>
+    }
+</body>
+</html>

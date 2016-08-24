@@ -1,0 +1,13 @@
+﻿@model CMS.Models.UserListMdel
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>UserList</h2>
+<h4>@Model.conference_id</h4>
+@foreach (var user in Model.users)
+{
+
+    <h5>@Html.ActionLink(user.name, "Add_InvitedSpeaker", new { id = user.id, a = @Model.conference_id })</h5>
+
+}

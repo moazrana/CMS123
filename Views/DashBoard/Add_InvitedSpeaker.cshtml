@@ -1,0 +1,11 @@
+﻿@model CMS.Models.Add_InvitedSpeaker
+@{
+    ViewBag.Title = "Add_InvitedSpeaker";
+}
+
+<h2>Add_InvitedSpeaker</h2>
+
+@foreach (var con in Model.user)
+{
+    <li>@Html.ActionLink(con.name, "UserProfile")</li>
+}

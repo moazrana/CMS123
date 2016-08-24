@@ -1,0 +1,13 @@
+﻿@model CMS.Models.ListofParticipant
+@{
+    ViewBag.Title = "ListofParticipant";
+}
+
+<h2>ListofParticipant</h2>
+
+@foreach (var u in Model.list)
+{
+    <h5>@Html.ActionLink(u.user_name, "UserProfile", new { id = u.id, a = u.user_id })</h5>
+}
+
+@*<h4>@Html.ActionLink("Invite Participants", "UserList", new { id = @Model.conf_id })</h4>*@

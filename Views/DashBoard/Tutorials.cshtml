@@ -1,0 +1,96 @@
+﻿@model CMS.Models.TutorialsModel
+@{
+    ViewBag.Title = "Tutorials";
+}
+
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+    <title>Conference Mangement System</title>
+</head>
+
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Home")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "Events")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+   
+    <div class="margin"></div>
+    <section>
+        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Tutorials</h1></center>
+        <aside>
+            <div>
+                <h4>Manage basics</h4>
+                <li>@Html.ActionLink("Change name of conference", "organize")</li>
+                <li>@Html.ActionLink("Change Venue", "organize")</li>
+                <li>@Html.ActionLink("Change date", "organize")</li>
+                <li>@Html.ActionLink("Update Agenda", "organize")</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>Manage Guests</h4>
+                <li>@Html.ActionLink("Invite People", "", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipants", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>Manage Sessions</h4>
+                <li>@Html.ActionLink("Add/Remove Sessions", "", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
+            </div>
+        </aside><br>
+        <aside>
+            <div>
+                <h4>@Html.ActionLink("Manage Papers", "")</h4>
+                <li>@Html.ActionLink("Change Submission link", "")</li>
+                <li>@Html.ActionLink("Update List of Accepted Papers", "")</li>
+            </div>
+
+        </aside>
+        <div id="leftDashBoard">
+            <div class="login">
+                <table>
+                    <!--Yahan coding karni ha-->
+                    @foreach (var ws in Model.submissions)
+                    {
+                        <tr>
+                            <th>Title:-</th>
+                            <td>@ws.title</td>
+                        </tr>
+                        <tr>
+                            <th>Discription</th>
+                            <td>@ws.discription</td>
+                        </tr>
+                    }
+
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                           @Html.ActionLink("AddTutorials", "AddTutorials", new { id=@Model.j})
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model CMS.Models.myEventsModel
+@{
+    ViewBag.Title = "myEvents";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+    <title>Conference Mangement System</title>
+</head>
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "myEvents")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+    <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1></center>
+    <hr />
+
+
+    @foreach (var con in Model.listconferences)
+    {
+        <h4>@con.id.ToString()</h4>
+        <h4>@Html.ActionLink(con.name, "abc", new { id = con.id })</h4>
+    }
+
+
+
+
+    @*old code*@
+
+    @*<h2 style="color:azure" ;text-align:right">@Html.ActionLink("Dashboard", "Dashboard")</h2>
+
+            <h2>myEvents</h2>
+
+            @foreach (var con in Model.listconferences)
+            {
+                <h4>@con.id.ToString()</h4>
+                <h4>@Html.ActionLink(con.name, "~/Controllers/DashBoardController", new { id = con.id })</h4>
+            }
+        </body>
+        </html>*@

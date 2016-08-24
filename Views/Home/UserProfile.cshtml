@@ -1,0 +1,12 @@
+﻿@model CMS.Models.userProfile
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<h2>UserProfile</h2>
+<h1>@Model.user.name</h1>
+<h5>Country:@Model.user.country</h5>
+<h5>City:@Model.user.city</h5>
+<h5>Work Place:@Model.user.workplace</h5>
+<h3>Biograghy:-</h3>
+<p>@Model.user.biography</p>

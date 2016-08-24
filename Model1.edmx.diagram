@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1555930fe1c49fb84c88e62300fc1e7" Name="Diagram1">
+        <EntityTypeShape EntityType="db_CMSModel.meeting" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.submission" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.tblConference" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.tbluser" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.achievement" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.attending" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.tblconversation" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.tblsession" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.participants_list" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_particapants" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="db_CMSModel.FK__submissio__confe__43A1090D" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__attending__confe__4865BE2A" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__tblsessio__confe__4C364F0E" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__achieveme__Auser__4A4E069C" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__attending__Auser__477199F1" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__tblconver__user1__52E34C9D" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.FK__tblconver__user2__53D770D6" ManuallyRouted="false" />
+        <AssociationConnector Association="db_CMSModel.suser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

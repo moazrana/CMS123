@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+<head>
+    <title>Conference Mangement System</title>
+    <link rel="stylesheet" href="~/CSS/Main.css" />
+</head>
+
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("SearchforConferences","Search")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences","Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events","myEvents")</li>
+            <li>@Html.ActionLink("Contact-Us","Contact_Us")</li>
+            <li>@Html.ActionLink("About","About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+
+    <marquee behavior="alternate" scrollamount="3">
+       
+        <img src="~/Pics/conference1.jpg">
+        <img src="Pics//Conference3.jpg">
+        <img src="Pics//conference4.jpg">
+        <img src="Pics//conference5.jpg">
+        
+    </marquee>
+</body>
+</html>
+
+
+@*<html>
+<head>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+    <title>Conference Mangement System</title>
+</head>
+
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
+        <img id="cms-logo" src="Pics//cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>Home</li>
+            <li>Upcoming-Conferences</li>
+            <li>My-Events</li>
+            <li>Contact-Us</li>
+            <li id="inout">Signin</li>
+            <li id="inout">Signup</li>
+        </ul>
+    </nav>
+
+
+    <marquee behavior="alternate" scrollamount="3">
+        <img src="Pics//conference1.jpg">
+        <img src="Pics//conference2.jpg">
+        <img src="Pics//Conference3.jpg">
+        <img src="Pics//conference4.jpg">
+        <img src="Pics//conference5.jpg">
+    </marquee>
+</body>
+</html>*@

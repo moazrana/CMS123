@@ -1,0 +1,136 @@
+﻿@model CMS.Models.ConferenceDetaillsModel
+@{
+    ViewBag.Title = "ConferenceDetails";
+}
+
+
+@*<h1>@Model.name</h1>
+<h4>Country:@Model.country</h4>
+<h4>city:@Model.city</h4>
+<h4>Venue:@Model.venue</h4>
+<h4>Strart date:@Model.sDate</h4>
+<h4>End date:@Model.eDate</h4>
+<h2>About Conference:</h2>
+<p>@Model.agenda</p>
+
+<h3>@Html.ActionLink("Invited Speakers", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</h3>
+<h3>@Html.ActionLink("Workshops", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</h3>
+<h3>@Html.ActionLink("Tutorails", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</h3>
+<h3>@Html.ActionLink("Extra Event", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</h3>
+<h3>@Html.ActionLink("PHD-Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</h3>
+<h3>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</h3>*@
+
+
+
+
+<html>
+<head>
+    <title>Conference Mangement System</title>
+    <link rel="stylesheet" href="~/CSS/Main.css">
+</head>
+<body>
+    <header>
+        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+    <nav id="nav-properties">
+        <ul>
+            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("My-Events", "myEvents")</li>
+            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+            <li>@Html.ActionLink("About", "About")</li>
+            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+        </ul>
+    </nav>
+    
+    <section>
+        <aside style="margin-top:1px;">
+            <div style="height:100%;">
+                <h4>@Html.ActionLink("Wall Of Conference","")</h4>
+                <li>@Html.ActionLink("Conference Website","")</li>
+                <li>@Html.ActionLink("Organizing Committees","")</li>
+                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
+                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
+                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
+                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
+                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
+                <li>@Html.ActionLink("Paper Submission Link","")</li>
+                <li>@Html.ActionLink("Accepted Papers","")</li>
+                <li>@Html.ActionLink("Registration Link","")</li>
+                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+            </div>
+        </aside>
+        <div id="W_O_C">
+            <h3>Wall of Conference</h3>
+            <table id="WOC">
+                <tr>
+                    <td>
+                        <label for="Title">Country</label>
+                    </td>
+                    <td>
+                        <p>@Model.country<p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Title">City</label>
+                    </td>
+                    <td>
+                        <p>@Model.city<p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Title">Venue</label>
+                    </td>
+                    <td>
+                        <p>@Model.venue<p>
+                    </td>
+                </tr>
+
+            </table>
+            <h3>Dates Of Conference</h3>
+            <table id="WOC">
+                <tr>
+                    <td>
+                        <label for="Title">Start-Date</label>
+                    </td>
+                    <td>
+                        <p>@Model.sDate<p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Title">End-Date</label>
+                    </td>
+                    <td>
+                        <p>@Model.eDate<p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Title">Website</label>
+                    </td>
+                    <td>
+                        <p>url<p>
+                    </td>
+                </tr>
+
+            </table>
+            <h3>About Conference</h3>
+            <p style="padding-left:30px;">
+                @Model.agenda
+            </p>
+
+        </div>
+
+    </section>
+</body>
+</html>
