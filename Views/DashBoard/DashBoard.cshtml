@@ -65,14 +65,36 @@
             </div>
         </aside>
         <div id="leftDashBoard">
+
             <img id="image" src="~/Pics/DBPic1.jpg">
-            <img id="image" src="~/Pics/DBPic2.jpg">
-            <img id="image" src="~/Pics/DBPic3.jpg">
-            <img id="image" src="~/Pics/DBPic4.jpg"><br>
-            <img id="image" src="~/Pics/DBPic5.jpg">
-            <img id="image" src="~/Pics/DBPic6.jpg">
-            <img id="image" src="~/Pics/DBPic7.png">
-            <img id="image" src="~/Pics/DBPic8.png"><br>
+
+            <a href=@Url.Action("Auto_Gen","DashBoard")>
+            <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails">
+                </a>
+
+            <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
+                <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" />
+            </a>
+
+            <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
+                <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium">
+            </a><br />
+
+            <a href=@Url.Action("","DashBoard")>
+                <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
+            </a>
+
+            <a href=@Url.Action("Extra_Event","DashBoard",new{id=@Model.id})>
+                <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event">
+            </a>
+
+            <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
+                <img id="image" src="~/Pics/DBPic7.png" alt="Workshop">
+            </a>
+
+            <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
+                <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials">
+             </a>   <br>
 
         </div>
     </section>
