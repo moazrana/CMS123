@@ -19,7 +19,7 @@
         <ul>
             <<li>@Html.ActionLink("Home", "Home")</li>
             <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("Create-an-event", "create")</li>
             <li>@Html.ActionLink("My-Events", "Events")</li>
             <li>@Html.ActionLink("Contact-Us", "Contact")</li>
             <li>@Html.ActionLink("About", "About")</li>
@@ -27,7 +27,7 @@
             <li id="inout">@Html.ActionLink("Signup", "signup")</li>
         </ul>
     </nav>
-    </header>
+  
     <div class="margin"></div>
     <section>
         <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Organize Event</h1></center>
@@ -42,9 +42,10 @@
                 @Html.ValidationSummary(true)
 
 
-                <div class="editor-label" style="text-align:center">
+                <div class="editor-label">
                     @Html.LabelFor(model => model.name)
                 </div>
+                
                 <div class="editor-field">
                     @Html.EditorFor(model => model.name)
                     @Html.ValidationMessageFor(model => model.name)

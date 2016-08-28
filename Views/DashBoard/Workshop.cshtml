@@ -19,7 +19,7 @@
         <ul>
             <li>@Html.ActionLink("Home", "Home")</li>
             <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("Create-an-event", "organize")</li>
             <li>@Html.ActionLink("My-Events", "Events")</li>
             <li>@Html.ActionLink("Contact-Us", "Contact")</li>
             <li>@Html.ActionLink("About", "About")</li>
@@ -27,7 +27,7 @@
             <li id="inout">@Html.ActionLink("Signup", "signup")</li>
         </ul>
     </nav>
-    </header>
+   
     <div class="margin"></div>
     <section>
         <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Workshop</h1></center>
@@ -44,7 +44,7 @@
             <div>
                 <h4>Manage Guests</h4>
                 <li>@Html.ActionLink("Invite People", "", new { id = @Model.j})</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipants", new { id = @Model.j})</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j})</li>
                 <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
             </div>
         </aside><br>
@@ -60,7 +60,7 @@
         </aside><br>
         <aside>
             <div>
-                <h4>@Html.ActionLink("Manage Papers", "")</h4>
+                <h4>Manage Papers</h4>
                 <li>@Html.ActionLink("Change Submission link", "")</li>
                 <li>@Html.ActionLink("Update List of Accepted Papers", "")</li>
             </div>

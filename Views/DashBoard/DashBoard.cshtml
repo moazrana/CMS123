@@ -18,7 +18,7 @@
         <ul>
             <li>@Html.ActionLink("Home", "Home")</li>
             <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-            <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+            <li>@Html.ActionLink("Create-an-event", "organize")</li>
             <li>@Html.ActionLink("My-Events", "Events")</li>
             <li>@Html.ActionLink("Contact-Us", "Contact")</li>
             <li>@Html.ActionLink("About", "About")</li>
@@ -43,7 +43,7 @@
             <div>
                 <h4>Manage Guests</h4>
                 <li>@Html.ActionLink("Invite People", "Auto_Gen", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipants", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
             </div>
         </aside><br>
@@ -84,7 +84,7 @@
                 <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
             </a>
 
-            <a href=@Url.Action("Extra_Events", "DashBoard", new { id = @Model.id })>
+            <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
                 <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event">
             </a>
 
