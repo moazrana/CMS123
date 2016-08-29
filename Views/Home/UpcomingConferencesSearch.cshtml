@@ -21,7 +21,7 @@
 
             <li>@Html.ActionLink("Home", "Index")</li>
             <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-            <li">@Html.ActionLink("Create-an-event", "create")</li>
+            <li>@Html.ActionLink("Create-an-event", "create")</li>
             <li>@Html.ActionLink("My-Events", "myEvents")</li>
             <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
             <li>@Html.ActionLink("About", "About")</li>
@@ -33,19 +33,19 @@
     @using (Html.BeginForm())
     {
         <div class="login">
-            <input type="text" placeholder="Search Event" name="user">
+            <input type="text" placeholder="Search Event" name="search">
             <input type="submit" value="Search"><br>
-            <p>Start Date</p><input type="text" placeholder="DD/MM/YY" name="user" style="margin-top:-10px;">
-            <p>End Date</p><input type="text" placeholder="DD/MM/YY" name="user" style="margin-top:-10px;">
-            <p>Discipline</p><input type="text" placeholder="Research-Area" name="user" style="margin-top:-10px;">
-            <p>City</p><input type="text" placeholder="City of Conference" name="user" style="margin-top:-10px;">
-            <p>Country</p><input type="text" placeholder="Country of Confernece" name="user" style="margin-top:-10px;margin-bottom:20px;">
+            <p>Start Date</p><input type="date" name="sdate" style="margin-top:-10px;">
+            <p>End Date</p><input type="date"  name="edate" style="margin-top:-10px;">
+           @* <p>Discipline</p><input type="text" placeholder="Research-Area" name="user" style="margin-top:-10px;">*@
+            <p>City</p><input type="text" placeholder="City of Conference" name="city" style="margin-top:-10px;">
+            <p>Country</p><input type="text" placeholder="Country of Confernece" name="country" style="margin-top:-10px;margin-bottom:20px;">
 
             <h1>Upcoming Conferences</h1>
             <ul>
                 @foreach (var con in Model.conferences)
                 {
-                    <li>@con.id.ToString()</li>
+                    
                     <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
                     @*<li>@Html.ActionLink(con.n)</li>*@
                 }

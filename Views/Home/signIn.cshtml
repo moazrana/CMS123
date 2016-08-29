@@ -20,13 +20,14 @@
     { @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
-    <div class="login">
-        <input id="email" type="email" placeholder="Email-ID" name="email" title="user name"><br>
-        <input id="password" type="password" placeholder="Password" name="password" title="password"><br>
-        <p>@Model.message </p>
-        <input type="submit" value="Login"><br>
-        <input type="submit" value="Signup" href="~/View/Index.cshtml">
-    </div>
+        <div class="login">
+            <input id="email" type="email" placeholder="Email-ID" name="email" title="user name"><br>
+            <input id="password" type="password" placeholder="Password" name="password" title="password"><br>
+            <p>@Model.message </p>
+            <input type="submit" value="Login"><br>
+
+            <input type="button" value="Sign-Up" onclick="location.href='@Url.Action("signup", "Home")'" />
+        </div>
     }
 </body>
 </html>
