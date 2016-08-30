@@ -61,7 +61,7 @@
             <div>
                 <h4>Manage Papers</h4>
                 <li>@Html.ActionLink("Change Submission link", "")</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "")</li>
+                <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id=@Model.id})</li>
             </div>
         </aside>
         <div id="leftDashBoard">
@@ -80,7 +80,7 @@
                 <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium">
             </a><br />
 
-            <a href=@Url.Action("","DashBoard")>
+            <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
                 <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
             </a>
 

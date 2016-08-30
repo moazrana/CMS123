@@ -1,7 +1,21 @@
-﻿@model CMS.Models.WorkshopModel
+﻿@model CMS.Models.Accepted_Paper
 @{
-    ViewBag.Title = "Workshop";
+    ViewBag.Title = "Accepted_Paper";
 }
+
+@*<h2>Accepted_Paper</h2>
+@if(Model.list.Count==0){
+    
+}
+else {
+foreach (var ws in Model.list)
+{
+    <h3>Title:-</h3>
+    <p>@ws.title</p>
+    <h4>Discription:-</h4>
+    <p>@ws.discription</p>
+}
+}*@
 
 
 <html>
@@ -27,10 +41,10 @@
             <li id="inout">@Html.ActionLink("Signup", "signup")</li>
         </ul>
     </nav>
-   
+
     <div class="margin"></div>
     <section>
-        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Workshop</h1></center>
+        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Accepted Papers</h1></center>
         <aside>
             <div>
                 <h4>Manage basics</h4>
@@ -43,8 +57,8 @@
         <aside>
             <div>
                 <h4>Manage Guests</h4>
-                <li>@Html.ActionLink("Invite People", "", new { id = @Model.j})</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j})</li>
+                <li>@Html.ActionLink("Invite People", "", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
             </div>
         </aside><br>
@@ -52,7 +66,7 @@
             <div>
                 <h4>Manage Sessions</h4>
                 <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j})</li>
+                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
@@ -70,24 +84,31 @@
             <div class="login">
                 <table>
                     <!--Yahan coding karni ha-->
-                    @foreach (var ws in Model.participants)
-                    {
+                     @if (Model.list.Count == 0)
+                     {
+
+                     }
+                     else
+                     {
+                         foreach (var ws in Model.list)
+                         {
                         <tr>
-                        <th>Title:-</th>
-                        <td>@ws.title</td>
+                            <th>Title:-</th>
+                            <td>@ws.title</td>
                         </tr>
                         <tr>
-                        <th>Discription</th>
-                        <td>@ws.discription</td>
+                            <th>Discription</th>
+                            <td>@ws.discription</td>
                         </tr>
-    <tr class="blank_row">
-        <td colspan="3"></td>
-    </tr>
-                    }
+                        <tr class="blank_row">
+                            <td colspan="3"></td>
+                        </tr>
+                         }
+                     }
 
                     <tr>
                         <td colspan="2" style="text-align:center;">
-                            @Html.ActionLink("Add More Workshops", "AddWorkshop", new { id = @Model.j })
+                            @Html.ActionLink("Add More Accepted Papers", "AddAcceptedPaper", new { id = @Model.j })
                         </td>
                     </tr>
                 </table>

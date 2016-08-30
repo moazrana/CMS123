@@ -23,6 +23,7 @@
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user1__52E34C9D" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user2__53D770D6" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.suser" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_accepted_papers" Width="1.5" PointX="5.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
