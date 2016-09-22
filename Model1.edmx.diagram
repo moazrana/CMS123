@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="db_CMSModel.meeting" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.organizingBody" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.submission" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_CMSModel.tblConference" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.tbluser" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.achievement" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.attending" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
@@ -16,17 +15,18 @@
         <EntityTypeShape EntityType="db_CMSModel.tblsession" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.participants_list" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.vw_particapants" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="db_CMSModel.FK__organizin__confe__10E07F16" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__organizin__Ouser__0FEC5ADD" ManuallyRouted="false" />
-        <AssociationConnector Association="db_CMSModel.FK__submissio__confe__7CD98669" ManuallyRouted="false" />
-        <AssociationConnector Association="db_CMSModel.FK__attending__confe__019E3B86" ManuallyRouted="false" />
-        <AssociationConnector Association="db_CMSModel.FK__tblsessio__confe__056ECC6A" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__achieveme__Auser__038683F8" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__attending__Auser__00AA174D" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user1__0C1BC9F9" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user2__0D0FEE32" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.suser" ManuallyRouted="false" />
         <EntityTypeShape EntityType="db_CMSModel.vw_accepted_papers" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="db_CMSModel.tblConference" Width="1.5" PointX="0.75" PointY="9.25" />
+        <AssociationConnector Association="db_CMSModel.FK__organizin__confe__10E07F16" />
+        <AssociationConnector Association="db_CMSModel.FK__submissio__confe__7CD98669" />
+        <AssociationConnector Association="db_CMSModel.FK__attending__confe__019E3B86" />
+        <AssociationConnector Association="db_CMSModel.FK__tblsessio__confe__056ECC6A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
