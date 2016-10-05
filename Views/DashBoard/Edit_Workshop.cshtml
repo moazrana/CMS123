@@ -5,8 +5,7 @@
 
 <h2>Edit_Workshop</h2>
 
-
-@using (Html.BeginForm("Edit_Workshop", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))@using (Html.BeginForm())
+@using (Html.BeginForm("Edit_Workshop", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
