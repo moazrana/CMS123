@@ -16,8 +16,8 @@
         <center><h4 style="margin-top:-10px;">Conference Managment Sysytem</h4></center>
     </header>
 
-    @using (Html.BeginForm())
-    { @Html.AntiForgeryToken()
+  @using (Html.BeginForm("signIn", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+  { @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
         <div class="login">

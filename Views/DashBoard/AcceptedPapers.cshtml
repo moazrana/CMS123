@@ -1,0 +1,13 @@
+﻿@model CMS.Models.AcceptedPapersDashboardModel
+@{
+    ViewBag.Title = "AcceptedPapers";
+}
+
+<h2>Accepted Papers</h2>
+<ul>
+    @foreach(var paper in Model.papers){
+        <li>@paper.title</li>
+
+    }
+</ul>
+<h3>@Html.ActionLink("ADD", "Add_AcceptedPapers", new { id = Model.getConference_id() })</h3>

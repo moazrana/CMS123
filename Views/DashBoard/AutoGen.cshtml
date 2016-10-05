@@ -1,0 +1,63 @@
+﻿@model CMS.Models.MyMailModel
+@{
+    ViewBag.Title = "AutoGen";
+}
+
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.Message' == 'Sent') {
+            alert('Mail has been sent successfully');
+        }
+    });
+</script>
+<fieldset>
+    <legend>
+        Send Email
+    </legend>
+    @using (@Html.BeginForm("AutoGen", "DashBoard", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary()
+        <table style="background-color:aliceblue;">
+            <tr>
+                <td>
+                    To:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.To)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Subject)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Attachment
+                </td>
+                <td>
+                    <input type="file" name="fileUploader" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mail Body:
+                </td>
+                <td>
+                    @Html.TextAreaFor(m => m.Body)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Send" style="width: 100px;" />
+                </td>
+            </tr>
+        </table>
+    }
+</fieldset>  

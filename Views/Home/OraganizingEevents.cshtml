@@ -1,0 +1,14 @@
+﻿@model CMS.Models.organizingEventsModel
+@{
+    ViewBag.Title = "OraganizingEevents";
+}
+
+<h2>OraganizingEevents</h2>
+<ul>
+    @foreach(var con in Model.organizingevents){
+        <li>
+            @Html.ActionLink(con.name, "abc", new {id=con.conference })
+        </li>
+
+    }
+</ul>

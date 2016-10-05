@@ -1,0 +1,19 @@
+﻿@model CMS.Models.unautheticatedEventsModel
+@{
+    ViewBag.Title = "UnautheticatedEvents";
+}
+
+<div style="float:right">@Html.ActionLink("Make admin", "AdminSignup");</div>
+
+<h2>UnautheticatedEvents</h2>
+<ul>
+    
+            @foreach (var con in Model.conferences)
+            {
+                <li>
+                    @Html.ActionLink(con.name, "authenticate", new { con_id = con.id })
+                </li>
+            }
+    
+</ul>
+   

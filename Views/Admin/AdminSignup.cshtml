@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AdminSignin";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="~/CSS/style.css">
+</head>
+<body>
+    <header>
+        <center><img src="~/Pics/cms logo.png" height=160, width=150></center>
+        <center><h4 style="margin-top:-10px;">Conference Managment Sysytem</h4></center>
+    </header>
+    @using (Html.BeginForm())
+    {
+        <div class="login">
+            <input type="text" placeholder="Name" name="name"><br>
+            <input type="text" placeholder="Email" name="email"><br>
+            <input type="password" placeholder="Password" name="password"><br>
+            <input type="password" placeholder="Retype-password" name="re-password"><br>
+            <input type="submit" value="Signup">
+        </div>
+    }
+</body>
+</html>

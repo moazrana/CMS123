@@ -1,0 +1,18 @@
+﻿@model CMS.Models.AcceptedPapersDashboardModel
+@{
+    ViewBag.Title = "Add_AcceptedPapers";
+}
+
+<h2>Add_AcceptedPapers</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <label>Title</label>
+    <input type="text" name="title" />
+    <label>Discription</label>
+    <input type="text" name="dis" />
+    <label>Authors</label>
+    <input type="text" name="authors" />
+    <input  type="submit" value="add"/>
+}

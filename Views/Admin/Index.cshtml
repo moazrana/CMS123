@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="~/CSS/style.css">
+</head>
+<body>
+    <body>
+        <header>
+            <center><img src="~/Pics/cms logo.png" height=160 , width=150></center>
+            <center><h4 style="margin-top:-10px;">Conference Managment Sysytem</h4></center>
+        </header>
+
+        @using (Html.BeginForm())
+        { @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="login">
+                <input id="email" type="email" placeholder="Email-ID" name="email" title="user name"><br>
+                <input id="password" type="password" placeholder="Password" name="password" title="password"><br>
+                <
+                <input type="submit" value="Login" onclick="location.href='@Url.Action("signup", "Home")'">
+
+               
+            </div>
+        }
+    </body>
+</html>

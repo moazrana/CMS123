@@ -26,14 +26,15 @@
 
         </ul>
     </nav>
-    <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1></center>
+    <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1>
+    <h2 style="float:right">@Html.ActionLink("Dashboard","OraganizingEevents")</h2></center>
     <hr />
 
 
     @foreach (var con in Model.listconferences)
     {
-        <h4>@con.id.ToString()</h4>
-        <h4>@Html.ActionLink(con.name, "abc", new { id = con.id })</h4>
+        <h4>@con.conferenceid.ToString()</h4>
+        <h4>@Html.ActionLink(con.conference, "ConferenceDetails", new { id = con.conferenceid })</h4>
     }
 
 

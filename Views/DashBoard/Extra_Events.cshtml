@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Extra_Event";
 }
-<html>
+
+@*<html>
 <head>
     <link rel="stylesheet" href="~/CSS/Main.css">
     <title>Conference Mangement System</title>
@@ -67,7 +68,7 @@
         <div id="leftDashBoard">
             <div class="login">
                 <table>
-                    <!--Yahan coding karni ha-->
+                    Yahan coding karni ha
                     @foreach (var ws in Model.participants)
                     {
                         <tr>
@@ -90,5 +91,144 @@
         </div>
     </section>
 </body>
-</html>
+</html>*@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Management System</title>
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Home")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "Events")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Extra Events</h1></center>
+
+
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-2 sidenav">
+
+                <h4><b>Manage Basics</b></h4>
+                <li>@Html.ActionLink("Change name of conference", "Edit_Name", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Venue", "Edit_Venue", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change date", "Edit_Date", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Update Agenda", "Edit_Agenda", new { id = @Model.j })</li>
+                <br>
+                <hr>
+
+                <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
+
+                <li>@Html.ActionLink("Invite People", "AutoGen", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
+                <br>
+                <hr>
+                <h4><b>Manage Sessions</b></h4>
+                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
+                <br>
+                <hr>
+
+                <h4><b>Manage Papers</b></h4>
+                <li>@Html.ActionLink("Change Submission link", "SubmissionLink", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
+
+            </div>
+                    <div class="col-sm-10 text-left">
+                        <table>
+                           
+                           
+                                @foreach (var ws in Model.participants)
+                                {
+                                    <tr>
+                                        <th>Title:-</th>
+                                        <td>@ws.title</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Discription</th>
+                                        <td>@ws.discription</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit_Workshop", new { id = ws.id }) |
+                                            @Html.ActionLink("Delete", "Delete_Workshop", new { id = ws.id })
+                                        </td>
+                                    </tr>
+
+                                    <tr class="blank_row">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                }
+                            
+                        </table>
+
+                        
+                            <label colspan="2" style="text-align:center;">
+                                @Html.ActionLink("Add Extra Event", "Add_Extra_Event", new { id = @Model.j })
+                            </label>
+                        
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    
+
+
+</body>
+</html>

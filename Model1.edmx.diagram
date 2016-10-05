@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a593e0d634f84425a40ee464fe35ed42" Name="Diagram1">
-        <EntityTypeShape EntityType="db_CMSModel.meeting" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_CMSModel.meeting" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.organizingBody" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.submission" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.tbluser" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
@@ -27,6 +27,9 @@
         <AssociationConnector Association="db_CMSModel.FK__submissio__confe__7CD98669" />
         <AssociationConnector Association="db_CMSModel.FK__attending__confe__019E3B86" />
         <AssociationConnector Association="db_CMSModel.FK__tblsessio__confe__056ECC6A" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_myevents" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="db_CMSModel.tbladmin" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_myOrganizingEvents" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

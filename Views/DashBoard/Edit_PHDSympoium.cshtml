@@ -1,0 +1,40 @@
+﻿@model CMS.Models.edit_PHDSymposium
+@{
+    ViewBag.Title = "Edit_PHDSympoium";
+}
+
+<h2>Edit_PHDSympoium</h2>
+
+
+@using (Html.BeginForm("Edit_PHDSymposium", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Workshop</legend>
+
+        @Html.HiddenFor(model => model.phd_id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.discription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.discription)
+            @Html.ValidationMessageFor(model => model.discription)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}

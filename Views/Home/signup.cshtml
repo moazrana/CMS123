@@ -93,7 +93,7 @@
         <center><img src="~/Pics/cms logo.png" height=160, width=150></center>
         <center><h4 style="margin-top:-10px;">Conference Managment Sysytem</h4></center>
     </header>
-@using (Html.BeginForm())
+@using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="login">
         <input type="text" placeholder="Name" name="name"><br>

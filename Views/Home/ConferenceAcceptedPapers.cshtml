@@ -1,0 +1,11 @@
+﻿@model CMS.Models.ConfeenceAcceptedPapersModel
+@{
+    ViewBag.Title = "ConferenceAcceptedPapers";
+}
+
+<h2>Conference Accepted Papers</h2>
+<ul>
+@foreach(var paper in Model.papers){
+    <li>@paper.title</li>
+}
+</ul>

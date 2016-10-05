@@ -5,7 +5,7 @@
 
 
 
-<html>
+@*<html>
 <head>
     <link rel="stylesheet" href="~/CSS/Main.css">
 <title>Conference Mangement System</title>
@@ -29,7 +29,7 @@
             <li id="inout">@Html.ActionLink("Signup", "signup")</li>
         </ul>
     </nav>
-    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+   
     @using (Html.BeginForm())
     {
         <div class="login">
@@ -37,9 +37,9 @@
             <input type="submit" value="Search"><br>
             <p>Start Date</p><input type="date" name="sdate" style="margin-top:-10px;">
             <p>End Date</p><input type="date"  name="edate" style="margin-top:-10px;">
-           @* <p>Discipline</p><input type="text" placeholder="Research-Area" name="user" style="margin-top:-10px;">*@
             <p>City</p><input type="text" placeholder="City of Conference" name="city" style="margin-top:-10px;">
             <p>Country</p><input type="text" placeholder="Country of Confernece" name="country" style="margin-top:-10px;margin-bottom:20px;">
+            <p>Discipline</p><input type="text" placeholder="Discipline" name="dis" style="margin-top:-10px;margin-bottom:20px;">
 
             <h1>Upcoming Conferences</h1>
             <ul>
@@ -47,11 +47,146 @@
                 {
                     
                     <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
-                    @*<li>@Html.ActionLink(con.n)</li>*@
+                    
                 }
             </ul>
 
         </div>
     }
+</body>
+</html>*@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Management System</title>
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+    <header class="header">
+        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+                    
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Search for Event</h1></center>
+    
+    
+
+        @using (Html.BeginForm("UpcomingConferencesSearch","Home",null, FormMethod.Post, new { @class="form-horizontal" }))
+        
+        {
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-md-4"></label>
+                <div class="form-group input-group col-md-4">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Start Date</label>
+                <div class="col-md-4">
+                    <input type="date" name="sdate" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">End Date</label>
+                <div class="col-md-4">
+                    <input type="date" name="edate" class="form-control">
+                </div>
+            </div>
+
+            
+
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Country</label>
+                <div class="col-md-4">
+                    <input type="text" name="country" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">City</label>
+                <div class="col-md-4">
+                    <input type="text" name="city" class="form-control">
+                </div>
+            </div>
+
+           
+        </div>
+            
+    <h1>Upcoming Conferences</h1>
+    <ul>
+        @foreach (var con in Model.conferences)
+        {
+
+            <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
+
+        }
+    </ul>
+
+        }
+    
+  
+
+
+    
 </body>
 </html>

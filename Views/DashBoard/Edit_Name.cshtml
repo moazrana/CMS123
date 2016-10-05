@@ -1,0 +1,110 @@
+﻿@model CMS.Models.edit_confName
+@{
+    ViewBag.Title = "Edit_Name";
+}
+
+<h2>Edit_Name</h2>
+
+
+
+@using (Html.BeginForm("Edit_Name", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Conference_Info</legend>
+
+        @Html.HiddenFor(model => model.conf_id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sdate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sdate)
+            @Html.ValidationMessageFor(model => model.Sdate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Edate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Edate)
+            @Html.ValidationMessageFor(model => model.Edate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.country)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.country)
+            @Html.ValidationMessageFor(model => model.country)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.city)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.city)
+            @Html.ValidationMessageFor(model => model.city)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.venue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.venue)
+            @Html.ValidationMessageFor(model => model.venue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.agenda)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.agenda)
+            @Html.ValidationMessageFor(model => model.agenda)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.submission_link)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.submission_link)
+            @Html.ValidationMessageFor(model => model.submission_link)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.discipline)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.discipline)
+            @Html.ValidationMessageFor(model => model.discipline)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.website)
+            @Html.ValidationMessageFor(model => model.website)
+        </div>
+
+
+       
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
