@@ -91,10 +91,13 @@
 <body>
     <header>
         <center><img src="~/Pics/cms logo.png" height=160, width=150></center>
-        <center><h4 style="margin-top:-10px;">Conference Managment Sysytem</h4></center>
+        <center><h4 style="margin-top:-10px;">Conference Managment System</h4></center>
     </header>
 @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
     <div class="login">
         <input type="text" placeholder="Name" name="name"><br>
         <input type="text" placeholder="Email" name="email"><br>
