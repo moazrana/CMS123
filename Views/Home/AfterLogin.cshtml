@@ -1,7 +1,12 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "AfterLogin";
 }
+
+<h2>AfterLogin</h2>
+
+<h2 style="background:yellow"> @Session["email"]</h2>
+
+
 
 
 <!DOCTYPE html>
@@ -46,20 +51,15 @@
                     <li>@Html.ActionLink("Create-an-event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-                    
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
 
-                            @Html.ActionLink("Signin", "signIn")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-                            @Html.ActionLink("Signout", "signout")}
-                    </li>
-                    <li>@Html.ActionLink("Signup", "signup")</li>
+                    <li><h2 style="background:yellow"> @Session["email"]</h2></li> 
+
+
+                    <li>@Html.ActionLink("Signout","")</li>
+
                     <!--  <li type="button"><a href="#"><span class="glyphicon glyphicon-log-in"  data-toggle="modal" data-target="#myModal"></span> Login</a></li>-->
                     @*<button type="button">
                 <span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#myModal"></span>
@@ -74,16 +74,16 @@
 
     <div class="container-fluid">
 
-       
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
-                   @using (Html.BeginForm("Index","Home",null, FormMethod.Post, new { @class="form-horizontal" }))
-                   {
-                       @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true)
+                    @using (Html.BeginForm("Index", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
 
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -122,15 +122,15 @@
 
                         <div class="modal-footer" style="text-align: left">
                             <h4 class="modal-title">Sign-Up</h4>
-                                      <p>
-            If you are not an existing member of this site you can
-            sign-up or register here
-            @Html.ActionLink("signup or regiser here", "signup")
-                                </p>
+                            <p>
+                                If you are not an existing member of this site you can
+                                sign-up or register here
+                                @Html.ActionLink("signup or regiser here", "signup")
+                            </p>
                             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button>-->
-                   </div>
-                   }
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -193,77 +193,3 @@
 
 </body>
 </html>
-
-
-
-
-@*<html>
-<head>
-    <title>Conference Mangement System</title>
-    <link rel="stylesheet" href="~/CSS/Main.css" />
-</head>
-
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>@Html.ActionLink("Home", "Index")</li>
-            <li>@Html.ActionLink("SearchforConferences","Search")</li>
-            <li>@Html.ActionLink("Create-an-event", "create")</li>
-            <li>@Html.ActionLink("My-Events","myEvents")</li>
-            <li>@Html.ActionLink("Contact-Us","Contact_Us")</li>
-            <li>@Html.ActionLink("About","About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
-
-    <input type="image" name="Image" />
-
-    <marquee behavior="alternate" scrollamount="3">
-       
-        <img src="~/Pics/conference1.jpg">
-        <img src="Pics//Conference3.jpg">
-        <img src="Pics//conference4.jpg">
-        <img src="Pics//conference5.jpg">
-        
-    </marquee>
-</body>
-</html>*@
-
-
-@*<html>
-<head>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-    <title>Conference Mangement System</title>
-</head>
-
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
-        <img id="cms-logo" src="Pics//cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>Home</li>
-            <li>Upcoming-Conferences</li>
-            <li>My-Events</li>
-            <li>Contact-Us</li>
-            <li id="inout">Signin</li>
-            <li id="inout">Signup</li>
-        </ul>
-    </nav>
-
-
-    <marquee behavior="alternate" scrollamount="3">
-        <img src="Pics//conference1.jpg">
-        <img src="Pics//conference2.jpg">
-        <img src="Pics//Conference3.jpg">
-        <img src="Pics//conference4.jpg">
-        <img src="Pics//conference5.jpg">
-    </marquee>
-</body>
-</html>*@

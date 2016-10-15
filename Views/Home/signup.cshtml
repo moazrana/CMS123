@@ -84,28 +84,118 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Conference Management System</title>
     <meta charset="utf-8">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="~/CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <header>
-        <center><img src="~/Pics/cms logo.png" height=160, width=150></center>
-        <center><h4 style="margin-top:-10px;">Conference Managment System</h4></center>
+    <header class="header">
+        <h1 style="text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
-@using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    
-    <div class="login">
-        <input type="text" placeholder="Name" name="name"><br>
-        <input type="text" placeholder="Email" name="email"><br>
-        <input type="password" placeholder="Password" name="password"><br>
-        <input type="password" placeholder="Retype-password" name="re-password"><br>
-        <input type="submit" value="Signup">
-    </div>
-}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Signin", "signIn")</li>
+                    <li>@Html.ActionLink("Signup", "signup")</li>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Sign-Up Page</h1></center>
+
+
+
+    @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        @*<div class="login">
+            <input type="text" placeholder="Name" name="name"><br>
+            <input type="text" placeholder="Email" name="email"><br>
+            <input type="password" placeholder="Password" name="password"><br>
+            <input type="password" placeholder="Retype-password" name="re-password"><br>
+            <input type="submit" value="Signup" name="sub" />*@
+
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Name</label>
+            <div class="col-md-4">
+                <input type="text`" name="name" class="form-control">
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Email</label>
+            <div class="col-md-4">
+                <input type="email" name="email" class="form-control">
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Password</label>
+            <div class="col-md-4">
+                <input type="password" name="password" class="form-control">
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Re-type Password</label>
+            <div class="col-md-4">
+                <input type="password" name="re-password" class="form-control">
+
+            </div>
+
+        </div>
+
+
+        <div class="text-center">
+            <input type="submit" value="SignUp">
+        </div>
+
+
+
+
+    }
 </body>
 </html>
 
