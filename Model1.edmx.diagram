@@ -30,6 +30,7 @@
         <EntityTypeShape EntityType="db_CMSModel.vw_myevents" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="db_CMSModel.tbladmin" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="db_CMSModel.vw_myOrganizingEvents" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="db_CMSModel.organizing_body" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

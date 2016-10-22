@@ -139,7 +139,7 @@ foreach (var ws in Model.participants)
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
                     <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Upcoming-Conferences", "Upcoming_Conference")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
 
@@ -164,16 +164,15 @@ foreach (var ws in Model.participants)
             <div class="col-sm-2 sidenav">
 
                 <h4><b>Wall of Conference</b></h4>
-                <li>@Html.ActionLink("Conference Website", "")</li>
-                <li>@Html.ActionLink("Organizing Committees", "")</li>
+                
+                <li>@Html.ActionLink("Organizing Committees", "organizingCommitee", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
                 <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
                 <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
                 <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
                 <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
-                <li>@Html.ActionLink("Paper Submission Link", "")</li>
-                <li>@Html.ActionLink("Accepted Papers", "")</li>
-                <li>@Html.ActionLink("Registration Link", "")</li>
+               
+                <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
                 <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
 
 
