@@ -3,40 +3,119 @@
     ViewBag.Title = "myEvents";
 }
 
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Conference Management System</title>
+    <link rel="stylesheet" href="~/Bootstrap/css/bootstrap.min.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+    <header class="header">
+        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li >@Html.ActionLink("Signin", "signIn")</li>
+                    <li >@Html.ActionLink("Signup", "signup")</li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px">My Events</h1>
+    <h2 style="float:right">@Html.ActionLink("Dashboard", "OraganizingEevents")</h2>
+    </center>
+
+    
+
+    @foreach (var con in Model.listconferences)
+    {
+       <h4>@Html.ActionLink(con.conference, "ConferenceDetails", new { id = con.conferenceid })</h4>
+    }
+
+
+
+</body>
+</html>
+
+
+
+
+
+@*<html>
+<head>
+    <link rel="stylesheet" href="~/Bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/CSS/Main.css">
     <title>Conference Mangement System</title>
-    <link rel="stylesheet" href="~/Bootstrap/css/bootstrap.min.css"/>
+
 </head>
 <body>
     <header>
         <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
-    <nav id="nav-properties">
+    <nav >
         <ul>
             <li>@Html.ActionLink("Home", "Index")</li>
             <li>@Html.ActionLink("SearchforConferences", "Search")</li>
             <li>@Html.ActionLink("My-Events", "myEvents")</li>
             <li>@Html.ActionLink("Create-an-event", "create")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li> 
+            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
             <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
             <li id="inout">@Html.ActionLink("Signup", "signup")</li>
 
         </ul>
     </nav>
-    <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1>
-    <h2 style="float:right">@Html.ActionLink("Dashboard","OraganizingEevents")</h2></center>
-   
-     <hr />
+    <center style="margin-top:-22px;">
+        <h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1>
+        <h2 style="float:right">@Html.ActionLink("Dashboard", "OraganizingEevents")</h2>
+    </center>
+
+    <hr />
 
 
     @foreach (var con in Model.listconferences)
     {
         <h4>@con.conferenceid.ToString()</h4>
         <h4>@Html.ActionLink(con.conference, "ConferenceDetails", new { id = con.conferenceid })</h4>
-    }
+    }*@
 
 
 
