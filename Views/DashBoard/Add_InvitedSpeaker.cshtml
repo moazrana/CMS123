@@ -131,8 +131,27 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Signin", "sign")</li>
-                    <li>@Html.ActionLink("Signup", "signup")</li>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+
+                            @Html.ActionLink("Signin", "sign")}
+                        else
+                        {
+                            @Html.ActionLink(Session["email"].ToString(), "sign")
+
+                        }
+                    </li>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+                            @Html.ActionLink("Signup", "signup")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Signout", "signup")
+                        }
+                    </li>
                     @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
                 </ul>
 

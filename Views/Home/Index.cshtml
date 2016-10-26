@@ -57,16 +57,25 @@
                         else
                         {
                             @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-                            @Html.ActionLink("Signout", "signout")
+
                         }
                     </li>
-                    <li>@Html.ActionLink("Signup", "signup")</li>
-                    <!--  <li type="button"><a href="#"><span class="glyphicon glyphicon-log-in"  data-toggle="modal" data-target="#myModal"></span> Login</a></li>-->
-                    @*<button type="button">
-                <span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#myModal"></span>
-                Login
-            </button>*@
-                </ul>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+                            @Html.ActionLink("Signup", "signup")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Signout", "signout")
+                        }
+                </li>
+                <!--  <li type="button"><a href="#"><span class="glyphicon glyphicon-log-in"  data-toggle="modal" data-target="#myModal"></span> Login</a></li>-->
+                @*<button type="button">
+            <span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#myModal"></span>
+            Login
+        </button>*@
+            </ul>
 
 
             </div>
