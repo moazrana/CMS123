@@ -21,7 +21,7 @@
 
         @using (Html.BeginForm())
         { @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
+            @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
             <div class="login">
                 <input id="email" type="email" placeholder="Email-ID" name="email" title="user name"><br>

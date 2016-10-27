@@ -5,60 +5,6 @@
 
 
 
-@*<html>
-<head>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-<title>Conference Mangement System</title>
-
-</head>
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-
-            <li>@Html.ActionLink("Home", "Index")</li>
-            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-            <li>@Html.ActionLink("Create-an-event", "create")</li>
-            <li>@Html.ActionLink("My-Events", "myEvents")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-            <li>@Html.ActionLink("About", "About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
-   
-    @using (Html.BeginForm())
-    {
-        <div class="login">
-            <input type="text" placeholder="Search Event" name="search">
-            <input type="submit" value="Search"><br>
-            <p>Start Date</p><input type="date" name="sdate" style="margin-top:-10px;">
-            <p>End Date</p><input type="date"  name="edate" style="margin-top:-10px;">
-            <p>City</p><input type="text" placeholder="City of Conference" name="city" style="margin-top:-10px;">
-            <p>Country</p><input type="text" placeholder="Country of Confernece" name="country" style="margin-top:-10px;margin-bottom:20px;">
-            <p>Discipline</p><input type="text" placeholder="Discipline" name="dis" style="margin-top:-10px;margin-bottom:20px;">
-
-            <h1>Upcoming Conferences</h1>
-            <ul>
-                @foreach (var con in Model.conferences)
-                {
-                    
-                    <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
-                    
-                }
-            </ul>
-
-        </div>
-    }
-</body>
-</html>*@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +46,7 @@
                     <li>@Html.ActionLink("Create-an-event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-                    
+
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -122,7 +68,7 @@
                         }
                         else
                         {
-                         @Html.ActionLink("Signout", "signout")
+                            @Html.ActionLink("Signout", "signout")
                         }
                     </li>
                     @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
@@ -138,62 +84,62 @@
 
 
     <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Search for Event</h1></center>
-    
-    
 
-        @using (Html.BeginForm("UpcomingConferencesSearch", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
-        {
-            <div class="row">
-                <div class="form-group">
-                    <label class="control-label col-md-4"></label>
-                    <div class="form-group input-group col-md-4">
-                        <input type="text" class="form-control" placeholder="Search" name="search">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
+
+
+    @using (Html.BeginForm("UpcomingConferencesSearch", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-md-4"></label>
+                <div class="form-group input-group col-md-4">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
                 </div>
+            </div>
 
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <label class="control-label col-md-4">Start Date</label>
-                    <div class="col-md-4">
-                        <input type="date" name="sdate" class="form-control">
-                    </div>
+                <label class="control-label col-md-4">Start Date</label>
+                <div class="col-md-4">
+                    <input type="date" name="sdate" class="form-control">
                 </div>
+            </div>
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <label class="control-label col-md-4">End Date</label>
-                    <div class="col-md-4">
-                        <input type="date" name="edate" class="form-control">
-                    </div>
+                <label class="control-label col-md-4">End Date</label>
+                <div class="col-md-4">
+                    <input type="date" name="edate" class="form-control">
                 </div>
+            </div>
 
 
 
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <label class="control-label col-md-4">Country</label>
-                    <div class="col-md-4">
-                        <input type="text" name="country" class="form-control">
-                    </div>
+                <label class="control-label col-md-4">Country</label>
+                <div class="col-md-4">
+                    <input type="text" name="country" class="form-control">
                 </div>
+            </div>
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <label class="control-label col-md-4">City</label>
-                    <div class="col-md-4">
-                        <input type="text" name="city" class="form-control">
-                    </div>
+                <label class="control-label col-md-4">City</label>
+                <div class="col-md-4">
+                    <input type="text" name="city" class="form-control">
                 </div>
+            </div>
 
 
-                <div class="form-group">
+            <div class="form-group">
 
                 <label class="control-label col-md-4">Discipline</label>
                 <div class="col-md-4">
@@ -202,22 +148,22 @@
             </div>
 
         </div>
-            
-    <h1>Upcoming Conferences</h1>
-    <ul>
-        @foreach (var con in Model.conferences)
-        {
 
-            <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
+        <h1>Upcoming Conferences</h1>
+        <ul>
+            @foreach (var con in Model.conferences)
+            {
 
-        }
-    </ul>
+                <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
 
-        }
-    
-  
+            }
+        </ul>
+
+    }
 
 
-    
+
+
+
 </body>
 </html>

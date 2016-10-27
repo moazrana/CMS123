@@ -56,7 +56,7 @@
                     @using (Html.BeginForm("signIn", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
+                       @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
 
                             <div class="form-group">
