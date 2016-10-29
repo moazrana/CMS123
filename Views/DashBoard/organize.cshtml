@@ -202,100 +202,120 @@
 
     <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Create an Event</h1></center>
 
-    
-@using (Html.BeginForm("organize", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
-{
 
-            
-                <div class="form-group">
-
-                    <label class="control-label col-md-4">Conference Name</label>
-                    <div class="col-md-4">
-                        <input type="text" name="name" class="form-control">
-
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label class="control-label col-md-4">Start Date</label>
-                    <div class="col-md-4">
-                        <input type="date" name="startdate" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-
-                    <label class="control-label col-md-4">End Date</label>
-                    <div class="col-md-4">
-                        <input type="date" name="enddate" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-
-                    <label class="control-label col-md-4">Discipline</label>
-                    <div class="col-md-4">
-                        <input type="text" name="dis" class="form-control">
-                    </div>
-                </div>
+    @using (Html.BeginForm("organize", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
 
 
-                <div class="form-group">
+        <div class="form-group">
 
-                    <label class="control-label col-md-4">Country</label>
-                    <div class="col-md-4">
-                        <input type="text" name="country" class="form-control">
-                    </div>
-                </div>
+            <label class="control-label col-md-4">Conference Name</label>
+            <div class="col-md-4">
+                <input type="text" name="name" class="form-control">
 
-                <div class="form-group">
+            </div>
 
-                    <label class="control-label col-md-4">City</label>
-                    <div class="col-md-4">
-                        <input type="text" name="city" class="form-control">
-                    </div>
-                </div>
+        </div>
 
-                <div class="form-group">
+        <div class="form-group">
 
-                    <label class="control-label col-md-4">Venue</label>
-                    <div class="col-md-4">
-                        <input type="text" name="venue" class="form-control">
-                    </div>
-                </div>
+            <label class="control-label col-md-4">Start Date</label>
+            <div class="col-md-4">
+                <input type="date" name="startdate" class="form-control">
+            </div>
+        </div>
 
+        <div class="form-group">
 
-                <div class="form-group">
+            <label class="control-label col-md-4">End Date</label>
+            <div class="col-md-4">
+                <input type="date" name="enddate" class="form-control">
+            </div>
+        </div>
 
-                    <label class="control-label col-md-4">Website</label>
-                    <div class="col-md-4">
-                        <input type="url" name="web" class="form-control">
-                    </div>
-                </div>
+        <div class="form-group">
 
-                <div class="form-group">
+            <label class="control-label col-md-4">Discipline</label>
+            <div class="col-md-4">
 
-                    <label class="control-label col-md-4">Submission Link</label>
-                    <div class="col-md-4">
-                        <input type="url" name="submission_link" class="form-control">
-                    </div>
-                </div>
+                <select class="form-control" name="dis">
+                    <option class="disabled">Please choose an option</option>
+                    <option>Electical Engineering</option>
+                    <option>Computer Science</option>
+                    <option>Both</option>
 
+                </select>
 
-
+            </div>
+        </div>
 
 
-                <div class="text-center">
-                    <input type="submit" value="Register">
-                </div>
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Country</label>
+            <div class="col-md-4">
+                <select class="form-control" name="country">
+                    <option>Please choose an option</option>
+                    <option>United States of America</option>
+                    <option>Pakistan</option>
+                    <option>New Zealand</option>
+                    <option>South Africa</option>
+                    <option>India</option>
+                    <option>Canada</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">City</label>
+            <div class="col-md-4">
+               <input type="text" class="form-control" name="city"/>
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Venue</label>
+            <div class="col-md-4">
+                <input type="text" name="venue" class="form-control">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Website</label>
+            <div class="col-md-4">
+                <input type="url" name="web" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Submission Link</label>
+            <div class="col-md-4">
+                <input type="url" name="submission_link" class="form-control">
+            </div>
+        </div>
 
 
 
-            
-        }
+
+
+        <div class="text-center">
+            <input type="submit" value="Register">
+        </div>
+
+
+
+
+    }
 
 
 </body>
+
 </html>
+

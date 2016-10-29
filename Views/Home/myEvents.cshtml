@@ -79,7 +79,6 @@
 
 
     <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px">My Events</h1>
-    <h2 style="float:right">@Html.ActionLink("Dashboard", "OraganizingEevents")</h2>
     </center>
 
     
@@ -89,6 +88,7 @@
        <h4>@Html.ActionLink(con.conference, "ConferenceDetails", new { id = con.conferenceid })</h4>
     }
 
+    <center><h2>@Html.ActionLink("Click to see the DashBoard of your Organized Events", "OraganizingEevents")</h2></center>
 
 
 </body>
