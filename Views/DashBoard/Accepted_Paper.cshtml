@@ -4,120 +4,120 @@
 }
 
 @*<h2>Accepted_Paper</h2>
-@if(Model.list.Count==0){
-    
-}
-else {
-foreach (var ws in Model.list)
-{
-    <h3>Title:-</h3>
-    <p>@ws.title</p>
-    <h4>Discription:-</h4>
-    <p>@ws.discription</p>
-}
-}*@
+    @if(Model.list.Count==0){
+
+    }
+    else {
+    foreach (var ws in Model.list)
+    {
+        <h3>Title:-</h3>
+        <p>@ws.title</p>
+        <h4>Discription:-</h4>
+        <p>@ws.discription</p>
+    }
+    }*@
 
 
 @*<html>
-<head>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-    <title>Conference Mangement System</title>
+    <head>
+        <link rel="stylesheet" href="~/CSS/Main.css">
+        <title>Conference Mangement System</title>
 
-</head>
+    </head>
 
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>@Html.ActionLink("Home", "Home")</li>
-            <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-            <li>@Html.ActionLink("Create-an-event", "organize")</li>
-            <li>@Html.ActionLink("My-Events", "Events")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-            <li>@Html.ActionLink("About", "About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
+    <body>
+        <header>
+            <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
+        <nav id="nav-properties">
+            <ul>
+                <li>@Html.ActionLink("Home", "Home")</li>
+                <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+                <li>@Html.ActionLink("Create-an-event", "organize")</li>
+                <li>@Html.ActionLink("My-Events", "Events")</li>
+                <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+                <li>@Html.ActionLink("About", "About")</li>
+                <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+                <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+            </ul>
+        </nav>
 
-    <div class="margin"></div>
-    <section>
-        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Accepted Papers</h1></center>
-        <aside>
-            <div>
-                <h4>Manage basics</h4>
-                <li>@Html.ActionLink("Change name of conference", "organize")</li>
-                <li>@Html.ActionLink("Change Venue", "organize")</li>
-                <li>@Html.ActionLink("Change date", "organize")</li>
-                <li>@Html.ActionLink("Update Agenda", "organize")</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Guests</h4>
-                <li>@Html.ActionLink("Invite People", "", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Sessions</h4>
-                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Papers</h4>
-                <li>@Html.ActionLink("Change Submission link", "")</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id = @Model.j })</li>
-            </div>
+        <div class="margin"></div>
+        <section>
+            <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Accepted Papers</h1></center>
+            <aside>
+                <div>
+                    <h4>Manage basics</h4>
+                    <li>@Html.ActionLink("Change name of conference", "organize")</li>
+                    <li>@Html.ActionLink("Change Venue", "organize")</li>
+                    <li>@Html.ActionLink("Change date", "organize")</li>
+                    <li>@Html.ActionLink("Update Agenda", "organize")</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Guests</h4>
+                    <li>@Html.ActionLink("Invite People", "", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Sessions</h4>
+                    <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Papers</h4>
+                    <li>@Html.ActionLink("Change Submission link", "")</li>
+                    <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id = @Model.j })</li>
+                </div>
 
-        </aside>
-        <div id="leftDashBoard">
-            <div class="login">
-                <table>
-                    Yahan coding karni ha
-                     @if (Model.list.Count == 0)
-                     {
-
-                     }
-                     else
-                     {
-                         foreach (var ws in Model.list)
+            </aside>
+            <div id="leftDashBoard">
+                <div class="login">
+                    <table>
+                        Yahan coding karni ha
+                         @if (Model.list.Count == 0)
                          {
-                        <tr>
-                            <th>Title:-</th>
-                            <td>@ws.title</td>
-                        </tr>
-                        <tr>
-                            <th>Discription</th>
-                            <td>@ws.discription</td>
-                        </tr>
-                        <tr class="blank_row">
-                            <td colspan="3"></td>
-                        </tr>
-                         }
-                     }
 
-                    <tr>
-                        <td colspan="2" style="text-align:center;">
-                            @Html.ActionLink("Add More Accepted Papers", "AddAcceptedPaper", new { id = @Model.j })
-                        </td>
-                    </tr>
-                </table>
+                         }
+                         else
+                         {
+                             foreach (var ws in Model.list)
+                             {
+                            <tr>
+                                <th>Title:-</th>
+                                <td>@ws.title</td>
+                            </tr>
+                            <tr>
+                                <th>Discription</th>
+                                <td>@ws.discription</td>
+                            </tr>
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
+                             }
+                         }
+
+                        <tr>
+                            <td colspan="2" style="text-align:center;">
+                                @Html.ActionLink("Add More Accepted Papers", "AddAcceptedPaper", new { id = @Model.j })
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
-</body>
-</html>*@
+        </section>
+    </body>
+    </html>*@
 
 
 <!DOCTYPE html>
@@ -203,10 +203,10 @@ foreach (var ws in Model.list)
             <div class="col-sm-2 sidenav">
 
                 <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name of conference", "Edit_Name", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change Venue", "Edit_Venue", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change date", "Edit_Date", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Update Agenda", "Edit_Agenda", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change name of conference", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
                 <br>
                 <hr>
 
@@ -227,7 +227,7 @@ foreach (var ws in Model.list)
                 <hr>
 
                 <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Change Submission link", "SubmissionLink", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Submission link", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
 
             </div>
@@ -236,42 +236,42 @@ foreach (var ws in Model.list)
 
 
                 <table>
-                        @if (Model.list.Count == 0)
+                    @if (Model.list.Count == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        foreach (var ws in Model.list)
                         {
+                            <tr>
+                                <th>Title:-</th>
+                                <td>@ws.title</td>
+                            </tr>
+                            <tr>
+                                <th>Discription</th>
+                                <td>@ws.discription</td>
+                            </tr>
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
 
                         }
-                        else
-                        {
-                             foreach (var ws in Model.list)
-                         {
-                                <tr>
-                                    <th>Title:-</th>
-                                    <td>@ws.title</td>
-                                </tr>
-                                <tr>
-                                    <th>Discription</th>
-                                    <td>@ws.discription</td>
-                                </tr>
-                                <tr class="blank_row">
-                                    <td colspan="3"></td>
-                                </tr>
+                    }
 
-                        }
-                        }
-
-                    </table>
+                </table>
                 <label colspan="2" style="text-align:center;">
                     @Html.ActionLink("Add More Accepted Papers", "AddAcceptedPaper", new { id = @Model.j })
-                    </label>
+                </label>
 
 
-</div>
+            </div>
 
 
         </div>
 
     </div>
-    
+
 
 
 </body>

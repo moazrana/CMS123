@@ -184,16 +184,17 @@
             <div class="col-sm-2 sidenav">
 
                 <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name of conference", "Edit_Name", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change Venue", "Edit_Venue", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change date", "Edit_Date", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Update Agenda", "Edit_Agenda", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change name of conference", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
                 <br>
                 <hr>
 
                 <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
 
-                <li>@Html.ActionLink("Invite People", "AutoGen", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Get more organizers with you", "add_organizers", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
                 <br>
@@ -208,7 +209,7 @@
                 <hr>
 
                 <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Change Submission link", "SubmissionLink", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Submission link", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
 
             </div>
@@ -228,13 +229,13 @@
 
                         <tr>
                             <td>
-                                @Html.ActionLink("Edit", "Edit_Workshop", new { id = ws.id }) |
-                                @Html.ActionLink("Delete", "Delete_Workshop", new { id = ws.id })
+                                @Html.ActionLink("Edit", "Edit_Workshop", new { id = ws.id, con_id = ws.conference }) |
+                                @Html.ActionLink("Delete", "Delete_Workshop", new { id = ws.id, con_id = ws.conference })
                             </td>
                         </tr>
 
                         <tr class="blank_row">
-                            <td colspan="3"></td>
+                            <td colspan="3">&nbsp;</td>
                         </tr>
 
 

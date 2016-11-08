@@ -1,126 +1,126 @@
 ﻿@model CMS.tblConference
 @*@{
-    ViewBag.Title = "organize";
-}
+        ViewBag.Title = "organize";
+    }
 
 
-<html>
-    <head>
-        <link rel="stylesheet" href="~/CSS/Main.css">
-        <title>Conference Mangement System</title>
-    </head>
+    <html>
+        <head>
+            <link rel="stylesheet" href="~/CSS/Main.css">
+            <title>Conference Mangement System</title>
+        </head>
 
-    <body>
-        <header>
-            <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
-            <img id="cms-logo" src="~/Pics/cms logo.png">
-        </header>
-        <nav id="nav-properties">
-            <ul>
-                <<li>@Html.ActionLink("Home", "Home")</li>
-                <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                <li>@Html.ActionLink("Create-an-event", "create")</li>
-                <li>@Html.ActionLink("My-Events", "Events")</li>
-                <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-                <li>@Html.ActionLink("About", "About")</li>
-                <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-                <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-            </ul>
-        </nav>
+        <body>
+            <header>
+                <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
+                <img id="cms-logo" src="~/Pics/cms logo.png">
+            </header>
+            <nav id="nav-properties">
+                <ul>
+                    <<li>@Html.ActionLink("Home", "Home")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "Events")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+                    <li>@Html.ActionLink("About", "About")</li>
+                    <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+                    <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+                </ul>
+            </nav>
 
-        <div class="margin"></div>
-        <section>
-            <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Organize Event</h1></center>
-        </section>
-        <div class="Organize">
+            <div class="margin"></div>
+            <section>
+                <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Organize Event</h1></center>
+            </section>
+            <div class="Organize">
 
-            <table>
+                <table>
 
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true)
-
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.name)
-                    </div>
-
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.name)
-                        @Html.ValidationMessageFor(model => model.name)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.website)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.website)
-                        @Html.ValidationMessageFor(model => model.website)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Sdate)
-                    </div>
-
-                    <input type="date" id="sdate" name="startdate">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Edate)
-                    </div>
-                    <input type="date" id="edate" name="enddate">
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.country)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.country)
-                        @Html.ValidationMessageFor(model => model.country)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.city)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.city)
-                        @Html.ValidationMessageFor(model => model.city)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.venue)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.venue)
-                        @Html.ValidationMessageFor(model => model.venue)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.submission_link)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.submission_link)
-                        @Html.ValidationMessageFor(model => model.submission_link)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.agenda)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.agenda)
-                        @Html.ValidationMessageFor(model => model.agenda)
-                    </div>
-
-                    <p>
-                        <input type="submit" value="Create" />
-                    </p>
-
-                }
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
 
 
-            </table>
-        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.name)
+                        </div>
 
-    </body>
-    </html>*@
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.name)
+                            @Html.ValidationMessageFor(model => model.name)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.website)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.website)
+                            @Html.ValidationMessageFor(model => model.website)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Sdate)
+                        </div>
+
+                        <input type="date" id="sdate" name="startdate">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Edate)
+                        </div>
+                        <input type="date" id="edate" name="enddate">
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.country)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.country)
+                            @Html.ValidationMessageFor(model => model.country)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.city)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.city)
+                            @Html.ValidationMessageFor(model => model.city)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.venue)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.venue)
+                            @Html.ValidationMessageFor(model => model.venue)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.submission_link)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.submission_link)
+                            @Html.ValidationMessageFor(model => model.submission_link)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.agenda)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.agenda)
+                            @Html.ValidationMessageFor(model => model.agenda)
+                        </div>
+
+                        <p>
+                            <input type="submit" value="Create" />
+                        </p>
+
+                    }
+
+
+                </table>
+            </div>
+
+        </body>
+        </html>*@
 
 
 
@@ -129,14 +129,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-
+    <script src="~/JS/pikaday.js"></script>
+    <link href="~/CSS/pikaday.css" rel="stylesheet" />
+    
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -221,7 +224,7 @@
 
             <label class="control-label col-md-4">Start Date</label>
             <div class="col-md-4">
-                <input type="date" name="startdate" class="form-control">
+                <input type="text" name="startdate" id="sdate" class="form-control">
             </div>
         </div>
 
@@ -229,7 +232,7 @@
 
             <label class="control-label col-md-4">End Date</label>
             <div class="col-md-4">
-                <input type="date" name="enddate" class="form-control">
+                <input type="text" name="enddate" id="edate" class="form-control">
             </div>
         </div>
 
@@ -271,8 +274,8 @@
 
             <label class="control-label col-md-4">City</label>
             <div class="col-md-4">
-               <input type="text" class="form-control" name="city"/>
-                
+                <input type="text" class="form-control" name="city" />
+
             </div>
         </div>
 
@@ -309,12 +312,17 @@
             <input type="submit" value="Register">
         </div>
 
-
+        <script type="text/javascript">
+            var spicker = new Pikaday({
+                field: document.getElementById('sdate')
+            });
+            var epicker = new Pikaday({
+                field: document.getElementById('edate')
+            });
+        </script>
 
 
     }
-
-
 </body>
 
 </html>

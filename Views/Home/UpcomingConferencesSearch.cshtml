@@ -3,8 +3,6 @@
     ViewBag.Title = "Upcoming Conference Search";
 }
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +16,12 @@
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 </head>
-
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-
 
     <header class="header">
         <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
-
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -37,7 +32,6 @@
                     <span class="icon-bar"></span>
                 </button>
 
-
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
@@ -46,7 +40,6 @@
                     <li>@Html.ActionLink("Create-an-event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -75,17 +68,11 @@
                 </ul>
 
 
-
-
-
             </div>
         </div>
     </nav>
 
-
     <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Search for Event</h1></center>
-
-
 
     @using (Html.BeginForm("UpcomingConferencesSearch", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
     {
@@ -102,17 +89,13 @@
                 </div>
             </div>
 
-
             <div class="form-group">
-
                 <label class="control-label col-md-4">Start Date</label>
                 <div class="col-md-4">
                     <input type="date" name="sdate" class="form-control">
                 </div>
             </div>
-
             <div class="form-group">
-
                 <label class="control-label col-md-4">End Date</label>
                 <div class="col-md-4">
                     <input type="date" name="edate" class="form-control">
@@ -120,10 +103,7 @@
             </div>
 
 
-
-
             <div class="form-group">
-
                 <label class="control-label col-md-4">Country</label>
                 <div class="col-md-4">
                     <select class="form-control" name="country">
@@ -135,35 +115,26 @@
                         <option>India</option>
                         <option>Canada</option>
                     </select>
-
                 </div>
             </div>
-
             <div class="form-group">
-
                 <label class="control-label col-md-4">City</label>
                 <div class="col-md-4">
                     <input type="text" name="city" class="form-control">
                 </div>
             </div>
 
-
             <div class="form-group">
-
                 <label class="control-label col-md-4">Discipline</label>
                 <div class="col-md-4">
-
                     <select class="form-control" name="dis">
                         <option class="disabled">Please choose an option</option>
                         <option>Electical Engineering</option>
                         <option>Computer Science</option>
                         <option>Both</option>
-
                     </select>
-
                 </div>
             </div>
-
         </div>
 
         <h1>Upcoming Conferences</h1>
@@ -177,9 +148,6 @@
         </ul>
 
     }
-
-
-
 
 
 </body>

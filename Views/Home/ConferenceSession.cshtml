@@ -180,7 +180,7 @@ foreach (var ws in Model.participants)
 
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-sm-2 sidenav">
+            <div class="col-sm-2 sidenav" >
 
                 <h4><b>Wall of Conference</b></h4>
                 
@@ -194,8 +194,10 @@ foreach (var ws in Model.participants)
                 <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
                 <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
 
+                
 
-            </div>
+                </div>
+           
 
             <div class="col-sm-10 text-left">
 
@@ -223,8 +225,9 @@ foreach (var ws in Model.participants)
                         <th>ENd time</th>
                         <td>@ws.Etime</td>
                     </tr>
+    
                     <tr class="blank_row">
-                        <td colspan="3"></td>
+                        <td colspan="3">&nbsp;</td>
                     </tr>
 
                     @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |

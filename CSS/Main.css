@@ -11,6 +11,13 @@ body{
     background-size: 100%;
 	/*overflow:hidden;*/
 }
+.blank_row
+{
+   
+}
+
+
+
 .header{
 background-color:rgb(0,0,117);
 color:white;
