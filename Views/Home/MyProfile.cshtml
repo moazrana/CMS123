@@ -4,69 +4,238 @@
     ViewBag.Title = "MyProfile";
 }
 
-<h2>MyProfile</h2>
+@*<h2>MyProfile</h2>*@
 
-@using (Html.BeginForm("MyProfile", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Conference_Info</legend>
+@*<fieldset>
+            <legend>Conference_Info</legend>
 
-        @Html.HiddenFor(model => model.user_id)
+            @Html.HiddenFor(model => model.user_id)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.name)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.country)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.country)
+                @Html.ValidationMessageFor(model => model.country)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.city)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.city)
+                @Html.ValidationMessageFor(model => model.city)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.password)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.password)
+                @Html.ValidationMessageFor(model => model.password)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.bio)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.bio)
+                @Html.ValidationMessageFor(model => model.bio)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+
+        </fieldset>
+    }*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Management System</title>
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+
+                            @Html.ActionLink("Signin", "sign")}
+                        else
+                        {
+                            @Html.ActionLink(Session["email"].ToString(), "sign")
+
+                        }
+                    </li>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+                            @Html.ActionLink("Signup", "signup")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Signout", "signup")
+                        }
+                    </li>
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                </ul>
+
+
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
+    </nav>
+
+
+    <center style="margin-top:-22px;">
+        <h1 style="background-color: #9d9d9d; padding:10px">My Profile</h1>
+    </center>
+
+
+
+
+
+
+    @using (Html.BeginForm("MyProfile", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+       
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.name,
+               new { @class = "control-label col-md-2" })
+
+            <div class="col-md-6">
+
+                @Html.TextBoxFor(model => model.name,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.name)
+
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.email)
-            @Html.ValidationMessageFor(model => model.email)
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email,
+               new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.email,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.country)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.country)
-            @Html.ValidationMessageFor(model => model.country)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.country,
+               new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.country,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.country)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.city)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.city)
-            @Html.ValidationMessageFor(model => model.city)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.password)
-            @Html.ValidationMessageFor(model => model.password)
+        <div class="form-group">
+            @Html.LabelFor(model => model.city,
+               new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.city,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.city)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.bio)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.bio)
-            @Html.ValidationMessageFor(model => model.bio)
+        <div class="form-group">
+            @Html.LabelFor(model => model.password,
+               new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.password,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.password)
+            </div>
         </div>
 
-        <p>
+        <div class="form-group">
+            @Html.LabelFor(model => model.bio,
+               new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.bio,
+                 new { style = "width: 400px" })
+                @Html.ValidationMessageFor(model => model.bio)
+            </div>
+        </div>
+
+
+        <div style="margin-left:350px">
             <input type="submit" value="Save" />
-        </p>
-        
-    </fieldset>
-}
+        </div>
+
+
+    }
+       
+
+</body>
+</html>
+

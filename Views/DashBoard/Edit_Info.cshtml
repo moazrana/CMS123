@@ -119,6 +119,9 @@
     <script src="https://aconf_idax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <script src="~/JS/pikaday.js"></script>
+    <link href="~/CSS/pikaday.css" rel="stylesheet" />
+
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 
@@ -251,12 +254,12 @@
     <div class="form-group">
 
         @Html.LabelFor(model => model.Sdate,
-               new { @class = "control-label col-md-2" })
+               new { @class = "control-label col-md-2"})
 
         <div class="col-md-6">
 
             @Html.TextBoxFor(model => model.Sdate,
-                 new { style = "width: 400px" })
+                 new { style = "width: 400px" , @id="sdate"})
             @Html.ValidationMessageFor(model => model.Sdate)
 
         </div>
@@ -272,7 +275,7 @@
         <div class="col-md-6">
 
             @Html.TextBoxFor(model => model.Edate,
-                 new { style = "width: 400px" })
+                 new { style = "width: 400px" ,@id="edate"})
             @Html.ValidationMessageFor(model => model.Edate)
 
         </div>
@@ -379,7 +382,14 @@
         <input type="submit" value="Save" />
     </p>
 
-
+    <script type="text/javascript">
+    var spicker = new Pikaday({
+        field: document.getElementById('sdate')
+    });
+    var epicker = new Pikaday({
+        field: document.getElementById('edate')
+    });
+    </script>
 
                 }
 
@@ -392,6 +402,11 @@
         </div>
 
     </div>
+
+
+
+   
+
 
 
 

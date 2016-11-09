@@ -13,6 +13,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <script src="~/JS/pikaday.js"></script>
+    <link href="~/CSS/pikaday.css" rel="stylesheet" />
+
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 </head>
@@ -92,13 +95,13 @@
             <div class="form-group">
                 <label class="control-label col-md-4">Start Date</label>
                 <div class="col-md-4">
-                    <input type="date" name="sdate" class="form-control">
+                    <input type="text" name="sdate" id="sdate" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-4">End Date</label>
                 <div class="col-md-4">
-                    <input type="date" name="edate" class="form-control">
+                    <input type="text" name="edate" id="edate" class="form-control">
                 </div>
             </div>
 
@@ -146,6 +149,15 @@
 
             }
         </ul>
+
+    <script type="text/javascript">
+    var spicker = new Pikaday({
+        field: document.getElementById('sdate')
+    });
+    var epicker = new Pikaday({
+        field: document.getElementById('edate')
+    });
+    </script>
 
     }
 
