@@ -1,16 +1,16 @@
+html{
+    overflow-x:hidden;
+}
 body{
 	margin: 0;
 	padding: 0;
 	font-family:"Trebuchet MS";
 	font-size:14px; 
-	color:black;
-	background:url('../Pics/11.jpg') no-repeat center center fixed;
-  webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-    background-size: 100%;
-	/*overflow:hidden;*/
+    
+    background-color:#e3e6e9
+	
 }
+
 .blank_row
 {
    
@@ -19,14 +19,14 @@ body{
 
 
 .header{
-background-color:rgb(0,0,117);
+background-color:rgb(0,0,0);
 color:white;
 padding: 10px;
 opacity:0.6;
 }
 .page-header
 {
-	background-color:rgb(0,0,117);
+	background-color:rgb(0,0,0);
 }
 #cms-logo{
 	height:100px;
@@ -44,6 +44,7 @@ opacity:0.6;
 	display:inline-block;
 	list-style:none;
 	font:bold 14px Tahoma;
+    clear:both;
 }
 
 #marquee{
@@ -55,22 +56,41 @@ opacity:0.6;
 #inout,#in{
 	float:right;
 	margin-left:10px;
+    clear:both;
+}
+.butn{
+	position: relative;
+    margin:0 auto;
+    clear:both;
 }
 
 .login{
-	position: absolute;
-	top: calc(50% - 75px);
-	left: calc(50% - 250px);
-	margin-top: -40px;
+	position: relative;
+	left: calc(50% - 400px);
+    margin-bottom:5%;
+    clear:both;
 }
 .login input[type=text]{
 	width: 350px;
 	height: 40px;
-	border-radius: 2px;
+	border-radius: 8px;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	padding: 4px;
+	color:#403636;
+    padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=label]{
+	width: 350px;
+	height: 40px;
+	border-radius: 8px;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color:#403636;
+    padding: 4px;
 	margin-top: 10px;
 }
 .login input[type=number]{
@@ -121,8 +141,9 @@ opacity:0.6;
 	font-size: 16px;
 	font-weight: 400;
 	margin-top: 10px;
+    clear:both;
 }
-.login input[type=submit]{
+.butn input[type=submit]{
 	text-align: center;
 	width: 150px;
 	height: 40px;
@@ -133,6 +154,7 @@ opacity:0.6;
 	font-size: 16px;
 	font-weight: 400;
 	margin-top: 10px;
+    
 }
 .login input[type=button]:hover{
 	opacity: 0.6;
@@ -156,11 +178,104 @@ opacity:0.6;
 hr{
 	margin-top:-22px;
 }
-table{
-	width:400px;
-	margin-top:30px;
-
+/*#tab, td,th{
+    border:1px groove;
+    text-align:center;
 }
+#tab{
+    border-collapse:collapse;
+   width:70%;
+   margin-bottom:10%;
+}
+
+th{
+    height:50px;
+}*/
+/*table.table1 td
+{
+     margin-top:2%;
+    width:20%;
+}
+table.table1 th
+{border:1px solid black;
+     margin-top:2%;
+    width:20px;
+}
+.table1{
+    display:block;
+    border:1px solid black;
+    margin-top:2%;
+}
+
+.tab2{
+    display:block;
+    border:1px solid black;
+    margin-top:2%;
+}
+
+
+table.tab2 th
+{
+    border:1px solid black;
+    width:20px;
+}
+
+table.tab2 td
+{
+    width:10%;
+}*/
+
+table.tab td{
+    border:1px groove;
+    text-align:center;
+    border-left:none;
+     border-right:none;
+    font-size:16px;
+}
+table.tab th{
+    border:1px groove;
+    text-align:center;
+     height:50px;
+     border-left:none;
+     border-right:none;
+}
+table.tab{
+    border-collapse:collapse;
+   width:70%;
+   margin-bottom:10%;
+   border-left:none;
+     border-right:none;
+}
+
+/*confernce details*/
+table.tab1 td{
+    text-align:center;
+}
+table.tab1 th{
+    text-align:left;
+     height:30px;
+}
+table.tab1{
+    margin-top:2%;
+    border-collapse:collapse;
+   width:50%;
+   margin-bottom:2%;
+}
+
+table.tab2 td{
+    text-align:center;
+}
+table.tab2 th{
+    text-align:left;
+     height:30px;
+}
+table.tab2{
+    margin-top:2%;
+    border-collapse:collapse;
+   width:50%;
+   margin-bottom:2%;
+}
+/*conference workshop*/
 
 aside{
 	margin-top:-20px;
@@ -201,6 +316,7 @@ h4{
 	top: calc(50% - 75px);
 	left: calc(50% - 250px);
 	margin-top: -40px;
+    clear:both;
 }
 .Organize input[type=text]{
 	width: 300px;
@@ -239,18 +355,37 @@ h3{
 
 .sidenav {
 	padding-top:-20px;
+    background-color:whitesmoke;
 	border-style: groove;
-	height: 100%;
+	min-height: 80vh;
 }
 
 .sidenav li{
+	padding-left: 5%;
+	text-align:left;
+	margin-top:9%;
+	font:bold 16px Tahoma;
+
+}
+
+
+.side {
+	padding-top:-20px;
+    background-color:whitesmoke;
+	border: 1px solid black;
+	height: 100%;   
+}
+
+.side li{
 	padding-left: 5px;
 	text-align:left;
 	margin-top:2px;
-	margin-bottom:5px;
-	font:bold 13.65px Tahoma;
+    margin-bottom:5px;
+	font:bold 16px Tahoma;
 
 }
+
+
 
 .modal{
 	z-index: 99999;

@@ -105,26 +105,26 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-sm-2 sidenav">
+            <div class="col-lg-2 side">
 
                 <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name of conference", "Edit_Info", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Change Name", "Edit_Info", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.conference_id })</li>
-                <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.conference_id })</li>
                 <br>
                 <hr>
 
                 <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
 
-                <li>@Html.ActionLink("Get more organizers with you", "add_organizers", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.conference_id })</li>
-                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.conference_id })</li>
                 <br>
                 <hr>
                 <h4><b>Manage Sessions</b></h4>
-                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.conference_id })</li>
                 <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.conference_id })</li>
@@ -133,16 +133,16 @@
                 <hr>
 
                 <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Change Submission link", "Edit_Info", new { id = @Model.conference_id })</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.conference_id })</li>
+                <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.conference_id })</li>
 
             </div>
 
 
             <div class="col-sm-10 text-left">
-              @using (Html.BeginForm("add_organizers", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
-              {
-                @Html.Raw(ViewBag.Error);
+                @using (Html.BeginForm("add_organizers", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.Raw(ViewBag.Error);
 
                     <div class="form-group">
                         <label class="control-label col-md-4">Send Email to Add More Organizers</label>
@@ -167,5 +167,10 @@
 
                     <h5>@Html.ActionLink(user.name, "add_organizer", new { u_id = user.id, con_id = @Model.conference_id })</h5>
 
-                }   
+                }
 
+</div>
+</div>
+        </div>
+</body>
+</html>

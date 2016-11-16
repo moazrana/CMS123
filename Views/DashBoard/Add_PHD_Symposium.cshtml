@@ -188,26 +188,26 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-sm-2 sidenav">
+            <div class="col-lg-2 side">
 
                 <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name of conference", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Name ", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
                 <br>
                 <hr>
 
                 <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
 
-                <li>@Html.ActionLink("Get more organizers with you", "add_organizers", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
                 <br>
                 <hr>
                 <h4><b>Manage Sessions</b></h4>
-                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
@@ -216,8 +216,8 @@
                 <hr>
 
                 <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Change Submission link", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.j })</li>
+                <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
 
             </div>
 

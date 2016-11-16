@@ -202,22 +202,21 @@
             <div class="col-sm-10 text-left">
 
 
-                <table>
-            @foreach (var ws in Model.participants)
-                {
+                <table class="tab">
                     <tr>
                         <th>Title</th>
-                        <td>@ws.title</td>
-                    </tr>
-
-                    <tr>
                         <th>Description</th>
+                    </tr>
+            @foreach (var ws in Model.participants)
+            {
+
+                
+                    <tr>
+                        <td>@ws.title</td>
                         <td>@ws.discription</td>
                     </tr>
-    <tr class="blank_row">
-        <td colspan="3">&nbsp;</td>
-    </tr>
-              }
+                
+            }
 
                     
                                  @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |

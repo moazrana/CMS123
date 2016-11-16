@@ -5,101 +5,101 @@
 
 
 @*<html>
-<head>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-    <title>Conference Mangement System</title>
-</head>
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>@Html.ActionLink("Home", "Home")</li>
-            <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-            <li>@Html.ActionLink("Create-an-event", "organize")</li>
-            <li>@Html.ActionLink("My-Events", "Events")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-            <li>@Html.ActionLink("About", "About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
-    
-    <div class="margin"></div>
-    <section>
-        <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1></center>
-        <aside>
-            <div>
-                <h4>Manage basics</h4>
-                <li>@Html.ActionLink("Change name of conference", "organize")</li>
-                <li>@Html.ActionLink("Change Venue", "organize")</li>
-                <li>@Html.ActionLink("Change date", "organize")</li>
-                <li>@Html.ActionLink("Update Agenda", "organize")</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Guests</h4>
-                <li>@Html.ActionLink("Invite People", "Auto_Gen", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Sessions</h4>
-                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
-            </div>
-        </aside><br>
-        <aside>
-            <div>
-                <h4>Manage Papers</h4>
-                <li>@Html.ActionLink("Change Submission link", "")</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id=@Model.id})</li>
-            </div>
-        </aside>
-        <div id="leftDashBoard">
+    <head>
+        <link rel="stylesheet" href="~/CSS/Main.css">
+        <title>Conference Mangement System</title>
+    </head>
+    <body>
+        <header>
+            <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
+        <nav id="nav-properties">
+            <ul>
+                <li>@Html.ActionLink("Home", "Home")</li>
+                <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
+                <li>@Html.ActionLink("Create-an-event", "organize")</li>
+                <li>@Html.ActionLink("My-Events", "Events")</li>
+                <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+                <li>@Html.ActionLink("About", "About")</li>
+                <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+                <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+            </ul>
+        </nav>
 
-            <img id="image" src="~/Pics/DBPic1.jpg">
+        <div class="margin"></div>
+        <section>
+            <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">My Events</h1></center>
+            <aside>
+                <div>
+                    <h4>Manage basics</h4>
+                    <li>@Html.ActionLink("Change name of conference", "organize")</li>
+                    <li>@Html.ActionLink("Change Venue", "organize")</li>
+                    <li>@Html.ActionLink("Change date", "organize")</li>
+                    <li>@Html.ActionLink("Update Agenda", "organize")</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Guests</h4>
+                    <li>@Html.ActionLink("Invite People", "Auto_Gen", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Sessions</h4>
+                    <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
+                </div>
+            </aside><br>
+            <aside>
+                <div>
+                    <h4>Manage Papers</h4>
+                    <li>@Html.ActionLink("Change Submission link", "")</li>
+                    <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id=@Model.id})</li>
+                </div>
+            </aside>
+            <div id="leftDashBoard">
 
-            <a href=@Url.Action("Auto_Gen","DashBoard")>
-            <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails">
+                <img id="image" src="~/Pics/DBPic1.jpg">
+
+                <a href=@Url.Action("Auto_Gen","DashBoard")>
+                <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails">
+                    </a>
+
+                <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
+                    <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" />
                 </a>
 
-            <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" />
-            </a>
+                <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
+                    <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium">
+                </a><br />
 
-            <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
-                <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium">
-            </a><br />
+                <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
+                    <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
+                </a>
 
-            <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
-            </a>
+                <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
+                    <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event">
+                </a>
 
-            <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event">
-            </a>
+                <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
+                    <img id="image" src="~/Pics/DBPic7.png" alt="Workshop">
+                </a>
 
-            <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic7.png" alt="Workshop">
-            </a>
+                <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
+                    <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials">
+                 </a>   <br>
 
-            <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials">
-             </a>   <br>
-
-        </div>
-    </section>
-</body>
-</html>*@
+            </div>
+        </section>
+    </body>
+    </html>*@
 
 
 <!DOCTYPE html>
@@ -111,9 +111,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
 
 </head>
 
@@ -182,26 +182,26 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-sm-2 sidenav">
+            <div class="col-lg-2 side">
 
                 <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name of conference", "Edit_Info", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("Change name ", "Edit_Info", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.id })</li>
-                    
+
                 <br>
                 <hr>
 
                 <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
-                <li>@Html.ActionLink("Get more organizers with you", "add_organizers", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
                 <br>
                 <hr>
                 <h4><b>Manage Sessions</b></h4>
-                <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
@@ -210,47 +210,84 @@
                 <hr>
 
                 <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Change Submission link", "Edit_Info", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Update List of Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
+                <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.id })</li>
+                <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
 
             </div>
 
             <div class="col-sm-10 text-left">
 
+                <table style="font-size:24px; font-family:'Times New Roman' ">
+                    <tr>
+                        <td><b>Name    :</b></td>
+                        <td>@Model.name</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Country:</b></td>
+                        <td>@Model.country</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>City :</b></td>
+                        <td>@Model.city</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Venue :</b></td>
+                        <td>@Model.venue</td>
+                    </tr>
+
+
+            
+
+                    </table>
+
+
+                <br />
+                <br />
+
                 <img id="image" src="~/Pics/DBPic1.jpg">
 
                 <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
-                <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails">
+                    <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
                 </a>
-                
+
+
 
                 <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" />
+                    <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
                 </a>
 
                 <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
-                    <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium">
+                    <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
                 </a>
                 <br />
                 <br />
+                <br />
+                <br />
 
-                <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
+                
+
+               
+
+<a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
                     <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
                 </a>
 
                 <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event">
+                    <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
                 </a>
 
                 <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic7.png" alt="Workshop">
+                    <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
                 </a>
 
                 <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials">
+                    <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials" hspace="40">
                 </a>   <br>
 
-  </div>
+            </div>
 
         </div>
     </div>
