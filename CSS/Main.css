@@ -227,23 +227,20 @@ table.tab2 td
 table.tab td{
     border:1px groove;
     text-align:center;
-    border-left:none;
-     border-right:none;
+    
     font-size:16px;
 }
 table.tab th{
     border:1px groove;
     text-align:center;
      height:50px;
-     border-left:none;
-     border-right:none;
+   
 }
 table.tab{
     border-collapse:collapse;
    width:70%;
    margin-bottom:10%;
-   border-left:none;
-     border-right:none;
+   
 }
 
 /*confernce details*/
@@ -274,6 +271,37 @@ table.tab2{
    width:50%;
    margin-bottom:2%;
 }
+
+
+
+
+table.tab3 td{
+    border:1px groove;
+    text-align:center;
+    border-left:none;
+     border-right:none;
+    font-size:16px;
+}
+table.tab3 th{
+    border:1px groove;
+    text-align:center;
+     height:50px;
+     border-left:none;
+     border-right:none;
+}
+table.tab3{
+    border-collapse:collapse;
+   width:70%;
+   margin-bottom:10%;
+   border-left:none;
+     border-right:none;
+}
+
+
+
+
+
+
 /*conference workshop*/
 
 aside{
