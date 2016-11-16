@@ -33,7 +33,7 @@
 
 
 
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 
     <header class="header">
@@ -118,18 +118,27 @@
 
 
 
-    <h1>Upcoming Conferences</h1>
-    <ul>
+    <h1 class="text-center">Upcoming Conferences</h1>
+    <table class="tab" align="center">
+        <tr>
+            <th>Conference Name</th>
+            <th>Country</th>
+            <th>City</th>
+        </tr>
         @foreach (var con in Model.conferences)
         {
-
-            <li>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</li>
+            <tr>
+                <td>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</td>
+                <td>@Html.ActionLink(con.country, "ConferenceDetails", new { id = con.id })</td>
+                <td>@Html.ActionLink(con.city, "ConferenceDetails", new { id = con.id })</td>
+            </tr>
         }
-    </ul>
+    </table>
 
 
 
 
 
 </body>
+
 </html>
