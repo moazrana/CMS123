@@ -63,7 +63,7 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
@@ -81,13 +81,15 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Home")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "Events")</li>
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -166,40 +168,40 @@
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
 
-  
 
-        <div class="form-group">
 
-            @Html.LabelFor(model => model.title,
+                    <div class="form-group">
+
+                        @Html.LabelFor(model => model.title,
                new { @class = "control-label col-md-2" })
 
-            <div class="col-md-6">
+                        <div class="col-md-6">
 
-                @Html.TextBoxFor(model => model.title,
+                            @Html.TextBoxFor(model => model.title,
                  new { style = "width: 400px" })
-                @Html.ValidationMessageFor(model => model.title)
+                            @Html.ValidationMessageFor(model => model.title)
 
-            </div>
-        </div>
-
-     
-                    
+                        </div>
+                    </div>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.discription,
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.discription,
                new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.discription,
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.discription,
                  new { style = "width: 400px" })
-                @Html.ValidationMessageFor(model => model.discription)
-            </div>
-        </div>
+                            @Html.ValidationMessageFor(model => model.discription)
+                        </div>
+                    </div>
 
-        <div style="margin-left:350px">
-            <input type="submit" value="Save" />
-        </div>
-  
+                    <div style="margin-left:350px">
+                        <input type="submit" value="Save" />
+                    </div>
+
 
                 }
 

@@ -121,8 +121,8 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
-        <img id="cms-logo" src="~/Pics//cms logo.png">
+        <h1 style="text-align: center">Conference Management System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
 
@@ -139,14 +139,15 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Home")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "Events")</li>
-           
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -239,55 +240,56 @@
                     </tr>
 
 
-            
 
-                    </table>
+
+                </table>
 
 
                 <br />
                 <br />
+                <a href=@Url.Action("map","DashBoard", new{id=@Model.id})>
+                    <img id="image" src="~/Pics/maps.png" alt="Maps">
+                    </a>
 
-                <img id="image" src="~/Pics/DBPic1.jpg">
-
-                <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
-                </a>
+                    <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
+                    </a>
 
 
 
-                <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
-                </a>
+                    <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
+                    </a>
 
-                <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
-                    <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
-                </a>
-                <br />
-                <br />
-                <br />
-                <br />
+                    <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
+                        <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
+                    </a>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
-                
 
-               
 
-<a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
-                </a>
 
-                <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
-                </a>
 
-                <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
-                </a>
+                    <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
+                    </a>
 
-                <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
-                    <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials" hspace="40">
-                </a>   <br>
+                    <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
+                    </a>
 
-            </div>
+                    <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
+                    </a>
+
+                    <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
+                        <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials" hspace="40">
+                    </a>   <br>
+
+</div>
 
         </div>
     </div>

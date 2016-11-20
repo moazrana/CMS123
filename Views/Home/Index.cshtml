@@ -17,19 +17,12 @@
 
 
     <style>
- 
 #image{
- 
     width:100%;
     height:78%;
-   
     position:fixed;
-  
-   
- 
-    
 }
-    
+
     </style>
 
 </head>
@@ -43,32 +36,30 @@
 
 
     <header class="header">
-        <h1 style="text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
-
-
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-default">
+            <div class="navbar-default" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
+
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -96,60 +87,41 @@
                             Login
                         </button>*@
                 </ul>
-
-
             </div>
         </div>
     </nav>
-
     <div class="container-fluid">
-
-
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-
                     @using (Html.BeginForm("Index", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
-
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <h4 class="modal-title" id="myModalLabel">Login</h4>
                         </div>
-
                         <div class="modal-body">
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Email</label>
                                 <div class="col-md-6">
                                     <input type="email" name="email" class="form-control">
-
                                 </div>
-
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Password</label>
                                 <div class="col-md-6">
                                     <input type="password" name="pass" class="form-control">
-
                                 </div>
-
                             </div>
-
-
                             <button type="submit" class="btn btn-secondary" data-dismiss="modal" style="background-color: lightblue">Login</button>
                             <input type="checkbox" value="rememberme" name="remember" id="rememberme">Remember me <br /><br />
-
                             <a href="#">Forgot your password?</a>
-
                         </div>
-
                         <div class="modal-footer" style="text-align: left">
                             <h4 class="modal-title">Sign-Up</h4>
                             <p>
@@ -161,16 +133,12 @@
                             <button type="button" class="btn btn-primary">Save changes</button>-->
                         </div>
                     }
-
                 </div>
             </div>
         </div>
-
-
     </div>
-    <div style="margin-top:-1.5%">
-        <img src="~/Pics/picForWeb.jpg" id="image" alt="HomeScreen" />
-
+    <div id="home_image">
+        <img src="~/Pics/picForWebnn.jpg" width="100%" height="100%" />
     </div>
 
 
@@ -194,7 +162,7 @@
 
                 <div class="item active">
                     <center> <img src="~/Pics/picForWeb.jpg"  alt="Pic1">
-                </center>
+                </center>hb
 
                     </div>
 

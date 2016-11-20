@@ -127,7 +127,7 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
@@ -145,14 +145,15 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Home")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "Events")</li>
-                  
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -224,32 +225,32 @@
             <div class="col-sm-10 text-left">
 
 
-              @using (Html.BeginForm("Add_PHD_Symposium", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
-              {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
+                @using (Html.BeginForm("Add_PHD_Symposium", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
 
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Title</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="title" class="form-control">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Title</label>
+                        <div class="form-group input-group col-md-4">
+                            <input type="text" name="title" class="form-control">
 
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Description</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="dis" class="form-control">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Description</label>
+                        <div class="form-group input-group col-md-4">
+                            <input type="text" name="dis" class="form-control">
 
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="text-center">
-                            <input type="submit" value="Submit">
-                        </div>
+                    <div class="text-center">
+                        <input type="submit" value="Submit">
+                    </div>
 
-                    }
+                }
 
 
 
@@ -264,6 +265,7 @@
 
 
 </body>
+
 </html>
 
 

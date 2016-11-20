@@ -22,9 +22,10 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
+
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -35,16 +36,19 @@
                     <span class="icon-bar"></span>
                 </button>
 
+
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -139,30 +143,30 @@
             </div>
         </div>
 
-    <h1 class="text-center">Upcoming Conferences & Search Results</h1>
-    <table class="tab"  align="center">
-        <tr>
-            <th>Conference Name</th>
-            <th>Country</th>
-            <th>City</th>
-        </tr>
-        @foreach (var con in Model.conferences)
-        {
+        <h1 class="text-center">Upcoming Conferences & Search Results</h1>
+        <table class="tab" align="center">
             <tr>
-                <td>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</td>
-                <td>@Html.ActionLink(con.country, "ConferenceDetails", new { id = con.id })</td>
-                <td>@Html.ActionLink(con.city, "ConferenceDetails", new { id = con.id })</td>
+                <th>Conference Name</th>
+                <th>Country</th>
+                <th>City</th>
             </tr>
-        }
-    </table>
-    <script type="text/javascript">
-    var spicker = new Pikaday({
-        field: document.getElementById('sdate')
-    });
-    var epicker = new Pikaday({
-        field: document.getElementById('edate')
-    });
-    </script>
+            @foreach (var con in Model.conferences)
+            {
+                <tr>
+                    <td>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</td>
+                    <td>@Html.ActionLink(con.country, "ConferenceDetails", new { id = con.id })</td>
+                    <td>@Html.ActionLink(con.city, "ConferenceDetails", new { id = con.id })</td>
+                </tr>
+            }
+        </table>
+        <script type="text/javascript">
+            var spicker = new Pikaday({
+                field: document.getElementById('sdate')
+            });
+            var epicker = new Pikaday({
+                field: document.getElementById('edate')
+            });
+        </script>
 
     }
 

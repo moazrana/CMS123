@@ -119,12 +119,12 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
 
-    <nav class="navbar navbar-inverse" s>
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -138,13 +138,14 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                                <ul class="nav navbar-nav navbar-right">
                     @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
                     <li>
                         @if (Session["id"].Equals(0))
@@ -154,7 +155,7 @@
                         else
                         {
                             @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-                           
+
                         }
                     </li>
                     <li>
@@ -167,8 +168,8 @@
                             @Html.ActionLink("Signout", "signout")
                         }
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
 
             </div>
@@ -185,7 +186,7 @@
 
                 <h4><b>Wall of Conference</b></h4>
 
-                
+
                 <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
                 <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
@@ -219,8 +220,8 @@
 
 
                     @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+                        @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
 
 
                 </table>

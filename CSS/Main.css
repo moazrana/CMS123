@@ -1,3 +1,4 @@
+
 html{
     overflow-x:hidden;
 }
@@ -9,14 +10,39 @@ body{
     background-color:#e3e6e9
 	
 }
-
+#ForPassBtn{
+    text-align: center;
+	width: 200px;
+	height: 40px;
+	background: #fff;
+	cursor: pointer;
+    border:none;
+	border-radius: 4px;
+    font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 10px;
+    clear:both;
+}
+#ForPassBtn:hover{
+    background-color:#98bef3;
+}
 .blank_row
 {
    
 }
-
-
-
+#ForPass{
+    width: 350px;
+	height: 40px;
+	border-radius: 8px;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color:#403636;
+    padding: 4px;
+	margin-top: 10px;
+    margin-left: 10px;
+}
 .header{
 background-color:rgb(0,0,0);
 color:white;
@@ -57,9 +83,18 @@ opacity:0.6;
 	margin-left:10px;
     clear:both;
 }
-.butn{
-	position: relative;
-    margin:0 auto;
+.butn input[type=submit]{
+    text-align: center;
+	width: 200px;
+	height: 40px;
+	background: #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight:bold;
+    margin-top: 1px;
+    margin-left:12% ;
     clear:both;
 }
 
@@ -226,14 +261,17 @@ table.tab2 td
 
 table.tab td{
     border:1px groove;
-    text-align:center;
-    
+    text-align:center; 
     font-size:16px;
+    padding-left:3px;
+    width:70%;
+    text-align:left;
 }
 table.tab th{
     border:1px groove;
     text-align:center;
      height:50px;
+   width:70%;
    
 }
 table.tab{
@@ -297,6 +335,26 @@ table.tab3{
      border-right:none;
 }
 
+
+table.tab4 td{
+    border:1px groove;
+    text-align:center;
+    
+    font-size:16px;
+}
+table.tab4 th{
+    border:1px groove;
+    text-align:center;
+     height:50px;
+   
+}
+table.tab4
+{
+    border-collapse:collapse;
+   width:70%;
+   margin-bottom:10%;
+   
+}
 
 
 

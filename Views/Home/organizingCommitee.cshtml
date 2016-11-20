@@ -24,12 +24,12 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
 
-    <nav class="navbar navbar-inverse" s>
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,13 +43,13 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -58,7 +58,7 @@
                         else
                         {
                             @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-                          
+
                         }
                     </li>
                     <li>
@@ -70,9 +70,9 @@
                         {
                             @Html.ActionLink("Signout", "signout")
                         }
-                </li>
-                @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
-            </ul>
+                    </li>
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                </ul>
 
 
             </div>
@@ -107,7 +107,7 @@
                 <ul>
                     @foreach (var u in Model.organizers)
                     {
-                        <li>@Html.ActionLink(@u.name, "UserProfile", new { user_id=@u.user_id})</li>
+                        <li>@Html.ActionLink(@u.name, "UserProfile", new { user_id = @u.user_id })</li>
                     }
                 </ul>
 

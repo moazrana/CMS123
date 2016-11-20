@@ -154,14 +154,14 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-inverse">
+            <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -173,9 +173,10 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
                 </ul>
@@ -189,7 +190,7 @@
                         else
                         {
                             @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-                            
+
                         }
                     </li>
                     <li>
@@ -219,7 +220,7 @@
             <div class="col-sm-2 sidenav">
 
                 <h4>Wall Of Conference</h4>
-                <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new {id=@Model.id })</li>
+                <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
                 <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
                 <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
@@ -255,7 +256,7 @@
                         <td>@Model.venue</td>
                     </tr>
 
-                </table >
+                </table>
 
                 <h3>Date of Conference</h3>
 

@@ -19,9 +19,11 @@
 
 <body>
     <header class="header">
-        <h1 style="text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
+
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
@@ -36,66 +38,66 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Signin", "signIn")</li>
                     <li>@Html.ActionLink("Signup", "signup")</li>
 
-                    </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Sign in Page</h1></center>
 
 
-                    @using (Html.BeginForm("signIn", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
-                    {
-                        @Html.AntiForgeryToken()
-                       @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+    @using (Html.BeginForm("signIn", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
 
-                            <div class="form-group">
+        <div class="form-group">
 
-                                <label class="control-label col-md-4">Email</label>
-                                <div class="col-md-4">
-                                    <input type="email" name="email" class="form-control">
+            <label class="control-label col-md-4">Email</label>
+            <div class="col-md-4">
+                <input type="email" name="email" class="form-control">
 
-                                </div>
+            </div>
 
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label class="control-label col-md-4">Password</label>
-                                <div class="col-md-4">
-                                    <input type="password" name="password" class="form-control">
-
-                                </div>
-
-                            </div>
-
-                                <div class="text-center">
-                                    <input type="submit" value="SignIn">
-                                </div>
-
-                            <div class="text-center">
-                                <input type="button" value="SignUp" onclick="location.href='@Url.Action("signup", "Home")'">
-                            </div>
+        </div>
 
 
+        <div class="form-group">
 
-                    }
+            <label class="control-label col-md-4">Password</label>
+            <div class="col-md-4">
+                <input type="password" name="password" class="form-control">
+
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="SignIn">
+        </div>
+
+        <div class="text-center">
+            @Html.ActionLink("Forgot password", "ForgotPassword")        </div>
 
 
-                   
+
+    }
+
+
+
 
 
 </body>
+
 </html>
 

@@ -134,7 +134,7 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
@@ -152,14 +152,16 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Home")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "Events")</li>
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -234,57 +236,57 @@
 
                 <table>
 
-            @foreach (var ws in Model.participants)
-                   {
-                    <tr>
-                        <th>Title</th>
-                        <td>@ws.title</td>
-                    </tr>
-
-                  
+                    @foreach (var ws in Model.participants)
+                    {
+                        <tr>
+                            <th>Title</th>
+                            <td>@ws.title</td>
+                        </tr>
 
 
-                    <tr>
-                        <th>Venue</th>
-                        <td>@ws.venue</td>
-                    </tr>
 
 
-                    <tr>
-                        <th>Day</th>
-                        <td>@ws.Sday</td>
-                    </tr>
+                        <tr>
+                            <th>Venue</th>
+                            <td>@ws.venue</td>
+                        </tr>
 
 
-                    <tr>
-                        <th>Start time</th>
-                        <td>@ws.Stime</td>
-                    </tr>
-
-                    <tr>
-                        <th>End Time</th>
-                        <td>@ws.Etime</td>
-                    </tr>
+                        <tr>
+                            <th>Day</th>
+                            <td>@ws.Sday</td>
+                        </tr>
 
 
-                    <tr>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit_Sessions", new { id = ws.id, con_id = ws.conference }) |
-                            @Html.ActionLink("Delete", "Delete_Sessions", new { id = ws.id })
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>Start time</th>
+                            <td>@ws.Stime</td>
+                        </tr>
+
+                        <tr>
+                            <th>End Time</th>
+                            <td>@ws.Etime</td>
+                        </tr>
 
 
-                <tr class="blank_row">
-                    <td colspan="3">&nbsp;</td>
-                </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit_Sessions", new { id = ws.id, con_id = ws.conference }) |
+                                @Html.ActionLink("Delete", "Delete_Sessions", new { id = ws.id })
+                            </td>
+                        </tr>
 
-                   }
 
-                    
-                                 @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                                 @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                                 @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+                        <tr class="blank_row">
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+
+                    }
+
+
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
 
 
                 </table>

@@ -1,0 +1,142 @@
+﻿@model CMS.Models.Search_User_Model
+@{
+    ViewBag.Title = "Search_User";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Conference Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--  jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+</head>
+
+
+
+
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+    <header class="header">
+        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <img id="cms-logo" src="~/Pics/cms logo.png">
+    </header>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-default">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                    <li>@Html.ActionLink("Create-an-event", "create")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+
+                            @Html.ActionLink("Signin", "signIn")}
+                        else
+                        {
+                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+
+                        }
+                    </li>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+                            @Html.ActionLink("Signup", "signup")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Signout", "signout")
+                        }
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Search Users</h1></center>
+
+    @using (Html.BeginForm("Search_User", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-md-4"></label>
+                <div class="form-group input-group col-md-4">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" value="search">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+
+    <p class="text-center">@Html.ActionLink("Advanced Search", "UpcomingConferencesSearch")</p>
+
+
+
+
+    <h1 class="text-center">Popular Users</h1>
+    <table class="tab" align="center">
+      
+        @foreach (var con in Model.user)
+        {
+            <tr>
+                <td>@Html.ActionLink(con.name, "UserProfile", new { user_id = con.id })</td>
+              
+            </tr>
+        }
+    </table>
+
+
+
+
+
+</body>
+
+</html>
+

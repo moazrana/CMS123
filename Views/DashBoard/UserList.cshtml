@@ -48,7 +48,7 @@
 
 
     <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
+        <h1 style="text-align: center">Conference Management System</h1>
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
@@ -66,14 +66,16 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Home")</li>
-                    <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                    <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "Events")</li>
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Search-Event", "Search")</li>
+                    <li>@Html.ActionLink("Create-Event", "organize")</li>
+                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -152,12 +154,12 @@
                         <label class="control-label col-md-4">Upload Excel Files to send Email to Users</label>
                         <div class="form-group input-group col-md-4">
                             <input type="file" name="list" class="form-control">
-
+                            Note: File must contain "Email" heading. (.csv file not suppoted).
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-4">Send Email to specified Person</label>
+                        <label class="control-label col-md-4">Email:</label>
                         <div class="form-group input-group col-md-4">
                             <input type="text" name="email" class="form-control">
 
@@ -169,15 +171,23 @@
                     </div>
                 }
 
-
-                @foreach (var user in Model.users)
-                {
-
-                    <h5>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</h5>
-
-                }
+                <table class="tab4">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        
+                    </tr>
+                    @foreach (var user in Model.users)
+{
+    <tr>
+        <td>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
+        <td>@Html.ActionLink(user.email, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
+        
+    </tr>
+}
+                </table>
             </div>
         </div>
-        </div>
-        </body>
+    </div>
+</body>
 </html>
