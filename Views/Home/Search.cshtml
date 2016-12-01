@@ -9,23 +9,47 @@
 
     <title>Conference Management System</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!--  jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-
+    <title>Conference Management System</title>
     <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+    <script src="~/JS/pikaday.js"></script>
+    <link href="~/CSS/pikaday.css" rel="stylesheet" />
+
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#advance").click(function () {
+                $('#advance').hide();
+                $("#hidden").show();
+            });
+        });
+
+    </script>
+
+   
+    <style>
+
+        #hidden{
+            display:none;
+        }
+
+    </style>
+    
+
+   
 </head>
 
 
@@ -65,7 +89,7 @@
                 </ul>                <ul class="nav navbar-nav navbar-right">
                     @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
                     <li>
-                        @if (Session["id"].Equals(0))
+                        @if (Session["id"].Equals(0) || Session["id"]==null)
                         {
 
                             @Html.ActionLink("Signin", "signIn")}
@@ -76,7 +100,7 @@
                         }
                     </li>
                     <li>
-                        @if (Session["id"].Equals(0))
+                        @if (Session["id"].Equals(0) || Session["id"] == null)
                         {
                             @Html.ActionLink("Signup", "signup")
                         }
@@ -110,11 +134,61 @@
                     </span>
                 </div>
             </div>
+
+
+            <p id="advance" class="text-center"><a>Advanced Search</a></p>
+
+            <div id="hidden">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Start Date</label>
+                    <div class="col-md-4">
+                        <input type="text" name="sdate" id="sdate" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">End Date</label>
+                    <div class="col-md-4">
+                        <input type="text" name="edate" id="edate" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Country</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="country">
+                            <option>Please choose an option</option>
+                            <option>United States of America</option>
+                            <option>Pakistan</option>
+                            <option>New Zealand</option>
+                            <option>South Africa</option>
+                            <option>India</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">City</label>
+                    <div class="col-md-4">
+                        <input type="text" name="city" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Discipline</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="dis">
+                            <option class="disabled">Please choose an option</option>
+                            <option>Electical Engineering</option>
+                            <option>Computer Science</option>
+                            <option>Both</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    }
-
-    <p class="text-center">@Html.ActionLink("Advanced Search", "UpcomingConferencesSearch")</p>
-
+    
 
 
 
@@ -135,6 +209,16 @@
         }
     </table>
 
+
+    <script type="text/javascript">
+    var spicker = new Pikaday({
+        field: document.getElementById('sdate')
+    });
+    var epicker = new Pikaday({
+        field: document.getElementById('edate')
+    });
+    </script>
+    }
 
 
 
