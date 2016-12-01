@@ -253,7 +253,7 @@
                         @if (Session["id"].Equals(0))
                         {
 
-                            @Html.ActionLink("Signin", "sign")}
+                            @Html.ActionLink("Signin", "signIn")}
                         else
                         {
                             @Html.ActionLink(Session["email"].ToString(), "MyProfile")
@@ -349,7 +349,7 @@
 
 
         <div class="wrapper">
-            <input class="submit" type="submit" id="button" value="Submit Form">
+            <input class="submit" type="submit" id="button" value="SignUp">
         </div>
     </div>
 
