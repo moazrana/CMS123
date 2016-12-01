@@ -201,8 +201,8 @@
 
     <div class="container-fluid text-center">
         <div class="row">
+            <div id="lists">
             <div class="col-lg-2 side">
-
                 <h4><b>Manage Basics</b></h4>
                 <li>@Html.ActionLink("Change Name", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
@@ -230,7 +230,7 @@
                 <h4><b>Manage Papers</b></h4>
                 <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
-
+                </div>
             </div>
 
             <div class="col-sm-10 text-left">

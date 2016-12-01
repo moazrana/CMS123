@@ -35,7 +35,7 @@
 
 
 
-        <p>
+        <p
             <input type="submit" value="Save" />
         </p>
     </fieldset>
@@ -65,7 +65,21 @@
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 
 </head>
-
+<style>
+    label{
+        font-family:'Times New Roman';
+    }
+    #butt{
+        height:40px;
+        width:100px;
+        font-size:large;
+        font-family:'Times New Roman';
+        font-weight:bold;
+    }
+    #butt:hover{
+        background-color:lightgray;
+        }
+</style>
 <body>
 
 
@@ -98,7 +112,7 @@
 
                 </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        @if (Session["id"].Equals(0))
+                        @if (Session["id"].Equals(0) || Session["id"].Equals(0)==null)
                         {
 
                             @Html.ActionLink("Signin", "sign")}
@@ -134,6 +148,7 @@
     <div class="container-fluid text-center">
         <div class="row">
             <div class="col-lg-2 side">
+                <div id="lists">
                 <h4><b>Manage Basics</b></h4>
                 <li>@Html.ActionLink("Change Name ", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
@@ -162,65 +177,104 @@
                 <h4><b>Manage Papers</b></h4>
                 <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.j })</li>
                 <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
-
+                </div>
             </div>
 
-
-            <div class="col-sm-10 text-left">
-
-
-
-                @using (Html.BeginForm("Edit_Workshop", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true)
+            <div class="row">
+                <div class="col-sm-4 text-left">
 
 
 
+                    @using (Html.BeginForm("Edit_Workshop", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
 
-                    /////////////
 
-                    <div class="form-group">
 
-                        @Html.LabelFor(model => model.title,
-               new { @class = "control-label col-md-2" })
 
-                        <div class="col-md-6">
+                        <!---------------------------------------------->
 
-                            @Html.TextBoxFor(model => model.title,
-                 new { style = "width: 400px" })
-                            @Html.ValidationMessageFor(model => model.title)
+                        <div class="form-group">
+                            <label class="control-label col-md-3" style="font-size:x-large;text-align:left;">Title: </label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.title,
+                 new { style = "width: 400px;margin-top:12px;height:40px;" })
+                                @Html.ValidationMessageFor(model => model.title)
 
+                            </div>
                         </div>
-                    </div>
 
 
 
 
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.discription,
-               new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.discription,
-                 new { style = "width: 400px" })
-                            @Html.ValidationMessageFor(model => model.discription)
+                        <div class="form-group">
+                            <label class="control-label col-md-3" style="font-size:x-large"> Discription: </label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.discription,
+                 new { style = "width: 400px;margin-top:12px;height: 200px" })
+                                @Html.ValidationMessageFor(model => model.discription)
+                            </div>
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-9" style="text-align:left; font-weight:bold;font-size:large;"> Add new speakers  (Write emails and use coma seperater): </label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.new_speakers,
+                 new { style = "width: 400px;margin-top:12px" })
+                                @Html.ValidationMessageFor(model => model.new_speakers)
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-9" style="text-align: left; font-weight: bold; font-size: large;"> Add new organizers (Write emails and use coma seperater): </label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.new_organizers,
+                 new { style = "width: 400px;margin-top:12px" })
+                                @Html.ValidationMessageFor(model => model.new_organizers)
+                            </div>
+                        </div>
 
-                    <div style="margin-left:350px">
-                        <input type="submit" value="Save" />
-                    </div>
+
+                        <div  style="margin-left:35%;margin-bottom:20%;">
+                            <input class="btn btn-default" type="submit" value="Save" id="butt" />
+                        </div>
 
 
-                }
+                    }
 
 
+                </div>
+                <div class="col-sm-2 ">
+                    <h2 style="margin-left:-50%">Speakers</h2>
+                    <table>
+                        @foreach (var speaker in @Model.speakers) { 
+                            <tr>
+                                <td>@Html.ActionLink(speaker.name, "UserProfile", new {id=speaker.id})</td>
+                                <td> </td>
+                                <td><p style="margin-top:8px;margin-left:8px">@Html.ActionLink("x", "DeleteWorkshopSuser",new {suser=speaker.id})</p></td>
+                            </tr>
+                            
+                        }
+                    </table>
+                </div>
+
+                <div class="col-sm-2 ">
+                    <h2 style="margin-left:-50%">Organizers</h2>
+                    <table>
+                        @foreach (var organizer in @Model.organizers)
+                        {
+                            <tr>
+                                <td>@Html.ActionLink(organizer.name, "UserProfile", new { id = organizer.id })</td>
+                                <td><p style="margin-top:8px;margin-left:8px">@Html.ActionLink("x", "DeleteWorkshopSuser", new {suser=organizer.id })</p></td>
+                            </tr>
+
+                        }
+                    </table>
+
+                </div>
             </div>
-
-
-        </div>
-
     </div>
 
 

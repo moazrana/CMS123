@@ -80,10 +80,12 @@
     <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+
 
 </head>
 
-<body>
+<body onload="info()">
 
 
     <header class="header">
@@ -117,10 +119,10 @@
                         @if (Session["id"].Equals(0))
                         {
 
-                            @Html.ActionLink("Signin", "sign")}
+                            @Html.ActionLink("Signin", "signIn")}
                         else
                         {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
+                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
 
                         }
                     </li>
@@ -131,7 +133,7 @@
                         }
                         else
                         {
-                            @Html.ActionLink("Signout", "signup")
+                            @Html.ActionLink("Signout", "signout")
                         }
                     </li>
                     @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
@@ -152,86 +154,171 @@
 
 
 
-    @using (Html.BeginForm("MyProfile", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
-        <div class="login">
-            <div class="form-group">
+        @*<div class="login">
+                <div class="form-group">
 
-                @Html.LabelFor(model => model.name,
-               new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.name,
+                   new { @class = "control-label col-md-2" })
 
-                <div class="col-md-6">
-                    <div class="input">
-                        @Html.TextBoxFor(model => model.name,
-                 new { style = "width: 400px" })
-                        @Html.ValidationMessageFor(model => model.name)
+                    <div class="col-md-6">
+                        <div class="input">
+                            @Html.TextBoxFor(model => model.name,
+                     new { style = "width: 400px" })
+                            @Html.ValidationMessageFor(model => model.name)
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
 
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.email,
-               new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.email,
-                 new { style = "width: 400px" })
-                    @Html.ValidationMessageFor(model => model.email)
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.country,
-               new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.country,
-                 new { style = "width: 400px" })
-                    @Html.ValidationMessageFor(model => model.country)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.city,
-               new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.city,
-                 new { style = "width: 400px" })
-                    @Html.ValidationMessageFor(model => model.city)
-                </div>
-            </div>
-
-            
-            <div class="form-group">
-                @Html.LabelFor(model => model.bio,
-               new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.bio,
-                 new { style = "width: 400px; height: 200px" })
-                    @Html.ValidationMessageFor(model => model.bio)
-                    <div class="butn">
-                            <input type="submit" value="Save" />
-                    </div>
-                    <div style="margin-top:1%;">
-                        @Html.ActionLink("To chnage password click here!!!", "ChangePassword")
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email,
+                   new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.email,
+                     new { style = "width: 400px" })
+                        @Html.ValidationMessageFor(model => model.email)
                     </div>
                 </div>
-                
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.country,
+                   new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.country,
+                     new { style = "width: 400px" })
+                        @Html.ValidationMessageFor(model => model.country)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.city,
+                   new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.city,
+                     new { style = "width: 400px" })
+                        @Html.ValidationMessageFor(model => model.city)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bio,
+                   new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.bio,
+                     new { style = "width: 400px; height: 200px" })
+                        @Html.ValidationMessageFor(model => model.bio)
+                        <div class="butn">
+                                <input type="submit" value="Save" />
+                        </div>
+                        <div style="margin-top:1%;">
+                            @Html.ActionLink("To chnage password click here!!!", "ChangePassword")
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>*@
+
+        <div class="container">
+            <section style="padding-bottom: 50px; padding-top: 50px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/assets/img/250x250.png" class="img-rounded img-responsive" />
+                        <br />
+                        <br />
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="name" id="names" placeholder="Demouser">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="jnondeao@gmail.com" id="email">
+                        <label>Country</label>
+                        <input type="text" class="form-control" name="country" placeholder="jnondeao@gmail.com" id="country">
+                        <label>City</label>
+                        <input type="text" class="form-control" name="city" placeholder="jnondeao@gmail.com" id="city">
+                        <label>Research Area</label>
+                        <input type="text" class="form-control" placeholder="jnondeao@gmail.com" id="area" name="area">
+                        <label>Biography</label>
+                        
+                        <textarea rows="4" cols="50" type="text" class="form-control" name="bio" placeholder="jnondeao@gmail.com" id="bio"></textarea>
+
+                        <br>
+                        
+                        <br /><br />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="alert alert-info">
+                            <h2>User Bio : </h2>
+                            <p>
+                                @Model.bio
+                            </p>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
+                        <div class="form-group col-md-8">
+                            <h3>Change Your Password</h3>
+                            <br />
+                            <label>Enter Old Password</label>
+                            <input type="password"  id="pass" class="form-control">
+                            <label>Enter New Password</label>
+                            <input type="password" name="pass" class="form-control">
+                            <label>Confirm New Password</label>
+                            <input type="password" class="form-control" name="confirm" />
+                            <br>
+                            <input type="submit" class="btn btn-success" value="Update Details">        
+                        </div>
+                    </div>
+                </div>
+            </section>
             </div>
-            
+        
+                <!-- ROW END -->
+                }
+    <script >
 
 
-        </div>
+    function info() {
+
+        var name = '@(Model.name)';
+        var email = '@(Model.email)';
+        var city = '@(Model.city)';
+        var country = '@(Model.country)';
+        var bio = '@(Model.bio)';
+        var res = '@(Model.research_area)';
+        var pass = '@(Model.password)';
+
+        @*document.getElementById("names").value = '@(Model.bio)';*@
+
+        document.getElementById("names").value = name;
+        document.getElementById("email").value = email;
+        document.getElementById("country").value = country;
+        document.getElementById("city").value = city;
+        document.getElementById("area").value = res;
+
+        document.getElementById("pass").value = pass;
+
+
+        document.getElementById("bio").value = bio;
+
+
 
     }
 
+        </script>
 
-</body>
+    </body>
 </html>
 

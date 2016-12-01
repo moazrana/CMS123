@@ -5,94 +5,220 @@
 
 @*<h2>signup</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>tbluser</legend>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>tbluser</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.email)
-            @Html.ValidationMessageFor(model => model.email)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.password)
-        </div>
-        <input type="password" id="pass" name="password">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.password)
+            </div>
+            <input type="password" id="pass" name="password">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.research_area)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.research_area)
-            @Html.ValidationMessageFor(model => model.research_area)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.research_area)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.research_area)
+                @Html.ValidationMessageFor(model => model.research_area)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.country)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.country)
-            @Html.ValidationMessageFor(model => model.country)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.country)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.country)
+                @Html.ValidationMessageFor(model => model.country)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.city)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.city)
-            @Html.ValidationMessageFor(model => model.city)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.city)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.city)
+                @Html.ValidationMessageFor(model => model.city)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.biography)
-        </div>
-        <textarea rows="15" cols="70" style="font-family:'Times New Roman'" id="bio" name="boigraphy"></textarea>
-        @*<div class="editor-field">
-                @Html.EditorFor(model => model.biography)
-                @Html.ValidationMessageFor(model => model.biography)
-            </div>*@
+            <div class="editor-label">
+                @Html.LabelFor(model => model.biography)
+            </div>
+            <textarea rows="15" cols="70" style="font-family:'Times New Roman'" id="bio" name="boigraphy"></textarea>
+            @*<div class="editor-field">
+                    @Html.EditorFor(model => model.biography)
+                    @Html.ValidationMessageFor(model => model.biography)
+                </div>*@
 
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.workplace)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.workplace)
-            @Html.ValidationMessageFor(model => model.workplace)
-        </div>
+@*<div class="editor-label">
+                @Html.LabelFor(model => model.workplace)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.workplace)
+                @Html.ValidationMessageFor(model => model.workplace)
+            </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}*@
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }*@
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Conference Management System</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+        <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <header class="header">
+            <h1 style="text-align: center">Conference Management System</h1>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-default">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index")</li>
+                        <li>@Html.ActionLink("Search-Event", "Search")</li>
+                        <li>@Html.ActionLink("Create-Event", "create")</li>
+                        <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                        <li>@Html.ActionLink("Search-User", "Search_User")</li>
+                        @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+
+                    </ul>                <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Signin", "signIn")</li>
+                        <li>@Html.ActionLink("Signup", "signup")</li>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Sign-Up Page</h1></center>
+
+
+
+        @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @*<div class="login">
+                <input type="text" placeholder="Name" name="name"><br>
+                <input type="text" placeholder="Email" name="email"><br>
+                <input type="password" placeholder="Password" name="password"><br>
+                <input type="password" placeholder="Retype-password" name="re-password"><br>
+                <input type="submit" value="Signup" name="sub" />
+
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Name</label>
+                <div class="col-md-4">
+                    <input type="text`" name="name" class="form-control">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Email</label>
+                <div class="col-md-4">
+                    <input type="email" name="email" class="form-control">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Password</label>
+                <div class="col-md-4">
+                    <input type="password" name="password" class="form-control">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label class="control-label col-md-4">Re-type Password</label>
+                <div class="col-md-4">
+                    <input type="password" name="re-password" class="form-control">
+
+                </div>
+
+            </div>
+
+
+            <div class="text-center">
+                <input type="submit" value="SignUp">
+            </div>
+
+
+
+
+        }
+    </body>
+    </html>*@
+
 
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conference Management System</title>
     <meta charset="utf-8">
+    <title>Sign-up Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="~/CSS/User-Profile.css">
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/CSS/Signup.css" rel="stylesheet" type="text/css">
     <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
     <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
+
 </head>
 
 <body>
@@ -102,7 +228,7 @@
     </header>
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -120,84 +246,116 @@
                     <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Signin", "signIn")</li>
-                    <li>@Html.ActionLink("Signup", "signup")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+
+                            @Html.ActionLink("Signin", "sign")}
+                        else
+                        {
+                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+
+                        }
+                    </li>
+                    <li>
+                        @if (Session["id"].Equals(0))
+                        {
+                            @Html.ActionLink("Signup", "signup")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Signout", "signup")
+                        }
+                    </li>
+                </ul>
+
 
             </div>
         </div>
     </nav>
+    <center style="margin-top:-22px;">
+        <h1 style="background-color: #9d9d9d; padding:10px">Signup Page</h1>
+    </center>
+    
+        @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @*<form class="contact_form" name="contact_form">*@
 
-
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Sign-Up Page</h1></center>
-
-
-
-    @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        @*<div class="login">
-            <input type="text" placeholder="Name" name="name"><br>
-            <input type="text" placeholder="Email" name="email"><br>
-            <input type="password" placeholder="Password" name="password"><br>
-            <input type="password" placeholder="Retype-password" name="re-password"><br>
-            <input type="submit" value="Signup" name="sub" />*@
-
+    <div class="row">
 
         <div class="form-group">
+
 
             <label class="control-label col-md-4">Name</label>
             <div class="col-md-4">
-                <input type="text`" name="name" class="form-control">
+
+                <input type="text" placeholder="John Doe" class="form-control" name="name" required />
 
             </div>
 
+
         </div>
 
+
+
         <div class="form-group">
+
 
             <label class="control-label col-md-4">Email</label>
             <div class="col-md-4">
-                <input type="email" name="email" class="form-control">
+
+                <input type="email" class="form-control" name="email" placeholder="john_doe@example.com" required />
+                <span class="form_hint">Proper format "name@something.com"</span>
 
             </div>
 
+
         </div>
 
-
         <div class="form-group">
+
 
             <label class="control-label col-md-4">Password</label>
             <div class="col-md-4">
-                <input type="password" name="password" class="form-control">
+
+                <input type="password" class="form-control" name="password" required />
+
 
             </div>
 
+
         </div>
+
 
         <div class="form-group">
 
-            <label class="control-label col-md-4">Re-type Password</label>
+
+            <label class="control-label col-md-4">Re-Type Password</label>
             <div class="col-md-4">
-                <input type="password" name="re-password" class="form-control">
+
+                <input type="password" class="form-control" name="re-password" required />
+
 
             </div>
 
-        </div>
 
-
-        <div class="text-center">
-            <input type="submit" value="SignUp">
         </div>
 
 
 
+        <div class="wrapper">
+            <input class="submit" type="submit" id="button" value="Submit Form">
+        </div>
+    </div>
 
-    }
+
+        }
+    
 </body>
 </html>
 

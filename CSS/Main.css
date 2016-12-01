@@ -264,19 +264,19 @@ table.tab td{
     text-align:center; 
     font-size:16px;
     padding-left:3px;
-    width:70%;
+    width:auto;
     text-align:left;
 }
 table.tab th{
     border:1px groove;
     text-align:center;
      height:50px;
-   width:70%;
+   width:auto;
    
 }
 table.tab{
     border-collapse:collapse;
-   width:70%;
+   width:auto;
    margin-bottom:10%;
    
 }

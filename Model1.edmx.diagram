@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6d2e1a1acfa047e79665e4dac7547ed7" Name="Diagram1">
+      <Diagram DiagramId="6d2e1a1acfa047e79665e4dac7547ed7" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="db_CMSModel.meeting" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.organizingBody" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.submission" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
@@ -33,6 +33,7 @@
         <AssociationConnector Association="db_CMSModel.FK__suser__suser__65570293" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user1__0C1BC9F9" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user2__0D0FEE32" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_CMSModel.suser1" Width="1.5" PointX="11.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -197,59 +197,60 @@
 
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-lg-2 side">
+            <div id="lists">
+                <div class="col-lg-2 side">
 
-                <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change Name ", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
-                <br>
-                <hr>
+                    <h4><b>Manage Basics</b></h4>
+                    <li>@Html.ActionLink("Change Name ", "Edit_Info", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
+                    <br>
+                    <hr>
 
-                <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
+                    <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
 
-                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
-                <br>
-                <hr>
-                <h4><b>Manage Sessions</b></h4>
-                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
-                <br>
-                <hr>
+                    <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
+                    <br>
+                    <hr>
+                    <h4><b>Manage Sessions</b></h4>
+                    <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
+                    <br>
+                    <hr>
 
-                <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.j })</li>
-                <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
+                    <h4><b>Manage Papers</b></h4>
+                    <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.j })</li>
+                    <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
+                    </div>
+                </div>
+                <div class="col-sm-10 text-left">
+
+                    <table>
+
+                        @foreach (var con in Model.participants)
+                        {
+
+                            <li>@Html.ActionLink(con.user_name, "love", new { id = con.user_id, a = con.conference_id })</li>
+
+
+                        }
+
+                    </table>
+                    <label colspan="2" style="text-align:center;">
+                        @Html.ActionLink("Invite Speakers", "SUserList", new { id = @Model.conf_id })
+
+                    </label>
+                </div>
+
 
             </div>
-            <div class="col-sm-10 text-left">
-
-                <table>
-
-                    @foreach (var con in Model.participants)
-                    {
-
-                        <li>@Html.ActionLink(con.user_name, "love", new { id = con.user_id, a = con.conference_id })</li>
-
-
-                    }
-
-                </table>
-                <label colspan="2" style="text-align:center;">
-                    @Html.ActionLink("Invite Speakers", "SUserList", new { id = @Model.conf_id })
-
-                </label>
-            </div>
-
-
-        </div>
 
     </div>
 
