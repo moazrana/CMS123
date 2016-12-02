@@ -378,7 +378,7 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 
 ul.sidebar-menu li a i {
     font-size: 15px;
-    padding-right: 6px;
+   padding-right: 6px;
 }
 
 ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i {
@@ -1751,11 +1751,7 @@ label {
 	-webkit-border-radius: 500px;
 }
 
-@media (min-width: 768px) {
-		.form-horizontal .control-label {
-		text-align: left;
-	}
-}
+
 
 #focusedInput {
 	border: 1px solid #ed5565;
