@@ -42,9 +42,10 @@
                     <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Signin", "signIn")</li>
                     <li>@Html.ActionLink("Signup", "signup")</li>
 
@@ -60,40 +61,84 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
+        <div class="row">
+            <div class="form-group">
 
-        <div class="form-group">
+                <label class="control-label col-md-4">Email</label>
+                <div class="col-md-4">
+                    <input type="email" name="email" class="form-control">
 
-            <label class="control-label col-md-4">Email</label>
-            <div class="col-md-4">
-                <input type="email" name="email" class="form-control">
-
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label class="control-label col-md-4">Password</label>
-            <div class="col-md-4">
-                <input type="password" name="password" class="form-control">
+                </div>
 
             </div>
 
+
+            @*<div class="form-group">
+
+                <label class="control-label col-md-4">Password</label>
+                <div class="input-group-addon">
+                    <div class="col-md-4">
+                        <input type="password" name="password" class="form-control" id="pwd">
+                      
+                        
+                    </div>
+                </div>
+
+            </div>*@
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Password</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="password" class="form-control"  name="password" id="pwd">
+                        <span class="input-group-btn" >
+                            <button type="button" class="btn btn-default"  id="eye">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="SignIn">
+            </div>
+
+            <div class="text-center">
+                @Html.ActionLink("Forgot password", "ForgotPassword")
+            </div>
+
+
         </div>
-
-        <div class="text-center">
-            <input type="submit" value="SignIn">
-        </div>
-
-        <div class="text-center">
-            @Html.ActionLink("Forgot password", "ForgotPassword")        </div>
-
-
-
     }
 
 
+    <script>
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        }
+
+        function hide() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'password');
+        }
+
+        var pwShown = 0;
+
+        document.getElementById("eye").addEventListener("click", function () {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+        
+
+    </script>
 
 
 

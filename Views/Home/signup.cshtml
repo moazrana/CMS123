@@ -317,22 +317,38 @@
 
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
 
 
             <label class="control-label col-md-4">Password</label>
             <div class="col-md-4">
 
-                <input type="password" class="form-control" name="password" required />
+                <input type="password" class="form-control" name="password" placeholder="password"  required/>
 
 
             </div>
 
 
-        </div>
+        </div>*@
 
 
         <div class="form-group">
+            <label class="control-label col-md-4">Password</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="password" class="form-control" placeholder="password" name="password" id="pwd">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" id="eye">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+
+        @*<div class="form-group">
 
 
             <label class="control-label col-md-4">Re-Type Password</label>
@@ -343,6 +359,21 @@
 
             </div>
 
+
+        </div>*@
+
+        <div class="form-group">
+            <label class="control-label col-md-4">Re-Type Password</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="password" class="form-control" placeholder="password" name="re-password" id="pwd1">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" id="eye1">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
 
         </div>
 
@@ -356,6 +387,69 @@
 
         }
     
+
+
+
+    <script>
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        
+        }
+
+        function hide() {
+            var p = document.getElementById('pwd');
+           
+            p.setAttribute('type', 'password');
+          
+
+        }
+
+        var pwShown = 0;
+
+        document.getElementById("eye").addEventListener("click", function () {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+        </script>
+
+    <script>
+
+        function show1() {
+            var q = document.getElementById('pwd1');
+            q.setAttribute('type', 'text');
+
+        }
+
+        function hide1() {
+          
+            var q = document.getElementById('pwd1');
+           
+            q.setAttribute('type', 'password');
+
+        }
+
+      
+
+        document.getElementById("eye1").addEventListener("click", function () {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show1();
+            } else {
+                pwShown = 0;
+                hide1();
+            }
+        }, false);
+
+    </script>
+
+
+
 </body>
 </html>
 
