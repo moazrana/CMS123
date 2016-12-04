@@ -181,7 +181,7 @@
                             <option class="disabled">Please choose an option</option>
                             <option>Electical Engineering</option>
                             <option>Computer Science</option>
-                            <option>Both</option>
+                           
                         </select>
                     </div>
                 </div>
@@ -217,6 +217,28 @@
     var epicker = new Pikaday({
         field: document.getElementById('edate')
     });
+
+
+
+    $('body').on('click', '#advance', function (event) {
+        search_params();
+    });
+
+    search_params = function () {
+        action = $('.form-horizontal').attr('action')
+        action += "?" + $.param({ search: true });
+        $('.form-horizontal').attr('action', action);
+    };
+
+    if (window.location.search.length > 0) {
+        $('#advance').hide();
+        $('#hidden').fadeIn();
+        search_params();
+
+    }
+
+
+
     </script>
     }
 
