@@ -341,7 +341,7 @@
         <img id="cms-logo" src="~/Pics/cms logo.png">
     </header>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="nav navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -384,13 +384,12 @@
                         }
                 </ul>
 
-
             </div>
         </div>
     </nav>
 
 
-    <section id="container">
+    <div id="container">
         <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -399,17 +398,16 @@
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
-        <aside>
-            <div id="sidebar" class="nav-collapse ">
+            <div id="sidebar">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="profile.html"><img src="~/Pics/cms%20logo.png" class="img-circle" width="60"></a></p>
+                    <p class="centered"><img src="~/Pics/cms%20logo.png"  width="60"></p>
                     <h5 class="centered">CMS</h5>
 
                     <li class="mt">
                         <a class="active" @*href="~/Views/DashBoard/DashBoard.cshtml"*@ href='@Url.Action("DashBoard", "DashBoard", new { conf_id = @Model.id })'>
-                            <i class="fa fa-dashboard"></i>
+                            @*<i class="fa fa-dashboard"></i>*@
                             <span>Dashboard</span>
                         </a>
                     </li>
@@ -481,21 +479,21 @@
                 </ul>
                 <!-- sidebar menu end-->
             </div>
-        </aside>
         <!--sidebar end-->
         <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
         <!--main content start-->
-        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px; color:black"><strong style="color:black">DashBoard of:</strong>@Model.name </h1></center>
+        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px; color:black">@Model.name </h1></center>
         <section id="main-content">
-            <section class="wrapper">
+            <div class="wrapper">
 
                 <div class="row">
                     <div class="col-lg-9 main-chart">
-                        <table style="font-size:24px; font-family:'Times New Roman' ">
+                        <table style="font-size:24px; font-family:'Times New Roman';border-collapse:collapse; ">
                             <tr>
                                 <td><b>Name    :</b></td>
+                             
                                 <td>@Model.name</td>
                             </tr>
 
@@ -519,18 +517,12 @@
 
                         </table>
 
-                        <div class="row mtbox">
-
-
-                        </div><!-- /row mt -->
-
-
                         <div class="row mt">
                             <!-- SERVER STATUS PANELS -->
                             <div class="col-md-4 col-sm-4 mb">
                                 <div class="white-panel pn">
                                     <div class="white-header">
-                                        <h5>Auto-Generated Emails</h5>
+                                        <h5> Invite People</h5>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-6 goleft">
@@ -707,6 +699,7 @@
 
                         <!-- USERS ONLINE SECTION -->
                         <h3>TEAM MEMBERS</h3>
+                    @foreach (var organizer in Model.organizers) { 
                         <!-- First Member -->
                         <div class="desc">
                             <div class="thumb">
@@ -714,60 +707,11 @@
                             </div>
                             <div class="details">
                                 <p>
-                                    <a href="#">DIVYA MANIAN</a><br />
-                                    <muted>Available</muted>
+                                    <a href=@Url.Action("UserProfile", "Dashboard", new {id=@organizer.user_id })>@organizer.name</a><br/>
                                 </p>
                             </div>
                         </div>
-                        <!-- Second Member -->
-                        <div class="desc">
-                            <div class="thumb">
-                                <img class="img-circle" src="assets/img/ui-sherman.jpg" width="35px" height="35px" align="">
-                            </div>
-                            <div class="details">
-                                <p>
-                                    <a href="#">DJ SHERMAN</a><br />
-                                    <muted>I am Busy</muted>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Third Member -->
-                        <div class="desc">
-                            <div class="thumb">
-                                <img class="img-circle" src="assets/img/ui-danro.jpg" width="35px" height="35px" align="">
-                            </div>
-                            <div class="details">
-                                <p>
-                                    <a href="#">DAN ROGERS</a><br />
-                                    <muted>Available</muted>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Fourth Member -->
-                        <div class="desc">
-                            <div class="thumb">
-                                <img class="img-circle" src="assets/img/ui-zac.jpg" width="35px" height="35px" align="">
-                            </div>
-                            <div class="details">
-                                <p>
-                                    <a href="#">Zac Sniders</a><br />
-                                    <muted>Available</muted>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Fifth Member -->
-                        <div class="desc">
-                            <div class="thumb">
-                                <img class="img-circle" src="assets/img/ui-sam.jpg" width="35px" height="35px" align="">
-                            </div>
-                            <div class="details">
-                                <p>
-                                    <a href="#">Marcel Newman</a><br />
-                                    <muted>Available</muted>
-                                </p>
-                            </div>
-                        </div>
-
+                    }
                         <!-- CALENDAR-->
                         <div id="calendar" class="mb">
                             <div class="panel green-panel no-margin">
@@ -784,21 +728,11 @@
 
                     </div><!-- /col-lg-3 -->
                 </div><! --/row -->
-            </section>
+            </div>
         </section>
 
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2016 - TEAM CMS
-                <a href="index.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
-    </section>
+           </div>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="~/CSS/assets/js/jquery.js"></script>
@@ -806,7 +740,6 @@
     <script src="~/CSS/assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="~/CSS/assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="~/CSS/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="~/CSS/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="~/CSS/assets/js/jquery.sparkline.js"></script>
 
 

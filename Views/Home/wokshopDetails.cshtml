@@ -1,75 +1,7 @@
-﻿@model CMS.Models.conferenceUsersViewModel
+﻿@model CMS.Models.conferenceWorshopsViewModel
 @{
-    ViewBag.Title = "ConferenceInvitedSpeakers";
+    ViewBag.Title = "wokshopDetails";
 }
-
-@*<h2>ConferenceInvitedSpeakers</h2>
-<h2>InvitedSpeakers</h2>
-@foreach (var u in Model.participants)
-{
-    <h5>@Html.ActionLink(u.user_name, "UserProfile", new { id = u.user_id })</h5>
-}*@
-
-
-@*<html>
-<head>
-    <title>Conference Mangement System</title>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-</head>
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System<h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>@Html.ActionLink("Home", "Index")</li>
-            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-            <li>@Html.ActionLink("Create-an-event", "create")</li>
-            <li>@Html.ActionLink("My-Events", "myEvents")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-            <li>@Html.ActionLink("About", "About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
-   
-    <section>
-        <aside style="margin-top:1px;">
-            <div style="height:100%;">
-                <h4>@Html.ActionLink("Wall Of Conference", "")</h4>
-                <li>@Html.ActionLink("Conference Website", "")</li>
-                <li>@Html.ActionLink("Organizing Committees", "")</li>
-                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
-                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
-                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
-                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
-                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
-                <li>@Html.ActionLink("Paper Submission Link", "")</li>
-                <li>@Html.ActionLink("Accepted Papers", "")</li>
-                <li>@Html.ActionLink("Registration Link", "")</li>
-                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
-            </div>
-        </aside>
-
-        <div id="W_O_C">
-            <center><h2>Invited Speaker</h2></center>
-            <h3>List of Invited Speaker</h3>
-            <table id="WOC">
-                <tr>
-                    <td>
-                        @foreach (var u in Model.participants)
-                        {
-                            <h4>@Html.ActionLink(u.user_name, "UserProfile", new { id = u.user_id })</h4>
-                        }
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section>
-</body>
-</html>*@
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -115,9 +47,7 @@
                     <li>@Html.ActionLink("Search-User", "Search_User")</li>
                     @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -139,6 +69,7 @@
                             @Html.ActionLink("Signout", "signout")
                         }
                     </li>
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
                 </ul>
 
 
@@ -148,8 +79,9 @@
 
 
     <div id="Conf_label" align="center">
-        <label>Invited Speakers</label>
+        <label>@Model.name</label>
     </div>
+
 
 
     <div class="container-fluid text-center">
@@ -157,7 +89,6 @@
             <div class="col-sm-2 sidenav">
 
                 <h4><b>Wall of Conference</b></h4>
-
 
                 <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
                 <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
@@ -167,36 +98,35 @@
                 <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
                 <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
                 <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
-
-
             </div>
 
-            <div class="col-sm-10 text-left">
+           <div class="row">
+               <div class="col-md-4">
+                    <p style="color:black;font-size:x-large"><b>@Model.title</b></p>
+                   <p>@Model.description</p>
+               </div>
+               <div class="col-md-2">
+                   <h4 style="color:black;font-size:x-large">Speakers</h4>
+                   @foreach(var sp in Model.speakers){
+                       <p>@Html.ActionLink(sp.name, "UserProfile", new { user_id = sp.id })</p>
+                   }
+               </div>
 
-
-                <table>
-                    @foreach (var u in Model.participants)
-                    {
-                        <h4>@Html.ActionLink(u.user_name, "UserProfile", new { user_id = u.user_id })</h4>
-                    }
-
-
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
-
-
-                </table>
-
-
-
-
-            </div>
+               <div class="col-md-2">
+                   <h4 style="color:black;font-size:x-large">Organizers</h4>
+                   @foreach (var or in Model.organizers)
+                   {
+                       <p>@Html.ActionLink(or.name, "UserProfile", new { user_id = or.id })</p>
+                   }
+               </div>
+           </div> 
 
 
         </div>
 
     </div>
+
+
     <script>
         $(document).ready(function () {
 

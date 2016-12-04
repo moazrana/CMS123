@@ -29,7 +29,7 @@
     </header>
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="nav navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-default">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -80,7 +80,9 @@
     </nav>
 
 
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Organizing Commitee</h1></center>
+    <div id="Conf_label" align="center">
+        <label>Organizing Committee</label>
+    </div>
 
 
     <div class="container-fluid text-center">
@@ -122,6 +124,22 @@
     </div>
 
 
+    <script>
+        $(document).ready(function () {
 
+            $(window).scroll(function () {
+                //if you hard code, then use console
+                //.log to determine when you want the
+                //nav bar to stick.
+                console.log($(window).scrollTop())
+                if ($(window).scrollTop() > 280) {
+                    $('#label_bar').addClass('label-fixed');
+                }
+                if ($(window).scrollTop() < 281) {
+                    $('#label_bar').removeClass('label-fixed');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

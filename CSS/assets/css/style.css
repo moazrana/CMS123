@@ -233,6 +233,7 @@ ul.top-menu > li > .logout {
     height: 100%;
     position:absolute;
     background: #424a5d;
+   
 }
 
 #sidebar h5 {
@@ -1326,6 +1327,7 @@ PANELS CONFIGURATIONS
     -o-background-size: cover;
     background-size: cover;
 }
+
 #spotify .btn-clear-g {
 	top: 15%;
 	right: 10px;
@@ -2231,3 +2233,42 @@ label {
 }
 
 
+#sidebar-btn
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top:0px;
+     z-index:9999;
+     margin-top: 31%;
+}
+
+#sidebar-btn span{
+    height: 1px;
+    background: #111;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#sidebar-btn span:nth-child(2)
+{
+    width: 75%;
+}
+
+#sidebar-btn span:nth-child(3)
+{
+    width: 50%;
+}
+
+
+#sidebar-btn{
+    display: none;
+}
+
+@media only screen and (max-width: 768px){
+    #sidebar-btn{
+        display: block;
+    }
+}

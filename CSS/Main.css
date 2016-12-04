@@ -11,7 +11,10 @@ body{
 	
 }
 
-  
+.handler > form {
+    padding: 15px;
+}
+
 #ForPassBtn{
     text-align: center;
 	width: 200px;
@@ -29,11 +32,6 @@ body{
 #ForPassBtn:hover{
     background-color:#98bef3;
 }
-::-ms-reveal {
-    display:none !important;
-  }
-
-
 .blank_row
 {
    
@@ -51,11 +49,12 @@ body{
     margin-left: 10px;
 }
 .header{
-background-color:rgb(0,0,0);
-color:white;
-padding: 10px;
-opacity:0.6;
+    background-color: rgb(1, 87, 87);
+    color: white;
+    padding: 10px;
+    font-family: -webkit-body;
 }
+
 .page-header
 {
 	background-color:rgb(0,0,0);
@@ -65,9 +64,8 @@ opacity:0.6;
 	width:100px;
 	margin-top:-80px
 }
-
 #nav-properties{
-	background:gray;
+	background:grey;
 	padding:5px;
 	word-spacing: 30px;
 }
@@ -78,7 +76,48 @@ opacity:0.6;
 	font:bold 14px Tahoma;
     clear:both;
 }
+.label-fixed {
+            top: 0;
+            z-index: 100;
+            position: fixed;
+            width: 100%;
+        }
+#label_bar {
+        }
 
+#lists,label{
+    color:gray;
+    font-size:18px;
+}
+ #lists,label,ul,li{
+        list-style:none;
+    }
+#lists li:hover{
+        background-color:lightgray;
+        font-size:17px;
+    }
+#lists_home{
+    color:gray;
+    font-size:18px;
+}
+ #lists_home,li{
+        list-style:none;
+    }
+#lists_home li:hover{
+        background-color:lightgray;
+        font-size:17px;
+    }
+#Conf_label{
+    background: #9d9d9d;
+}
+#Conf_label,label{
+    font-size:35px;
+    color:black;
+    font-family:inherit;
+}
+label{
+    font-size:large;
+}
 #marquee{
 	background-color:rgb(200,200,200);
 	width: auto;
@@ -266,9 +305,33 @@ table.tab2 td
     width:10%;
 }*/
 
+
+table.tab9 td{
+    border:1px groove;
+    text-align:left; 
+    font-size:16px;
+    padding-left:3px;
+    width:auto;
+    text-align:left;
+}
+table.tab9 th{
+    border:1px groove;
+    text-align:left;
+     height:50px;
+   width:auto;
+   
+}
+table.tab9{
+    border-collapse:collapse;
+   width:auto;
+   margin-bottom:10%;
+   
+}
+
+
 table.tab td{
     border:1px groove;
-    text-align:center; 
+    text-align:left; 
     font-size:16px;
     padding-left:3px;
     width:auto;
@@ -276,39 +339,47 @@ table.tab td{
 }
 table.tab th{
     border:1px groove;
-    text-align:center;
+    text-align:left;
      height:50px;
    width:auto;
+   font-size:large;
    
 }
 table.tab{
     border-collapse:collapse;
-   width:auto;
+   width:70%;
    margin-bottom:10%;
    
 }
 
 /*confernce details*/
+
 table.tab1 td{
     text-align:center;
+    font-size:16px;
 }
 table.tab1 th{
     text-align:left;
      height:30px;
+     font-size:18px;
+
 }
 table.tab1{
     margin-top:2%;
     border-collapse:collapse;
    width:50%;
    margin-bottom:2%;
+    
 }
 
 table.tab2 td{
     text-align:center;
+    font-size:16px;
 }
 table.tab2 th{
     text-align:left;
      height:30px;
+font-size:18px;
 }
 table.tab2{
     margin-top:2%;
@@ -363,6 +434,21 @@ table.tab4
    
 }
 
+table.tab5 td{
+    text-align:center;
+    font-size:16px;
+}
+table.tab5 th{
+    text-align:left;
+     height:30px;
+font-size:18px;
+}
+table.tab5{
+    margin-top:2%;
+    border-collapse:collapse;
+   width:50%;
+   margin-bottom:2%;
+}
 
 
 
@@ -435,9 +521,13 @@ h4{
 }
 
 h3{
-	border:2px solid green;
+    text-align:center;
+    font-size:24px;
+	font-weight:bold;
+    color:rgb(20, 18, 18);
+    text-decoration:underline;
 	padding-left:5px;
-	background-color:green;
+	
 	margin-bottom:-10px;
 	
 }
