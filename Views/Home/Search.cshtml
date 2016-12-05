@@ -203,8 +203,8 @@
         {
             <tr>
                 <td>@Html.ActionLink(con.name, "ConferenceDetails", new { id = con.id })</td>
-                <td>@Html.ActionLink(con.country, "ConferenceDetails", new { id = con.id })</td>
-                <td>@Html.ActionLink(con.city, "ConferenceDetails", new { id = con.id })</td>
+                <td>@Html.ActionLink(con.country, "Search", new { country = con.country, city = "" })</td>
+                <td>@Html.ActionLink(con.city, "Search", new { country = "", city = con.city })</td>
             </tr>
         }
     </table>
