@@ -1,606 +1,610 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CMS.WebApiConfig" Collapsed="true">
-    <Position X="7.5" Y="8.5" Width="1.5" />
+    <Position X="184.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\WebApiConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.achievement" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="CMS.achievement">
+    <Position X="56.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgA=</HashCode>
       <FileName>achievement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.vw_accepted_papers" Collapsed="true">
-    <Position X="0.5" Y="8.5" Width="1.5" />
+  <Class Name="CMS.vw_accepted_papers">
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAEgAAIAAAAAAAAAAA=</HashCode>
       <FileName>vw_accepted_papers.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.vw_myevents" Collapsed="true">
-    <Position X="2.25" Y="8.5" Width="1.5" />
+  <Class Name="CMS.vw_myevents">
+    <Position X="20.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQE=</HashCode>
       <FileName>vw_myevents.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.vw_myOrganizingEvents" Collapsed="true">
-    <Position X="4" Y="8.5" Width="1.5" />
+  <Class Name="CMS.vw_myOrganizingEvents">
+    <Position X="38.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACEAAAIAAAAAAAAAAA=</HashCode>
       <FileName>vw_myOrganizingEvents.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.vw_particapants" Collapsed="true">
-    <Position X="5.75" Y="8.5" Width="1.5" />
+  <Class Name="CMS.vw_particapants">
+    <Position X="59" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAAAAAAgAAABAAAhAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>vw_particapants.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CMS.Controllers.AdminController" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="180.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAAAAAACAAACAAAAAAEAAAAAEAA=</HashCode>
       <FileName>Controllers\AdminController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.abc" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.abc">
+    <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Models\abc.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Accepted_Paper" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.Accepted_Paper">
+    <Position X="23" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAgQAABAAAAJAAAAABAgAAAAAAAgAEAAAAACAA=</HashCode>
       <FileName>Models\Accepted_Paper.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.AcceptedPapersDashboardModel" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.AcceptedPapersDashboardModel">
+    <Position X="41" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAQACAAAQAAAAABAJAAAAIAAAAAAAAgABAEAAAAAAAA=</HashCode>
       <FileName>Models\AcceptedPapersDashboardModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Add_InvitedSpeaker" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.Add_InvitedSpeaker">
+    <Position X="74.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAABAAEAAggAAEAAAAACwA=</HashCode>
       <FileName>Models\Add_InvitedSpeaker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Add_ListofParticipant" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.Add_ListofParticipant">
+    <Position X="90.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAABAAAAAggAAEAAAAACwA=</HashCode>
       <FileName>Models\Add_ListofParticipant.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.adminModel" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.adminModel">
+    <Position X="126.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAEQA=</HashCode>
       <FileName>Models\adminModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.adminSigninModel" Collapsed="true">
-    <Position X="14.5" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.adminSigninModel">
+    <Position X="144.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\adminSigninModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.AdvanceSearch" Collapsed="true">
-    <Position X="16.25" Y="0.5" Width="1.5" />
+  <Class Name="CMS.Models.AdvanceSearch">
+    <Position X="162.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wIgCAAAggACAkIAZEAQABABgkEAFAAEBkiECAwAHBQA=</HashCode>
       <FileName>Models\Advance Search.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.WorkshopModel" Collapsed="true">
-    <Position X="9.25" Y="8.5" Width="1.5" />
+  <Class Name="CMS.Models.WorkshopModel">
+    <Position X="92.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAABABgQAABAAAAJAAAAAAAgAAAIAgAgAEAAAEAAAg=</HashCode>
       <FileName>Models\WorkshopModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.FilterConfig" Collapsed="true">
-    <Position X="4" Y="4.5" Width="1.5" />
+  <Class Name="CMS.FilterConfig">
+    <Position X="43.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>App_Start\FilterConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.RouteConfig" Collapsed="true">
-    <Position X="4" Y="6.5" Width="1.5" />
+  <Class Name="CMS.RouteConfig">
+    <Position X="45.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\RouteConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CMS.MvcApplication" Collapsed="true">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="182.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CMS.db_CMSEntities" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="184.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BYIEBAjAJQkAALBRAAIMgAjhEBJwABAkkAhoCgBIBUA=</HashCode>
       <FileName>Model1.Context.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.attending" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="CMS.attending">
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAgAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAEAAAAA=</HashCode>
       <FileName>attending.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.edit_workshop_Result" Collapsed="true">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+  <Class Name="CMS.edit_workshop_Result">
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>edit_workshop_Result.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.meeting" Collapsed="true">
-    <Position X="16.25" Y="4.5" Width="1.5" />
+  <Class Name="CMS.meeting">
+    <Position X="164.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAggA=</HashCode>
       <FileName>meeting.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.organizing_body" Collapsed="true">
-    <Position X="9.25" Y="5.5" Width="1.5" />
+  <Class Name="CMS.organizing_body">
+    <Position X="95" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAA=</HashCode>
       <FileName>organizing_body.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.organizingBody" Collapsed="true">
-    <Position X="11" Y="5.5" Width="1.5" />
+  <Class Name="CMS.organizingBody">
+    <Position X="110.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAgAIgAAAAEAAAgA=</HashCode>
       <FileName>organizingBody.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.participants_list" Collapsed="true">
-    <Position X="16.25" Y="5.5" Width="1.5" />
+  <Class Name="CMS.participants_list">
+    <Position X="167" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAhAAAAAAAAgAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>participants_list.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.submission" Collapsed="true">
-    <Position X="14.5" Y="6.5" Width="1.5" />
+  <Class Name="CMS.submission">
+    <Position X="146.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAgAQCAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAgA=</HashCode>
       <FileName>submission.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.suser" Collapsed="true">
-    <Position X="16.25" Y="6.5" Width="1.5" />
+  <Class Name="CMS.suser">
+    <Position X="169.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgIAAAABAAAAAAAAAAAAAAEAAAAAAAAAEAAAAA=</HashCode>
       <FileName>suser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.suser1" Collapsed="true">
-    <Position X="0.5" Y="7.5" Width="1.5" />
+  <Class Name="CMS.suser1">
+    <Position X="9.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAgAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>suser1.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.tbladmin" Collapsed="true">
-    <Position X="2.25" Y="7.5" Width="1.5" />
+  <Class Name="CMS.tbladmin">
+    <Position X="25.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAgA=</HashCode>
       <FileName>tbladmin.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.tblConference" Collapsed="true">
-    <Position X="4" Y="7.5" Width="1.5" />
+  <Class Name="CMS.tblConference">
+    <Position X="47.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAgAAIAAAAICJAIAACAAAAAEEAQACAABAAAAAAwA=</HashCode>
       <FileName>tblConference.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.tblconversation" Collapsed="true">
-    <Position X="5.75" Y="7.5" Width="1.5" />
+  <Class Name="CMS.tblconversation">
+    <Position X="61.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAACAAAAAAAAIIAAAAAEAAAAA=</HashCode>
       <FileName>tblconversation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.tblsession" Collapsed="true">
-    <Position X="7.5" Y="7.5" Width="1.5" />
+  <Class Name="CMS.tblsession">
+    <Position X="77" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAQCAAAACAAAAAAAAAAAAAAAAIAgAAAAAAEgA=</HashCode>
       <FileName>tblsession.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.tbluser" Collapsed="true">
-    <Position X="9.25" Y="7.5" Width="1.5" />
+  <Class Name="CMS.tbluser">
+    <Position X="97.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAxAAgACgABAAAEAAACAAAAQgAAAwA=</HashCode>
       <FileName>tbluser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CMS.Controllers.DashBoardController" Collapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+    <Position X="182.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CRyiEFDhEEKAAJAguCEwAgAYAhwQAAAQSEECCAFwjQI=</HashCode>
       <FileName>Controllers\DashBoardController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CMS.Controllers.HomeController" Collapsed="true">
-    <Position X="7.5" Y="4.5" Width="1.5" />
+    <Position X="180.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CKAAIgABAACAwACAkkAAAAAIcAQgECAAAAFAAgAgFAA=</HashCode>
       <FileName>Controllers\HomeController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Auto_Gen" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.Auto_Gen">
+    <Position X="27.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Models\Auto_Gen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.ConfeenceAcceptedPapersModel" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.ConfeenceAcceptedPapersModel">
+    <Position X="50" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgQAABAABAIAAAAAAAgAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\ConfeenceAcceptedPapersModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.ConferenceDetaillsModel" Collapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.ConferenceDetaillsModel">
+    <Position X="63.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAABAAAAAECAAIAACAAAAAEEAAACAAAgAAAAAgA=</HashCode>
       <FileName>Models\ConferenceDetaillsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferenceExtraEvents" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferenceExtraEvents">
+    <Position X="79.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAQAABAAAAAAAAAAAAAAAEoAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferenceExtraEvents.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferencePHDSymposium" Collapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferencePHDSymposium">
+    <Position X="99.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAQAABAAAAAAAAAAAAAAAEoAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferencePHDSymposium.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferenceSession" Collapsed="true">
-    <Position X="11" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferenceSession">
+    <Position X="113" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAwQAABAACAAAACAAAAkAAEIAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferenceSession.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferenceTutorialsViewModel" Collapsed="true">
-    <Position X="12.75" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferenceTutorialsViewModel">
+    <Position X="128.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABABgQAABAAAAIAAAAAAAgAAEIAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferenceTutorialsViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferenceUsersViewModel" Collapsed="true">
-    <Position X="14.5" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferenceUsersViewModel">
+    <Position X="149" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAABAAAAAAAAAAAAgAAEIAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferenceUsersViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.conferenceWorshopsViewModel" Collapsed="true">
-    <Position X="16.25" Y="1.5" Width="1.5" />
+  <Class Name="CMS.Models.conferenceWorshopsViewModel">
+    <Position X="171.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABABgQAABAAAAIAAAAAAAgAAEIAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\conferenceWorshopsViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.create" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.create">
+    <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAQA=</HashCode>
       <FileName>Models\create.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.DashBoard" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.DashBoard">
+    <Position X="29.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAABAAAAAAACAAAAACAAAAAAEAAACAAAAAAAAAgA=</HashCode>
       <FileName>Models\DashBoard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.del_ExtraEvent" Collapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.del_ExtraEvent">
+    <Position X="81.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAEAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\del_ExtraEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.del_PHDSymposium" Collapsed="true">
-    <Position X="9.25" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.del_PHDSymposium">
+    <Position X="101.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAQAAAAAAAEBAAAAAAAAAAAA=</HashCode>
       <FileName>Models\del_PHDSymposium.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.del_Sessions" Collapsed="true">
-    <Position X="11" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.del_Sessions">
+    <Position X="115.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAIAAAAAQAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\del_Sessions.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.del_Tutorials" Collapsed="true">
-    <Position X="12.75" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.del_Tutorials">
+    <Position X="131" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAAAAAAAAAgBAAAAQAAAAAAAAAAAAEAAAgAAAA=</HashCode>
       <FileName>Models\del_Tutorials.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.del_WorkshopModel" Collapsed="true">
-    <Position X="14.5" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.del_WorkshopModel">
+    <Position X="151.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Models\del_WorkshopModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_confAgenda" Collapsed="true">
-    <Position X="16.25" Y="2.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_confAgenda">
+    <Position X="173.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAAAAAACAAIAACAAABAEEAQACAABAAIAACAA=</HashCode>
       <FileName>Models\edit_confAgenda.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_confDate" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_confDate">
+    <Position X="14" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAIAAAACAAIAACAAABAEEAQACAABAAAAACAA=</HashCode>
       <FileName>Models\edit_confDate.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_confLink" Collapsed="true">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_confLink">
+    <Position X="18.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAAAAAACAAIAACAAABAEEAQACAABAAAAACAA=</HashCode>
       <FileName>Models\edit_confLink.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_confName" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_confName">
+    <Position X="52.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAAAAAACAAIAgCAAABAEEAQACAABAAAAACAA=</HashCode>
       <FileName>Models\edit_confName.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_confVenue" Collapsed="true">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_confVenue">
+    <Position X="65.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAAAAAACAAIAACAAABAEEAQADAABAAAAACAA=</HashCode>
       <FileName>Models\edit_confVenue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_ExtraEvent" Collapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_ExtraEvent">
+    <Position X="83.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAAQAAAAAAABAAAAAAgAAAAgAAgAAEAAgAAAAA=</HashCode>
       <FileName>Models\edit_ExtraEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_Full" Collapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_Full">
+    <Position X="104" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABACAgAAAAAAAACAAIAACAAABAEEAQACAABAAAAACAA=</HashCode>
       <FileName>Models\edit_Full.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_PHDSymposium" Collapsed="true">
-    <Position X="11" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_PHDSymposium">
+    <Position X="117.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAAQAAAAAAABAAAAAAAAAAAgABgAAEAAgAAAAA=</HashCode>
       <FileName>Models\edit_PHDSymposium.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_Sessions" Collapsed="true">
-    <Position X="12.75" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_Sessions">
+    <Position X="133.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAQQBAAAACgBAACAAAAEBAgIAAAAAEAAAAAAAA=</HashCode>
       <FileName>Models\edit_Sessions.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_Tutorials" Collapsed="true">
-    <Position X="14.5" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_Tutorials">
+    <Position X="153.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QBgCBABAQAAAAAAgBAAAAAAAEAAAgAAAAAEAAgAAAAA=</HashCode>
       <FileName>Models\edit_Tutorials.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.edit_Workshop" Collapsed="true">
-    <Position X="16.25" Y="3.5" Width="1.5" />
+  <Class Name="CMS.Models.edit_Workshop">
+    <Position X="176" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAgCBAFAQAAAAAAABAAAAAAAEAAAkAAAAAEAAgAAAAA=</HashCode>
       <FileName>Models\edit_Workshop.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Extra_Event" Collapsed="true">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.Extra_Event">
+    <Position X="32" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAgQAABAAAAJAAAAAAAgAAAIAgAAAEAAAAAAAA=</HashCode>
       <FileName>Models\Extra_Event.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.ForgotPassword" Collapsed="true">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.ForgotPassword">
+    <Position X="68" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Models\ForgotPassword.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.HomeViewModel" Collapsed="true">
-    <Position X="9.25" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.HomeViewModel">
+    <Position X="106.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wIgCAAAggACAkIAZEAQABABgkEAFAAEBkiECAwAHBQA=</HashCode>
       <FileName>Models\HomeViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Invited_Speaker" Collapsed="true">
-    <Position X="11" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.Invited_Speaker">
+    <Position X="119.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAEAAAEACAA=</HashCode>
       <FileName>Models\Invited_Speaker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.ListofParticipant" Collapsed="true">
-    <Position X="12.75" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.ListofParticipant">
+    <Position X="135.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAgAAAAAAAAAAAAAAAAAABAAAAAAAAAEAAAAACQA=</HashCode>
       <FileName>Models\ListofParticipant.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.mapModel" Collapsed="true">
-    <Position X="14.5" Y="4.5" Width="1.5" />
+  <Class Name="CMS.Models.mapModel">
+    <Position X="155.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\mapModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.myEventsModel" Collapsed="true">
-    <Position X="2.25" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.myEventsModel">
+    <Position X="34.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QIAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\myEventsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.MyMailModel" Collapsed="true">
-    <Position X="4" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.MyMailModel">
+    <Position X="54.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIABAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\MyMailModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.MyprofileModel" Collapsed="true">
-    <Position X="5.75" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.MyprofileModel">
+    <Position X="70.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAoAAAIAAAhAAAACAAAAAAEAAgCAAIAAgAAAAA=</HashCode>
       <FileName>Models\MyprofileModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.organizeModel" Collapsed="true">
-    <Position X="7.5" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.organizeModel">
+    <Position X="86" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAACIAIAACAAAAAEEAAgCAAEABAAAQQA=</HashCode>
       <FileName>Models\organizeModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.organizingEventsModel" Collapsed="true">
-    <Position X="12.75" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.organizingEventsModel">
+    <Position X="137.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Models\organizingEventsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.OrganizingModel" Collapsed="true">
-    <Position X="14.5" Y="5.5" Width="1.5" />
+  <Class Name="CMS.Models.OrganizingModel">
+    <Position X="158" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\OrganizingModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.PHD_Symposium" Collapsed="true">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.PHD_Symposium">
+    <Position X="16.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAwQAABAACAJAACAAAAkAAAIAgAAAEAAAAAAAA=</HashCode>
       <FileName>Models\PHD_Symposium.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.profile" Collapsed="true">
-    <Position X="2.25" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.profile">
+    <Position X="36.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACQA=</HashCode>
       <FileName>Models\profile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Search_User_Model" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.Search_User_Model">
+    <Position X="72.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAQA=</HashCode>
       <FileName>Models\Search_User_Model.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Send_email" Collapsed="true">
-    <Position X="7.5" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.Send_email">
+    <Position X="88.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Send_email.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.Sessions" Collapsed="true">
-    <Position X="9.25" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.Sessions">
+    <Position X="108.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAwQAABAACABAACAAAAkAAAIAgAAAEAAAAAAAA=</HashCode>
       <FileName>Models\Sessions.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.SignInModel" Collapsed="true">
-    <Position X="11" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.SignInModel">
+    <Position X="122" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAAAAAAAQiA=</HashCode>
       <FileName>Models\SignInModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.signupModel" Collapsed="true">
-    <Position X="12.75" Y="6.5" Width="1.5" />
+  <Class Name="CMS.Models.signupModel">
+    <Position X="140" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAhAAgACAAAAAAEBAgCAAAAQgAAAAA=</HashCode>
       <FileName>Models\signupModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.TutorialsModel" Collapsed="true">
-    <Position X="11" Y="7.5" Width="1.5" />
+  <Class Name="CMS.Models.TutorialsModel">
+    <Position X="124.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAABABgYAABAAAAJAAAAAAAgAAAAAgAAAEAAAEAAAg=</HashCode>
       <FileName>Models\TutorialsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.unautheticatedEventsModel" Collapsed="true">
-    <Position X="12.75" Y="7.5" Width="1.5" />
+  <Class Name="CMS.Models.unautheticatedEventsModel">
+    <Position X="142.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\unautheticatedEventsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.UserListMdel" Collapsed="true">
-    <Position X="14.5" Y="7.5" Width="1.5" />
+  <Class Name="CMS.Models.UserListMdel">
+    <Position X="160.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>YAQAAAAAAAAAAAAgBAAAAgAAAAAAAAAAAAEAAAAACwA=</HashCode>
       <FileName>Models\UserListMdel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CMS.Models.userProfile" Collapsed="true">
-    <Position X="16.25" Y="7.5" Width="1.5" />
+  <Class Name="CMS.Models.userProfile">
+    <Position X="178.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAgACAAAAAIEAACIAAAAQAAAAQA=</HashCode>
       <FileName>Models\userProfile.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="89.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
