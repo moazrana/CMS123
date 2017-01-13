@@ -1,11 +1,14 @@
 ﻿@model CMS.Models.organizingEventsModel
 @{
-    ViewBag.Title = "OraganizingEevents";
+    ViewBag.Title = "Conference Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.action = "my_events";
+    
 }
 
 
 
-
+@*
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +53,7 @@
                     <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
 
                 </ul>                <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -100,6 +103,20 @@
     </table>
 
 
-    @*@Html.ActionLink(con.name, "abc", new { id = con.conference })*@
+    @Html.ActionLink(con.name, "abc", new { id = con.conference })
 </body>
-</html>
+</html>*@
+
+<h1 class="text-center">My Events</h1>
+<h2 class="text-center">Click below on any conference to see its DashBoard</h2>
+
+<table class="table table-bordered table-hover table-striped table-responsive">
+
+    @foreach (var con in Model.organizingevents)
+    {
+        <tr>
+            <td>@Html.ActionLink(con.name, "abc", new { id = con.conference })</td>
+
+        </tr>
+    }
+</table>

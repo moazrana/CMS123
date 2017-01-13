@@ -1,6 +1,9 @@
 ﻿@model CMS.Models.ConfeenceAcceptedPapersModel
 @{
-    ViewBag.Title = "ConferenceAcceptedPapers";
+    ViewBag.Title = "Conference Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "conference";
+    ViewBag.action = "search";
 }
 
 
@@ -8,7 +11,7 @@
 @foreach(var paper in Model.papers){
     <li>@paper.title</li>
 }
-</ul>*@
+</ul>
 
 
 
@@ -55,10 +58,10 @@
                     <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
                     <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
 
                 </ul>                <ul class="nav navbar-nav navbar-right">
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <li>
                         @if (Session["id"].Equals(0))
                         {
@@ -133,9 +136,9 @@
                     }
 
 
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+                   @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
                         @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
 
 
                 </table>
@@ -168,4 +171,50 @@
         });
     </script>
 </body>
-</html>
+</html>*@
+
+@{Html.RenderPartial("~/Views/Shared/partialDetails.cshtml");}
+
+
+<div class="col-sm-10 blog-content">
+
+
+
+    <div class="col-sm-10 text-left">
+        <h1 class="text-center">Conference Accepted Papers</h1>
+
+        <dl class="dl-horizontal">
+
+
+            <table class="table table-bordered table-style">
+                <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                </tr>
+                @foreach (var ws in Model.papers)
+                {
+
+
+                    <tr>
+                        <td>@ws.title</td>
+                        <td>@ws.discription</td>
+                    </tr>
+
+                }
+
+            </table>
+
+
+
+
+
+        </dl>
+
+    </div>
+
+</div>
+    </div>
+</div>
+
+
+

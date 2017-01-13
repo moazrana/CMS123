@@ -1,0 +1,43 @@
+﻿
+<div class="blog">
+    <div class="blog-item">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="entry-meta">
+                    @*<span id="publish_date"><a>Wall of Conferenc</a></span>*@
+                    <span id="abc"><a>@Html.ActionLink("DashBoard", "DashBoard", new { conf_id = @Model.j })</a></span>
+                    <span id="publish_date"><a>Manage Basics</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Change Name ", "Edit_Info", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Change Venue", "Edit_Info", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Change Date", "Edit_Info", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Update Agenda", "Edit_Info", new { id =@Model.j })</a></span>
+                </div>
+                <div class="entry-meta">
+                    @*<span id="publish_date"><a>Wall of Conferenc</a></span>*@
+                    <span id="publish_date"><a>Manage Guests</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Add Organizers", "add_organizers", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Invite People", "UserList", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("List of Participants", "ListofParticipant", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id =@Model.j })</a></span>
+                </div>
+                <div class="entry-meta">
+                    @*<span id="publish_date"><a>Wall of Conferenc</a></span>*@
+                    <span id="publish_date"><a>Manage Sessions</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Sessions", "Sessions", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Workshop", "Workshop", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Tutorials", "Tutorials", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Extra Events", "Extra_Events", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id =@Model.j })</a></span>
+                </div>
+                <div class="entry-meta">
+                    @*<span id="publish_date"><a>Wall of Conferenc</a></span>*@
+                    <span id="publish_date"><a>Manage Papers</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Submission Link", "Edit_Info", new { id =@Model.j })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id =@Model.j })</a></span>
+                </div>
+            </div>
+
+
+
+
+

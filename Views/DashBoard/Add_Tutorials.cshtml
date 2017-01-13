@@ -1,598 +1,68 @@
 ﻿@model CMS.Models.TutorialsModel
 @{
-    ViewBag.Title = "AddWorkshop";
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "dashboard";
+    ViewBag.action = "my_events";  
 }
 
 
-@*<html>
-    <head>
-        <link rel="stylesheet" href="~/CSS/Main.css">
-        <title>Conference Mangement System</title>
-    </head>
+@{Html.RenderPartial("~/Views/Shared/partialDashBoard-j.cshtml");}
 
-    <body>
-        <header>
-            <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-            <img id="cms-logo" src="~/Pics/cms logo.png">
-        </header>
-        <nav id="nav-properties">
-            <ul>
-                <li>@Html.ActionLink("Home", "Home")</li>
-                <li>@Html.ActionLink("SearchforConferences", "Searching")</li>
-                <li>@Html.ActionLink("Create-an-event", "organize")</li>
-                <li>@Html.ActionLink("My-Events", "Events")</li>
-                <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-                <li>@Html.ActionLink("About", "About")</li>
-                <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-                <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-            </ul>
-        </nav>
+<div class="col-sm-10 blog-content">
 
-        <div class="margin"></div>
-        <section>
-            <center style="margin-top:-22px;"><h1 style="background-color:rgb(215,215,215);padding:10px;">Add Workshops</h1></center>
-            <aside>
-                <div>
-                    <h4>Manage basics</h4>
-                    <li>@Html.ActionLink("Change name of conference", "organize", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Change Venue", "organize", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Change date", "organize", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Update Agenda", "organize", new { id = @Model.j })</li>
-                </div>
-            </aside><br>
-            <aside>
-                <div>
-                    <h4>Manage Guests</h4>
-                    <li>@Html.ActionLink("Invite People", "Auto_Gen", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("List of Invited Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
-                </div>
-            </aside><br>
-            <aside>
-                <div>
-                    <h4>Manage Sessions</h4>
-                    <li>@Html.ActionLink("Add/Remove Sessions", "Sessions", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Workshop", "Workshop", new { id=@Model.j})</li>
-                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
-                </div>
-            </aside><br>
-            <aside>
-                <div>
-                    <h4>Manage Papers</h4>
-                    <li>@Html.ActionLink("Change Submission link", "")</li>
-                    <li>@Html.ActionLink("Update List of Accepted Papers", "Accepted_Paper", new { id = @Model.j })</li>
-    </div>
-            </aside>
+    <div class="col-sm-10 text-left">
 
-            <div id="leftDashBoard">
-                <div class="login">
-                    <table>
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
+        <h1 class="text-center">Add Tutorial</h1>
 
-                            <tr>
-                                <td>
-                                    <label for="title">Title</label>
-                                </td>
-                                <td>
-                                    <input id="title" type="text" name="title" maxlength="50" size="30">
-                                </td>
-                            </tr>
+        @using (Html.BeginForm("Add_Tutorials", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
-
-
-                            <tr>
-                                <td>
-                                    <label for="discription">Description</label>
-                                </td>
-                                <td>
-                                    <textarea id="discription" name="dis" maxlength="1000" cols="47" rows="6"></textarea>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="text-align:center;">
-                                     We are grateful to you for keeping this link in place. thank you.
-                                    <input id="Submit1" type="submit" value="submit" />
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-            </div>
-        </section>
-    </body>
-    </html>*@
-
-
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
-
-</head>
-
-<body>
-
-
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-
-
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                    </li>
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-
-
-            </div>
-        </div>
-    </nav>
-
-
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Add Tutorials </h1></center>
-
-
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div id="lists">
-                <div class="col-lg-2 side">
-
-                    <h4><b>Manage Basics</b></h4>
-                    <li>@Html.ActionLink("Change Name ", "Edit_Info", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.j })</li>
-                    <br>
-                    <hr>
-
-                    <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
-
-                    <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
-                    <br>
-                    <hr>
-                    <h4><b>Manage Sessions</b></h4>
-                    <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
-                    <br>
-                    <hr>
-
-                    <h4><b>Manage Papers</b></h4>
-                    <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.j })</li>
-                    <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
-                    </div>
-                </div>
-
-                <div class="col-sm-10 text-left">
-
-
-                    @using (Html.BeginForm("Add_Tutorials", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Title</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="title" class="form-control">
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Description</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="dis" class="form-control">
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Speakers</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="speakers" class="form-control">
-                            </div>
-                            <p>Note: Enter the emails of speakers and seperate them with comas donot use and</p>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Organizers</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="organizers" class="form-control">
-                            </div>
-                            <p>Note: Enter the emails of organizers and seperate them with comas donot use and</p>
-                        </div>
-
-                        <div class="text-center">
-                            <input type="submit" value="Submit">
-                        </div>
-
-                    }
-
-
-
+            <div class="form-group">
+                <label class="control-label col-md-4">Title</label>
+                <div class="col-md-4">
+                    <input type="text" name="title" class="form-control">
 
                 </div>
-
-
             </div>
 
-    </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">Description</label>
+                <div class="col-md-4">
+                    <input type="text" name="dis" class="form-control">
 
-
-
-</body>
-</html>*@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <title>Conference Management System</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="~/CSS/assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-   
-
-    <!-- Custom styles for this template -->
-    <link href="~/CSS/assets/css/style.css" rel="stylesheet">
-    
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-
-    <script src="~/CSS/assets/js/chart-master/Chart.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-    <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-
-    <nav class="nav navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                </ul>
-
-
+            <div class="form-group">
+                <label class="control-label col-md-4">Speakers</label>
+                <div class="col-md-4">
+                    <input type="text" name="speakers" class="form-control">
+                    <span class="form_hint">Note:Write Emails and use Coma Seperater</span>
+                </div>
+                @*<p>Note: Enter the emails of speakers and seperate them with comas donot use and</p>*@
             </div>
-        </div>
-    </nav>
 
-
-    <section id="container">
-        <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-        <!--header start-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-        <!--sidebar start-->
-        <div>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu" id="nav-accordion">
-
-                    <p class="centered"><a href="profile.html"><img src="~/Pics/cms%20logo.png"  width="60"></a></p>
-                    <h5 class="centered">CMS</h5>
-
-                    <li class="mt">
-                        <a class="active" @*href="~/Views/DashBoard/DashBoard.cshtml"*@ href='@Url.Action("DashBoard", "DashBoard", new { conf_id = @Model.j })'>
-                            <i class="fa fa-dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-desktop"></i>
-                            <span>Manage Basic</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="general.html">Edit Name</a></li>
-                                <li><a href="buttons.html">Edit Date</a></li>
-                                <li><a href="panels.html">Edit Venue</a></li>
-                                <li><a href="panels.html">Edit Agenda</a></li>*@
-                            <li>@Html.ActionLink("Edit name ", "Edit_Info", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Edit Venue", "Edit_Info", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Edit Date", "Edit_Info", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Edit Agenda", "Edit_Info", new { id = @Model.j })</li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Manage Guests</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="calendar.html">Add Organizers</a></li>
-                                <li><a href="gallery.html">Invite People</a></li>
-                                <li><a href="todo_list.html">List of Participants</a></li>
-                                <li><a href="todo_list.html">List of Speakers</a></li>*@
-                            <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.j })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Manage Sessions</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="blank.html">Sessions</a></li>
-                                <li><a href="login.html">Workshops</a></li>
-                                <li><a href="lock_screen.html">Tutorials</a></li>
-                                <li><a href="lock_screen.html">Extra Events</a></li>
-                                <li><a href="lock_screen.html">PHD Symposiums</a></li>*@
-                            <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.j })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
-                            <span>Manage Papers</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="form_component.html">Submission Links</a></li>
-                                <li><a href="lock_screen.html">Accepted Papers</a></li>*@
-                            <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.j })</li>
-                            <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.j })</li>
-
-                        </ul>
-                    </li>
-                </ul>
-                <!-- sidebar menu end-->
+            <div class="form-group">
+                <label class="control-label col-md-4">Organizers</label>
+                <div class="col-md-4">
+                    <input type="text" name="organizers" class="form-control">
+                    <span class="form_hint">Note:Write Emails and use Coma Seperater</span>
+                </div>
+                @*<p>Note: Enter the emails of organizers and seperate them with comas donot use and</p>*@
             </div>
-        </div>
-        <!--sidebar end-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-        <!--main content start-->
-        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px; color:black"><strong style="color:black">Tutorials</strong> </h1></center>
-        <section id="main-content">
-            <section class="wrapper">
-
-                <div class="row">
-                    <div class="col-lg-9 main-chart">
-                        @using (Html.BeginForm("Add_Tutorials", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
-
-    <div class="form-group">
-        <label class="control-label col-md-4">Title</label>
-        <div class="form-group input-group col-md-4">
-            <input type="text" name="title" class="form-control">
-
-        </div>
-    </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Description</label>
-                                <div class="form-group input-group col-md-4">
-                                    <input type="text" name="dis" class="form-control">
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Speakers</label>
-                                <div class="form-group input-group col-md-4">
-                                    <input type="text" name="speakers" class="form-control">
-                                    <span>Note: Enter the emails of organizers and seperate them with comas donot use </span>
-                                </div>
-                                @*<p>Note: Enter the emails of speakers and seperate them with comas donot use and</p>*@
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Organizers</label>
-                                <div class="form-group input-group col-md-4">
-                                    <input type="text" name="organizers" class="form-control">
-                                    <span>Note: Enter the emails of organizers and seperate them with comas donot use </span>
-                                </div>
-                                @*<p>Note: Enter the emails of organizers and seperate them with comas donot use and</p>*@
-                            </div>
-
-                            <div class="text-center">
-                                <input type="submit" value="Submit">
-                            </div>
-
-                        }
 
 
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
 
-
-                    </div>
-
-
-
-                </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                <!-- **********************************************************************************************************************************************************
-                RIGHT SIDEBAR CONTENT
-                *********************************************************************************************************************************************************** -->
-                <div class="row">
-
-
-
-                </div><! --/row -->
-            </section>
-        </section>
-
-        <!--main content end-->
-        
-    </section>
-
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="~/CSS/assets/js/jquery.js"></script>
-    <script src="~/CSS/assets/js/jquery-1.8.3.min.js"></script>
-    <script src="~/CSS/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="~/CSS/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="~/CSS/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="~/CSS/assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="~/CSS/assets/js/common-scripts.js"></script>
-
-    <script type="text/javascript" src="~/CSS/assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="~/CSS/assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="~/CSS/assets/js/sparkline-chart.js"></script>
-    <script src="~/CSS/assets/js/zabuto_calendar.js"></script>
-
-
-    <script>
-
-        $(document).ready(function () {
-            $("#date-popover").popover({ html: true, trigger: "manual" });
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-
-            });
-        });
-
-
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
-    </script>
+    </div>
 
-
-</body>
-</html>
+</div>
+    </div>
+    </div>
+    </div>

@@ -1,392 +1,156 @@
 ﻿@model CMS.Models.UserListMdel
 @{
-    ViewBag.Title = "UserList";
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "dashboard";
+    ViewBag.action = "my_events";  
 }
+
 
 @*<h2>UserList</h2>
-@using (Html.BeginForm("UserList", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.Raw(ViewBag.Error);
-    <table>
-        <tr>
-            <td>Upload Excel file:</td>
-            <td><input type="file" name="list" /></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td><input type="text" name="email" /></td>
-            <td><input type="submit" value="Invite" /></td>
-        </tr>
-    </table>
-}
-@foreach (var user in Model.users)
-{
+    @using (Html.BeginForm("UserList", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Raw(ViewBag.Error);
+        <table>
+            <tr>
+                <td>Upload Excel file:</td>
+                <td><input type="file" name="list" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email" /></td>
+                <td><input type="submit" value="Invite" /></td>
+            </tr>
+        </table>
+    }
+    @foreach (var user in Model.users)
+    {
 
-    <h5>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</h5>
+        <h5>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</h5>
 
-}*@
+    }*@
 
 
 
 
 @*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conference Management System</title>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+        <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 
-</head>
+    </head>
 
-<body>
-
-
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
+    <body>
 
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <header class="header">
+            <h1 style="text-align: center">Conference Management System</h1>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
 
 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-default">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index")</li>
+                        <li>@Html.ActionLink("Search-Event", "Search")</li>
+                        <li>@Html.ActionLink("Create-Event", "organize")</li>
+                        <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                        <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
+                        @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+
+                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+
+                                @Html.ActionLink("Signin", "sign")}
+                            else
+                            {
+                                @Html.ActionLink(Session["email"].ToString(), "sign")
+
+                            }
+                        </li>
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+                                @Html.ActionLink("Signup", "signup")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Signout", "signup")
+                            }
+                        </li>
+
+                        @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+
+
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-
-                </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                    </li>
-
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+        </nav>
 
 
-            </div>
-        </div>
-    </nav>
+        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">User List and Send Emails</h1></center>
 
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div id="lists">
+                    <div class="col-lg-2 side">
 
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">User List and Send Emails</h1></center>
+                        <h4><b>Manage Basics</b></h4>
+                        <li>@Html.ActionLink("Change Name", "Edit_Info", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.conference_id })</li>
+                        <br>
+                        <hr>
 
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div id="lists">
-                <div class="col-lg-2 side">
+                        <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
 
-                    <h4><b>Manage Basics</b></h4>
-                    <li>@Html.ActionLink("Change Name", "Edit_Info", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.conference_id })</li>
-                    <br>
-                    <hr>
+                        <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.conference_id })</li>
+                        <br>
+                        <hr>
+                        <h4><b>Manage Sessions</b></h4>
+                        <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.conference_id })</li>
+                        <br>
+                        <hr>
 
-                    <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
-
-                    <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("List of Speakers", "InvitedSpeaker", new { id = @Model.conference_id })</li>
-                    <br>
-                    <hr>
-                    <h4><b>Manage Sessions</b></h4>
-                    <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.conference_id })</li>
-                    <br>
-                    <hr>
-
-                    <h4><b>Manage Papers</b></h4>
-                    <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.conference_id })</li>
-                    <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.conference_id })</li>
+                        <h4><b>Manage Papers</b></h4>
+                        <li>@Html.ActionLink("Submission link", "Edit_Info", new { id = @Model.conference_id })</li>
+                        <li>@Html.ActionLink("Accepted Papers", "AcceptedPapers", new { id = @Model.conference_id })</li>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="col-sm-10 text-left">
-                    @using (Html.BeginForm("UserList", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        @Html.Raw(ViewBag.Error);
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Upload Excel Files to send Email to Users</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="file" name="list" class="form-control">
-                                Note: File must contain "Email" heading. (.csv file not suppoted).
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Email:</label>
-                            <div class="form-group input-group col-md-4">
-                                <input type="text" name="email" class="form-control">
-
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <input type="submit" value="Invite">
-                        </div>
-                    }
-
-                    <table class="tab4">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-
-                        </tr>
-                        @foreach (var user in Model.users)
-                        {
-                            <tr>
-                                <td>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
-                                <td>@Html.ActionLink(user.email, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
-
-                            </tr>
-                        }
-                    </table>
-                </div>
-            </div>
-    </div>
-</body>
-</html>*@
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <title>Conference Management System</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="~/CSS/assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/lineicons/style.css">
-
-    <!-- Custom styles for this template -->
-    <link href="~/CSS/assets/css/style.css" rel="stylesheet">
-    <link href="~/CSS/assets/css/style-responsive.css" rel="stylesheet">
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-
-    <script src="~/CSS/assets/js/chart-master/Chart.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-    <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-
-    <nav class="nav navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                </ul>
-
-
-            </div>
-        </div>
-    </nav>
-
-
-    <section id="container">
-        <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-        <!--header start-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-        <!--sidebar start-->
-        <div>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu" id="nav-accordion">
-
-                    <p class="centered"><a href="profile.html"><img src="~/Pics/cms%20logo.png" width="60"></a></p>
-                    <h5 class="centered">CMS</h5>
-
-                    <li class="mt">
-                        <a class="active" @*href="~/Views/DashBoard/DashBoard.cshtml"*@ href='@Url.Action("DashBoard", "DashBoard", new { conf_id = @Model.conference_id })'>
-                            <i class="fa fa-dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-desktop"></i>
-                            <span>Manage Basic</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="general.html">Edit Name</a></li>
-                                <li><a href="buttons.html">Edit Date</a></li>
-                                <li><a href="panels.html">Edit Venue</a></li>
-                                <li><a href="panels.html">Edit Agenda</a></li>*@
-                            <li>@Html.ActionLink("Change Name", "Edit_Info", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Change Date", "Edit_Info", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.conference_id })</li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Manage Guests</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="calendar.html">Add Organizers</a></li>
-                                <li><a href="gallery.html">Invite People</a></li>
-                                <li><a href="todo_list.html">List of Participants</a></li>
-                                <li><a href="todo_list.html">List of Speakers</a></li>*@
-                            <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.conference_id })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Manage Sessions</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="blank.html">Sessions</a></li>
-                                <li><a href="login.html">Workshops</a></li>
-                                <li><a href="lock_screen.html">Tutorials</a></li>
-                                <li><a href="lock_screen.html">Extra Events</a></li>
-                                <li><a href="lock_screen.html">PHD Symposiums</a></li>*@
-                            <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.conference_id })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
-                            <span>Manage Papers</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="form_component.html">Submission Links</a></li>
-                                <li><a href="lock_screen.html">Accepted Papers</a></li>*@
-                            <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.conference_id })</li>
-                            <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.conference_id })</li>
-
-                        </ul>
-                    </li>
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
-        </div>
-        <!--sidebar end-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-        <!--main content start-->
-        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">User List and Send Emails</h1></center><section id="main-content">
-            <section class="wrapper">
-
-                <div class="row">
-                    <div class="col-lg-9 main-chart">
+                    <div class="col-sm-10 text-left">
                         @using (Html.BeginForm("UserList", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             @Html.Raw(ViewBag.Error);
@@ -394,7 +158,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-4">Upload Excel Files to send Email to Users</label>
                                 <div class="form-group input-group col-md-4">
-                                    <input type="file" name="list">
+                                    <input type="file" name="list" class="form-control">
                                     Note: File must contain "Email" heading. (.csv file not suppoted).
                                 </div>
                             </div>
@@ -412,117 +176,94 @@
                             </div>
                         }
 
-                        
-                        <h2>List of User Present in our List</h2>
-                        <div class="main-box no-header clearfix">
-                            <div class="main-box-body clearfix">
-                                <div class="table-responsive">
-                                    <table class="table user-list">
+                        <table class="tab4">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
 
-                                        <thead>
-                                            <tr>
-                                                <th><span>User</span></th>
-                                                <th><span>Email</span></th>
-                                                <th><span>Research Area</span></th>
+                            </tr>
+                            @foreach (var user in Model.users)
+                            {
+                                <tr>
+                                    <td>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
+                                    <td>@Html.ActionLink(user.email, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
 
-                                                <th>&nbsp;</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var con in Model.users)
-                                            {
-                                                <tr>
-                                                    <td>
-                                                        @Html.ActionLink(con.name, "Add_participant", new { id = con.id, a = @Model.conference_id })
-                                                    </td>
-
-                                                    <td>
-                                                        @Html.ActionLink(con.email, "Add_participant", new { id = con.id, a = @Model.conference_id })
-                                                    </td>
-
-                                                    <td>
-                                                        @*@Html.ActionLink(con.research_area, "UserProfile", new { user_id = con.id })*@
-                                                    </td>
-
-
-                                                </tr>
-                                            }
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
+                                </tr>
+                            }
+                        </table>
                     </div>
+                </div>
+        </div>
+    </body>
+    </html>*@
+
+@{Html.RenderPartial("~/Views/Shared/partialDashBoard-conference.cshtml");}
 
 
-                </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                <!-- **********************************************************************************************************************************************************
-                RIGHT SIDEBAR CONTENT
-                *********************************************************************************************************************************************************** -->
-                <div class="row">
 
 
-
-                </div><! --/row -->
-            </section>
-        </section>
-
-        <!--main content end-->
-    </section>
-
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="~/CSS/assets/js/jquery.js"></script>
-    <script src="~/CSS/assets/js/jquery-1.8.3.min.js"></script>
-    <script src="~/CSS/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="~/CSS/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="~/CSS/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="~/CSS/assets/js/jquery.sparkline.js"></script>
+<div class="col-sm-10 blog-content">
 
 
-    <!--common script for all pages-->
-    <script src="~/CSS/assets/js/common-scripts.js"></script>
-
-    <script type="text/javascript" src="~/CSS/assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="~/CSS/assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="~/CSS/assets/js/sparkline-chart.js"></script>
-    <script src="~/CSS/assets/js/zabuto_calendar.js"></script>
+    <div class="col-sm-10 text-left">
 
 
-    <script>
-
-        $(document).ready(function () {
-            $("#date-popover").popover({ html: true, trigger: "manual" });
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-
-            });
-        });
+        <h1 class="text-center">User List and Send Emails</h1>
 
 
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        @using (Html.BeginForm("UserList", "DashBoard", FormMethod.Post, new { @class = "form-horizontal form-margin" }))
+        {
+
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Upload Excel Files to send Email to Users</label>
+                <div class="col-md-4">
+                    <input type="file" name="list">
+                    Note: File must contain "Email" heading. (.csv file not suppoted).
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Email:</label>
+                <div class="col-md-4">
+                    <input type="text" name="email" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="Invite">
+            </div>
         }
-    </script>
 
 
-</body>
-</html>
+        <h2>List of User Present in our List</h2>
+       
+        <table class="table table-hover table-striped table-bordered table-responsive" align="center">
+            <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Research Area</th>
+            </tr>
+            @foreach (var user in Model.users)
+            {
+                <tr>
+                    <td>@Html.ActionLink(user.name, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
+                    <td>@Html.ActionLink(user.email, "Add_participant", new { id = user.id, a = @Model.conference_id })</td>
+                    <td>@*@Html.ActionLink(con.research_area, "UserProfile", new { user_id = con.id })*@</td>
+                </tr>
+            }
+        </table>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 

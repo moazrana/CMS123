@@ -1,0 +1,21 @@
+﻿
+<div class="blog">
+    <div class="blog-item">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="entry-meta">
+                    @*<span id="publish_date"><a>Wall of Conference </a></span>*@
+                    <span id="publish_date"><a>@Html.ActionLink("Wall of Conference", "ConferenceDetails", new { id = @Model.id }) </a></span>
+                    <span><i class="fa fa-user"></i> <a>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</a></span>
+                    <span><i class="fa fa-user"></i> <a>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</a></span>
+                    <span><i class="fa fa-file-text"></i><a>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</a></span>
+                </div>
+            </div>
+
+
+            

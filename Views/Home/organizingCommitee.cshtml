@@ -1,26 +1,29 @@
 ﻿@model CMS.Models.OrganizingModel
 @{
-    ViewBag.Title = "organizingCommitee";
+    ViewBag.Title = "Conference Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "conference";
+    ViewBag.action = "search";
 }
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conference Management System</title>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+        <link href="nav%20bar.css" rel="stylesheet" type="text/css">
 
-</head>
+    </head>*@
 
-<body>
+@*<body>
 
 
     <header class="header">
@@ -46,100 +49,143 @@
                     <li>@Html.ActionLink("Search-Event", "Search")</li>
                     <li>@Html.ActionLink("Create-Event", "create")</li>
                     <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+                    <li>@Html.ActionLink("Search-User", "Search_User")</li>*@
+@*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
+@*</ul>                <ul class="nav navbar-nav navbar-right">
+    <li>
+        @if (Session["id"].Equals(0))
+        {
 
-                            @Html.ActionLink("Signin", "signIn")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+            @Html.ActionLink("Signin", "signIn")}
+        else
+        {
+            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
 
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signout")
-                        }
-                    </li>
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
-                </ul>
+        }
+    </li>
+    <li>
+        @if (Session["id"].Equals(0))
+        {
+            @Html.ActionLink("Signup", "signup")
+        }
+        else
+        {
+            @Html.ActionLink("Signout", "signout")
+        }
+    </li>*@
+@*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+@*</ul>
 
 
             </div>
         </div>
-    </nav>
+    </nav>*@
 
 
-    <div id="Conf_label" align="center">
+@*<div id="Conf_label" align="center">
         <label>Organizing Committee</label>
-    </div>
+    </div>*@
 
+@*<div class="container">
 
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div class="col-sm-2 sidenav">
+            <h1>Organizing Committee</h1>
 
-                <h4><b>Wall of Conference</b></h4>
-
-                <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
-                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
-                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
-                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
-                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
-                <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
-                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
-
-
-            </div>
-
-            <div class="col-sm-10 text-left">
-
-
-                <ul>
-                    @foreach (var u in Model.organizers)
-                    {
-                        <li>@Html.ActionLink(@u.name, "UserProfile", new { user_id = @u.user_id })</li>
-                    }
-                </ul>
-
-
-
-
-            </div>
 
 
         </div>
 
+
+    @*<div class="container-fluid text-center">
+        <div class="row">*@
+@*<div class="col-sm-2 sidenav">
+
+                    <h4><b>Wall of Conference</b></h4>
+
+                    <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
+                    <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
+                    <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
+                    <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
+                    <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
+                    <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+
+
+                </div>
+
+                <div class="col-sm-10 text-left">
+
+
+                    <ul>
+                        @foreach (var u in Model.organizers)
+                        {
+                            <li>@Html.ActionLink(@u.name, "UserProfile", new { user_id = @u.user_id })</li>
+                        }
+                    </ul>
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+
+                $(window).scroll(function () {
+                    //if you hard code, then use console
+                    //.log to determine when you want the
+                    //nav bar to stick.
+                    console.log($(window).scrollTop())
+                    if ($(window).scrollTop() > 280) {
+                        $('#label_bar').addClass('label-fixed');
+                    }
+                    if ($(window).scrollTop() < 281) {
+                        $('#label_bar').removeClass('label-fixed');
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>*@
+
+
+
+
+@{Html.RenderPartial("~/Views/Shared/partialDetails.cshtml");}
+
+
+<div class="col-sm-10 blog-content">
+
+
+
+    <div class="col-sm-10 text-left">
+        <h1 class="text-center">Organizing Committee</h1>
+
+        <dl class="dl-horizontal">
+            
+
+            <ul
+                @foreach (var u in Model.organizers)
+                {
+                    <li>@Html.ActionLink(@u.name, "UserProfile", new { user_id = @u.user_id })</li>
+                }
+            </ul>
+
+
+        </dl>
+
     </div>
 
+</div>
+    </div>
+</div>
 
-    <script>
-        $(document).ready(function () {
 
-            $(window).scroll(function () {
-                //if you hard code, then use console
-                //.log to determine when you want the
-                //nav bar to stick.
-                console.log($(window).scrollTop())
-                if ($(window).scrollTop() > 280) {
-                    $('#label_bar').addClass('label-fixed');
-                }
-                if ($(window).scrollTop() < 281) {
-                    $('#label_bar').removeClass('label-fixed');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+

@@ -1,7 +1,12 @@
 ﻿@model CMS.Models.DashBoard
 @{
     ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "dashboard";
+    ViewBag.action = "my_events";
 }
+
+
 
 
 @*<html>
@@ -103,686 +108,758 @@
 
 
 @*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conference Management System</title>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-
-
-</head>
-
-<body>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
 
 
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
+    </head>
+
+    <body>
 
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <header class="header">
+            <h1 style="text-align: center">Conference Management System</h1>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
 
 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-default">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index")</li>
+                        <li>@Html.ActionLink("Search-Event", "Search")</li>
+                        <li>@Html.ActionLink("Create-Event", "organize")</li>
+                        <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                        <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
+                        @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+
+                    </ul>                <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+
+                                @Html.ActionLink("Signin", "sign")}
+                            else
+                            {
+                                @Html.ActionLink(Session["email"].ToString(), "sign")
+
+                            }
+                        </li>
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+                                @Html.ActionLink("Signup", "signup")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Signout", "signup")
+                            }
+                        </li>
+                        @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+
+
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
-
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                    </li>
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+        </nav>
 
 
-            </div>
-        </div>
-    </nav>
+        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">DashBoard</h1></center>
 
 
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">DashBoard</h1></center>
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-lg-2 side">
 
+                    <h4><b>Manage Basics</b></h4>
+                    <li>@Html.ActionLink("Change name ", "Edit_Info", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.id })</li>
 
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div class="col-lg-2 side">
+                    <br>
+                    <hr>
 
-                <h4><b>Manage Basics</b></h4>
-                <li>@Html.ActionLink("Change name ", "Edit_Info", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Change Venue", "Edit_Info", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Change date", "Edit_Info", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Update Agenda", "Edit_Info", new { id = @Model.id })</li>
+                    <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
+                    <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
+                    <br>
+                    <hr>
+                    <h4><b>Manage Sessions</b></h4>
+                    <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
+                    <br>
+                    <hr>
 
-                <br>
-                <hr>
+                    <h4><b>Manage Papers</b></h4>
+                    <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
 
-                <h4 style="padding-top: -20px"><b>Manage Guests</b></h4>
-                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
-                <br>
-                <hr>
-                <h4><b>Manage Sessions</b></h4>
-                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
-                <br>
-                <hr>
+                </div>
 
-                <h4><b>Manage Papers</b></h4>
-                <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.id })</li>
-                <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
+                <div class="col-sm-10 text-left">
 
-            </div>
+                    <table style="font-size:24px; font-family:'Times New Roman' ">
+                        <tr>
+                            <td><b>Name    :</b></td>
+                            <td>@Model.name</td>
+                        </tr>
 
-            <div class="col-sm-10 text-left">
+                        <tr>
+                            <td><b>Country:</b></td>
+                            <td>@Model.country</td>
+                        </tr>
 
-                <table style="font-size:24px; font-family:'Times New Roman' ">
-                    <tr>
-                        <td><b>Name    :</b></td>
-                        <td>@Model.name</td>
-                    </tr>
+                        <tr>
+                            <td><b>City :</b></td>
+                            <td>@Model.city</td>
+                        </tr>
 
-                    <tr>
-                        <td><b>Country:</b></td>
-                        <td>@Model.country</td>
-                    </tr>
-
-                    <tr>
-                        <td><b>City :</b></td>
-                        <td>@Model.city</td>
-                    </tr>
-
-                    <tr>
-                        <td><b>Venue :</b></td>
-                        <td>@Model.venue</td>
-                    </tr>
+                        <tr>
+                            <td><b>Venue :</b></td>
+                            <td>@Model.venue</td>
+                        </tr>
 
 
 
 
-                </table>
+                    </table>
 
 
-                <br />
-                <br />
-                <a href=@Url.Action("map","DashBoard", new{id=@Model.id})>
-                    <img id="image" src="~/Pics/maps.png" alt="Maps">
-                    </a>
-
-                    <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
-                    </a>
-
-
-
-                    <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
-                    </a>
-
-                    <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
-                        <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
-                    </a>
                     <br />
                     <br />
-                    <br />
-                    <br />
+                    <a href=@Url.Action("map","DashBoard", new{id=@Model.id})>
+                        <img id="image" src="~/Pics/maps.png" alt="Maps">
+                        </a>
+
+                        <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
+                        </a>
+
+
+
+                        <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
+                        </a>
+
+                        <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
+                            <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
+                        </a>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
 
 
 
 
 
-                    <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
-                    </a>
+                        <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
+                        </a>
 
-                    <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
-                    </a>
+                        <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
+                        </a>
 
-                    <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
-                    </a>
+                        <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
+                        </a>
 
-                    <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
-                        <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials" hspace="40">
-                    </a>   <br>
+                        <a href=@Url.Action("Tutorials","DashBoard",new {id=@Model.id})>
+                            <img id="image" src="~/Pics/DBPic8.png" alt="Tutorials" hspace="40">
+                        </a>   <br>
 
-</div>
-
-        </div>
     </div>
 
-
-</body>
-</html>*@
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <title>Conference Management System</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="~/CSS/assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="~/CSS/assets/lineicons/style.css">
-
-    <!-- Custom styles for this template -->
-    <link href="~/CSS/assets/css/style.css" rel="stylesheet">
-    <link href="~/CSS/assets/css/style-responsive.css" rel="stylesheet">
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-
-    <script src="~/CSS/assets/js/chart-master/Chart.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-    <header class="header">
-        <h1 style="padding-left:50px; text-align: center">Conference Mangement System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-
-    <nav class="nav navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
+        </div>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
 
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
+    </body>
+    </html>*@
 
+@*<div id="container">
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+                <div id="sidebar">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu" id="nav-accordion">
+
+                        <p class="centered"><img src="~/Pics/cms%20logo.png"  width="60"></p>
+                        <h5 class="centered">CMS</h5>
+
+                        <li class="mt">
+                            <a class="active" @*href="~/Views/DashBoard/DashBoard.cshtml" href='@Url.Action("DashBoard", "DashBoard", new { conf_id = @Model.id })'>
+                                @*<i class="fa fa-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-desktop"></i>
+                                <span>Manage Basic</span>
+                            </a>
+                            <ul class="sub">
+                                @*<li><a href="general.html">Edit Name</a></li>
+                                    <li><a href="buttons.html">Edit Date</a></li>
+                                    <li><a href="panels.html">Edit Venue</a></li>
+                                    <li><a href="panels.html">Edit Agenda</a></li>
+                                <li>@Html.ActionLink("Edit name ", "Edit_Info", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Edit Venue", "Edit_Info", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Edit Date", "Edit_Info", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Edit Agenda", "Edit_Info", new { id = @Model.id })</li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-cogs"></i>
+                                <span>Manage Guests</span>
+                            </a>
+                            <ul class="sub">
+                                @*<li><a href="calendar.html">Add Organizers</a></li>
+                                    <li><a href="gallery.html">Invite People</a></li>
+                                    <li><a href="todo_list.html">List of Participants</a></li>
+                                    <li><a href="todo_list.html">List of Speakers</a></li>
+                                <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Manage Sessions</span>
+                            </a>
+                            <ul class="sub">
+                                @*<li><a href="blank.html">Sessions</a></li>
+                                    <li><a href="login.html">Workshops</a></li>
+                                    <li><a href="lock_screen.html">Tutorials</a></li>
+                                    <li><a href="lock_screen.html">Extra Events</a></li>
+                                    <li><a href="lock_screen.html">PHD Symposiums</a></li>
+                                <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                                <span>Manage Papers</span>
+                            </a>
+                            <ul class="sub">
+                                @*<li><a href="form_component.html">Submission Links</a></li>
+                                    <li><a href="lock_screen.html">Accepted Papers</a></li>
+                                <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.id })</li>
+                                <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            <!--sidebar end-->
+            <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+            <!--main content start-->
+            <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px; color:black">@Model.name </h1></center>
+            <section id="main-content">
+                <div class="wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-9 main-chart">
+                            <table style="font-size:24px; font-family:'Times New Roman';border-collapse:collapse; ">
+                                <tr>
+                                    <td><b>Name    :</b></td>
+
+                                    <td>@Model.name</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Country:</b></td>
+                                    <td>@Model.country</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>City :</b></td>
+                                    <td>@Model.city</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Venue :</b></td>
+                                    <td>@Model.venue</td>
+                                </tr>
+
+
+
+
+                            </table>
+
+                            <div class="row mt">
+                                <!-- SERVER STATUS PANELS -->
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5> Invite People</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Invited Speaker</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>PHD Symposium</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
+                                                <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+                            </div><!-- /row -->
+
+
+                            <div class="row">
+                                <!-- TWITTER PANEL -->
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Workshop</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Tutorials</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Extra Events</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+                            </div><!-- /row -->
+
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Manage Accepted Papers</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
+                                                <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+
+                                <div class="col-md-4 col-sm-4 mb">
+                                    <div class="white-panel pn">
+                                        <div class="white-header">
+                                            <h5>Maps</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-6 goleft">
+                                                <p></p>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6"></div>
+                                        </div>
+                                        <div class="centered">
+                                            <a href=@Url.Action("map","DashBoard", new{id=@Model.id})>
+                                                <img id="image" src="~/Pics/maps.png" alt="Maps">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- /col-md-4 -->
+
+
+                            </div>
+
+
+
+                        </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                        <!-- **********************************************************************************************************************************************************
+                        RIGHT SIDEBAR CONTENT
+                        *********************************************************************************************************************************************************** -->
+
+                        <div class="col-lg-3 ds">
+
+
+                            <!-- USERS ONLINE SECTION -->
+                            <h3>TEAM MEMBERS</h3>
+                        @foreach (var organizer in Model.organizers) {
+                            <!-- First Member -->
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="assets/img/ui-divya.jpg" width="35px" height="35px" align="">
+                                </div>
+                                <div class="details">
+                                    <p>
+                                        <a href=@Url.Action("UserProfile", "Dashboard", new {id=@organizer.user_id })>@organizer.name</a><br/>
+                                    </p>
+                                </div>
+                            </div>
                         }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                </ul>
+                            <!-- CALENDAR-->
+                            <div id="calendar" class="mb">
+                                <div class="panel green-panel no-margin">
+                                    <div class="panel-body">
+                                        <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                                            <div class="arrow"></div>
+                                            <h3 class="popover-title" style="disadding: none;"></h3>
+                                            <div id="date-popover-content" class="popover-content"></div>
+                                        </div>
+
+                                        <div id="my-calendar"></div>
+                                    </div>
+                                </div>
+                            </div><!-- / calendar -->
+
+                        </div><!-- /col-lg-3 -->
+                    </div><! --/row -->
+                </div>
+            </section>
+
+            <!--main content end-->
+               </div>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="~/CSS/assets/js/jquery.js"></script>
+        <script src="~/CSS/assets/js/jquery-1.8.3.min.js"></script>
+        <script src="~/CSS/assets/js/bootstrap.min.js"></script>
+        <script class="include" type="text/javascript" src="~/CSS/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="~/CSS/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="~/CSS/assets/js/jquery.sparkline.js"></script>
+
+
+        <!--common script for all pages-->
+        <script src="~/CSS/assets/js/common-scripts.js"></script>
+
+        <script type="text/javascript" src="~/CSS/assets/js/gritter/js/jquery.gritter.js"></script>
+        <script type="text/javascript" src="~/CSS/assets/js/gritter-conf.js"></script>
+
+        <!--script for this page-->
+        <script src="~/CSS/assets/js/sparkline-chart.js"></script>
+        <script src="~/CSS/assets/js/zabuto_calendar.js"></script>
+
+
+        <script>
+
+            $(document).ready(function () {
+                $("#date-popover").popover({html: true, trigger: "manual"});
+                $("#date-popover").hide();
+                $("#date-popover").click(function (e) {
+                    $(this).hide();
+                });
+
+                $("#my-calendar").zabuto_calendar({
+                    action: function () {
+                        return myDateFunction(this.id, false);
+                    },
+                    action_nav: function () {
+                        return myNavFunction(this.id);
+                    },
+
+                });
+            });
+
+
+            function myNavFunction(id) {
+                $("#date-popover").hide();
+                var nav = $("#" + id).data("navigation");
+                var to = $("#" + id).data("to");
+                console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+            }
+        </script>
+
+
+    </body>
+    </html>*@
+
+
+@{Html.RenderPartial("~/Views/Shared/partialDashBoard.cshtml");}
+
+
+<div class="col-sm-10 blog-content">
+
+
+
+    <div class="col-sm-10 text-left">
+        <h1 class="text-center">DashBoard</h1>
+
+        <dl class="dl-horizontal">
+
+            <dt>Name</dt>
+            <dd>@Model.name</dd>
+            <dt>Country</dt>
+            <dd>@Model.country</dd>
+            <dt>City</dt>
+            <dd>@Model.city</dd>
+            <dt>Venue</dt>
+            <dd>@Model.venue</dd>
+
+
+
+        </dl>
+
+
+
+
+
+        <div class="row">
+            <div class="portfolio-items">
+                <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+
+                        @* @Html.ActionLink("Incite", "UserList", new { id = @Model.id })*@
+                        <img class="img-responsive" src="~/Pics/DBPic2.jpg" alt="">
+
+                        <div class="overlay">
+                           
+                                <div class="recent-work-inner">
+                                    
+                                        <h3><a href=@Url.Action("UserList", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                        <p>Invite people by sending emails.</p>
+                                    
+</div>
+                            
+</div>
+                        
+                    </div>
+
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic3.jpg" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Invite Speaker through emails</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic4.jpg" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Managing PHD Symposium</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic5.jpg" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("AcceptedPapers", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Managing List of Accepted Papers</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+
+
+                <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic6.jpg" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("Extra_Events", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Managing Extra Events</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic7.png" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href =@Url.Action("Workshop", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Managing Workshops</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                <div class="portfolio-item wordpress html col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/DBPic8.png" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("Tutorials", "DashBoard", new { id = @Model.id })>Click me</a></h3>
+                                <p>Managing Tutorials</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="~/Pics/maps.png" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href=@Url.Action("map","DashBoard", new{id=@Model.id})>Click me</a></h3>
+                                <p>See the Location of Venue</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+
 
             </div>
         </div>
-    </nav>
+    </div><!--/.end of row-->
 
 
-    <div id="container">
-        <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-        <!--header start-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-        <!--sidebar start-->
-            <div id="sidebar">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu" id="nav-accordion">
-
-                    <p class="centered"><img src="~/Pics/cms%20logo.png"  width="60"></p>
-                    <h5 class="centered">CMS</h5>
-
-                    <li class="mt">
-                        <a class="active" @*href="~/Views/DashBoard/DashBoard.cshtml"*@ href='@Url.Action("DashBoard", "DashBoard", new { conf_id = @Model.id })'>
-                            @*<i class="fa fa-dashboard"></i>*@
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-desktop"></i>
-                            <span>Manage Basic</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="general.html">Edit Name</a></li>
-                                <li><a href="buttons.html">Edit Date</a></li>
-                                <li><a href="panels.html">Edit Venue</a></li>
-                                <li><a href="panels.html">Edit Agenda</a></li>*@
-                            <li>@Html.ActionLink("Edit name ", "Edit_Info", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Edit Venue", "Edit_Info", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Edit Date", "Edit_Info", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Edit Agenda", "Edit_Info", new { id = @Model.id })</li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Manage Guests</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="calendar.html">Add Organizers</a></li>
-                                <li><a href="gallery.html">Invite People</a></li>
-                                <li><a href="todo_list.html">List of Participants</a></li>
-                                <li><a href="todo_list.html">List of Speakers</a></li>*@
-                            <li>@Html.ActionLink("Add Organizers", "add_organizers", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Invite People", "UserList", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("List of Participants", "ListofParticipant", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("List of  Speakers", "InvitedSpeaker", new { id = @Model.id })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Manage Sessions</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="blank.html">Sessions</a></li>
-                                <li><a href="login.html">Workshops</a></li>
-                                <li><a href="lock_screen.html">Tutorials</a></li>
-                                <li><a href="lock_screen.html">Extra Events</a></li>
-                                <li><a href="lock_screen.html">PHD Symposiums</a></li>*@
-                            <li>@Html.ActionLink("Sessions", "Sessions", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Workshop", "Workshop", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Tutorials", "Tutorials", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("Extra Events", "Extra_Events", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink("PHD Symposium", "PHD_Symposium", new { id = @Model.id })</li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
-                            <span>Manage Papers</span>
-                        </a>
-                        <ul class="sub">
-                            @*<li><a href="form_component.html">Submission Links</a></li>
-                                <li><a href="lock_screen.html">Accepted Papers</a></li>*@
-                            <li>@Html.ActionLink("Submission Link", "Edit_Info", new { id = @Model.id })</li>
-                            <li>@Html.ActionLink(" Accepted Papers", "AcceptedPapers", new { id = @Model.id })</li>
-
-                        </ul>
-                    </li>
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
-        <!--sidebar end-->
-        <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-        <!--main content start-->
-        <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px; color:black">@Model.name </h1></center>
-        <section id="main-content">
-            <div class="wrapper">
-
-                <div class="row">
-                    <div class="col-lg-9 main-chart">
-                        <table style="font-size:24px; font-family:'Times New Roman';border-collapse:collapse; ">
-                            <tr>
-                                <td><b>Name    :</b></td>
-                             
-                                <td>@Model.name</td>
-                            </tr>
-
-                            <tr>
-                                <td><b>Country:</b></td>
-                                <td>@Model.country</td>
-                            </tr>
-
-                            <tr>
-                                <td><b>City :</b></td>
-                                <td>@Model.city</td>
-                            </tr>
-
-                            <tr>
-                                <td><b>Venue :</b></td>
-                                <td>@Model.venue</td>
-                            </tr>
+</div>
+<h4 class="text-center">@Html.ActionLink("Click this link to delete the conference", "Delete_Conference", new { id = @Model.id })</h4>
+</div>
+</div>
+</div>
 
 
 
 
-                        </table>
-
-                        <div class="row mt">
-                            <!-- SERVER STATUS PANELS -->
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5> Invite People</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("UserList","DashBoard", new{id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic2.jpg" alt="Auto Generated Emails" hspace="40">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
 
 
 
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Invited Speaker</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("InvitedSpeaker", "DashBoard", new { id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic3.jpg" alt="Invited Speaker" hspace="40" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
 
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>PHD Symposium</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("PHD_Symposium", "DashBoard", new { id = @Model.id })>
-                                            <img id="image" src="~/Pics/DBPic4.jpg" alt="PHD Symposium" hspace="40">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-                        </div><!-- /row -->
-
-
-                        <div class="row">
-                            <!-- TWITTER PANEL -->
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Workshop</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("Workshop","DashBoard",new{id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic7.png" alt="Workshop" hspace="40">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Tutorials</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Extra Events</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("Extra_Events","DashBoard",new{id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic6.jpg" alt="Extra Event" hspace="40">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-                        </div><!-- /row -->
-
-                        <div class="row">
-
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Manage Accepted Papers</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("Accepted_Paper","DashBoard",new {id=@Model.id})>
-                                            <img id="image" src="~/Pics/DBPic5.jpg" alt="Accepted Papers">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-
-                            <div class="col-md-4 col-sm-4 mb">
-                                <div class="white-panel pn">
-                                    <div class="white-header">
-                                        <h5>Maps</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xs-6 goleft">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6"></div>
-                                    </div>
-                                    <div class="centered">
-                                        <a href=@Url.Action("map","DashBoard", new{id=@Model.id})>
-                                            <img id="image" src="~/Pics/maps.png" alt="Maps">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- /col-md-4 -->
-
-
-                        </div>
-
-
-
-                    </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                    <!-- **********************************************************************************************************************************************************
-                    RIGHT SIDEBAR CONTENT
-                    *********************************************************************************************************************************************************** -->
-
-                    <div class="col-lg-3 ds">
-
-
-                        <!-- USERS ONLINE SECTION -->
-                        <h3>TEAM MEMBERS</h3>
-                    @foreach (var organizer in Model.organizers) { 
-                        <!-- First Member -->
-                        <div class="desc">
-                            <div class="thumb">
-                                <img class="img-circle" src="assets/img/ui-divya.jpg" width="35px" height="35px" align="">
-                            </div>
-                            <div class="details">
-                                <p>
-                                    <a href=@Url.Action("UserProfile", "Dashboard", new {id=@organizer.user_id })>@organizer.name</a><br/>
-                                </p>
-                            </div>
-                        </div>
-                    }
-                        <!-- CALENDAR-->
-                        <div id="calendar" class="mb">
-                            <div class="panel green-panel no-margin">
-                                <div class="panel-body">
-                                    <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                                        <div class="arrow"></div>
-                                        <h3 class="popover-title" style="disadding: none;"></h3>
-                                        <div id="date-popover-content" class="popover-content"></div>
-                                    </div>
-                                    <div id="my-calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- / calendar -->
-
-                    </div><!-- /col-lg-3 -->
-                </div><! --/row -->
-            </div>
-        </section>
-
-        <!--main content end-->
-           </div>
-
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="~/CSS/assets/js/jquery.js"></script>
-    <script src="~/CSS/assets/js/jquery-1.8.3.min.js"></script>
-    <script src="~/CSS/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="~/CSS/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="~/CSS/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="~/CSS/assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="~/CSS/assets/js/common-scripts.js"></script>
-
-    <script type="text/javascript" src="~/CSS/assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="~/CSS/assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="~/CSS/assets/js/sparkline-chart.js"></script>
-    <script src="~/CSS/assets/js/zabuto_calendar.js"></script>
-
-
-    <script>
-
-        $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-
-            });
-        });
-
-
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
-    </script>
-
-
-</body>
-</html>

@@ -1,6 +1,9 @@
 ﻿@model CMS.Models.conferenceSession
 @{
-    ViewBag.Title = "ConferenceSession";
+    ViewBag.Title = "Conference Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.controller = "conference";
+    ViewBag.action = "search";
 }
 
 @*<h2>ConferenceSession</h2>
@@ -21,194 +24,266 @@ foreach (var ws in Model.participants)
 
 
 @*<html>
-<head>
-    <title>Conference Mangement System</title>
-    <link rel="stylesheet" href="~/CSS/Main.css">
-</head>
-<body>
-    <header>
-        <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
-    <nav id="nav-properties">
-        <ul>
-            <li>@Html.ActionLink("Home", "Index")</li>
-            <li>@Html.ActionLink("SearchforConferences", "Search")</li>
-            <li>@Html.ActionLink("Create-an-event", "create")</li>
-            <li>@Html.ActionLink("My-Events", "myEvents")</li>
-            <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
-            <li>@Html.ActionLink("About", "About")</li>
-            <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
-            <li id="inout">@Html.ActionLink("Signup", "signup")</li>
-        </ul>
-    </nav>
-    <section>
-        <aside style="margin-top:1px;">
-            <div style="height:100%;">
-                <h4>@Html.ActionLink("Wall Of Conference", "")</h4>
-                <li>@Html.ActionLink("Conference Website", "")</li>
-                <li>@Html.ActionLink("Organizing Committees", "")</li>
-                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
-                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
-                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
-                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
-                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
-                <li>@Html.ActionLink("Paper Submission Link", "")</li>
-                <li>@Html.ActionLink("Accepted Papers", "")</li>
-                <li>@Html.ActionLink("Registration Link", "")</li>
-                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+    <head>
+        <title>Conference Mangement System</title>
+        <link rel="stylesheet" href="~/CSS/Main.css">
+    </head>
+    <body>
+        <header>
+            <center><h1 style="padding-left:50px;">Conference Mangement System</h1></center>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
+        <nav id="nav-properties">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index")</li>
+                <li>@Html.ActionLink("SearchforConferences", "Search")</li>
+                <li>@Html.ActionLink("Create-an-event", "create")</li>
+                <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                <li>@Html.ActionLink("Contact-Us", "Contact_Us")</li>
+                <li>@Html.ActionLink("About", "About")</li>
+                <li id="inout">@Html.ActionLink("Signin", "signIn")</li>
+                <li id="inout">@Html.ActionLink("Signup", "signup")</li>
+            </ul>
+        </nav>
+        <section>
+            <aside style="margin-top:1px;">
+                <div style="height:100%;">
+                    <h4>@Html.ActionLink("Wall Of Conference", "")</h4>
+                    <li>@Html.ActionLink("Conference Website", "")</li>
+                    <li>@Html.ActionLink("Organizing Committees", "")</li>
+                    <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
+                    <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
+                    <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
+                    <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
+                    <li>@Html.ActionLink("Paper Submission Link", "")</li>
+                    <li>@Html.ActionLink("Accepted Papers", "")</li>
+                    <li>@Html.ActionLink("Registration Link", "")</li>
+                    <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+                </div>
+            </aside>
+            <div id="W_O_C">
+                <center><h2>Sessions</h2></center>
+                <h3>List of Sessions</h3>
+                <table id="WOC">
+
+                 @foreach (var ws in Model.participants)
+                            {
+    <tr>
+        <th>Title:-</th>
+        <td>@ws.title</td>
+        </tr>
+         <tr>
+                     <th>Venue:-</th>
+                        <td>@ws.venue</td>
+                    </tr>
+                    <tr>
+                        <th>Start Date</th>
+                        <td>@ws.Sday</td>
+                    </tr>
+                    <tr>
+                        <th>Start Time</th>
+                        <td>@ws.Stime</td>
+                    </tr>
+                    <tr>
+                        <th>ENd time</th>
+                        <td>@ws.Etime</td>
+                    </tr>
+        <tr class="blank_row">
+            <td colspan="3"></td>
+        </tr>
+                            }
+
+
+                </table>
             </div>
-        </aside>
-        <div id="W_O_C">
-            <center><h2>Sessions</h2></center>
-            <h3>List of Sessions</h3>
-            <table id="WOC">
-
-             @foreach (var ws in Model.participants)
-                        { 
-<tr>
-    <th>Title:-</th>
-    <td>@ws.title</td>
-    </tr>
-     <tr>
-                 <th>Venue:-</th>
-                    <td>@ws.venue</td>
-                </tr>
-                <tr>
-                    <th>Start Date</th>
-                    <td>@ws.Sday</td>
-                </tr>
-                <tr>
-                    <th>Start Time</th>
-                    <td>@ws.Stime</td>
-                </tr>
-                <tr>
-                    <th>ENd time</th>
-                    <td>@ws.Etime</td>
-                </tr>
-    <tr class="blank_row">
-        <td colspan="3"></td>
-    </tr>
-                        }
+        </section>
+    </body>
+    </html>
 
 
-            </table>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conference Management System</title>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+        <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body>
+
+
+        <header class="header">
+            <h1 style="text-align: center">Conference Management System</h1>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
+
+
+        <nav class="nav navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-default">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index")</li>
+                        <li>@Html.ActionLink("Search-Event", "Search")</li>
+                        <li>@Html.ActionLink("Create-Event", "create")</li>
+                        <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                        <li>@Html.ActionLink("Search-User", "Search_User")</li>
+                        @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>
+
+                    </ul>                <ul class="nav navbar-nav navbar-right">
+                        @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+
+                                @Html.ActionLink("Signin", "signIn")}
+                            else
+                            {
+                                @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+
+                            }
+                        </li>
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+                                @Html.ActionLink("Signup", "signup")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Signout", "signout")
+                            }
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="Conf_label" align="center">
+            <label>Sessions</label>
         </div>
-    </section>
-</body>
-</html>*@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-2 sidenav">
 
-</head>
+                    <h4><b>Wall of Conference</b></h4>
 
-<body>
+                    <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
+                    <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
+                    <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
+                    <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
+                    <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
+                    <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
+                    <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
+                    <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
 
 
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
+
+                </div>
 
 
-    <nav class="nav navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <div class="col-sm-10 text-left">
+
+
+                    <table class="tab">
+                        <tr>
+                            <th>Title</th>
+                            <th>Venue</th>
+                            <th>Start Day</th>
+                            <th>Start Time</th>
+                            <th>End time</th>
+                        </tr>
+                        @foreach (var ws in Model.participants)
+                        {
+
+                            <tr>
+                                <td>@ws.title</td>
+                                <td>@ws.venue</td>
+                                <td>@ws.Sday</td>
+                                <td>@ws.Stime</td>
+                                <td>@ws.Etime</td>
+                            </tr>
+
+
+                           @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+                                @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+
+                        }
+                    </table>
+
+
+
+
+                </div>
 
 
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "create")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
 
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "signIn")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signout")
-                        }
-                    </li>
-                </ul>
-
-
-            </div>
         </div>
-    </nav>
+        <script>
+            $(document).ready(function () {
 
-
-    <div id="Conf_label" align="center">
-        <label>Sessions</label>
-    </div>
-
-
-
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div class="col-sm-2 sidenav">
-
-                <h4><b>Wall of Conference</b></h4>
-
-                <li>@Html.ActionLink("Organizing Body", "organizingCommitee", new { id = @Model.id })</li>
-                <li>@Html.ActionLink("Invited Speaker", "ConferenceInvitedSpeakers", new { conference = @Model.id, attendingAs = 1 })</li>
-                <li>@Html.ActionLink("Sessions", "ConferenceSession", new { conference = @Model.id, name = @Model.name })</li>
-                <li>@Html.ActionLink("Workshop", "ConferenceWorkshops", new { conference = @Model.id, name = @Model.name, subType = 2 })</li>
-                <li>@Html.ActionLink("Tutorials", "ConferenceTutorials", new { conference = @Model.id, name = @Model.name, subType = 1 })</li>
-                <li>@Html.ActionLink("PHD Symposium", "ConferencePHD", new { conference = @Model.id, name = @Model.name, subType = 3 })</li>
-                <li>@Html.ActionLink("Accepted Papers", "ConferenceAcceptedPapers", new { conference = @Model.id })</li>
-                <li>@Html.ActionLink("Extra Events", "ConferenceExtraEvents", new { conference = @Model.id, name = @Model.name, subType = 4 })</li>
+                $(window).scroll(function () {
+                    //if you hard code, then use console
+                    //.log to determine when you want the
+                    //nav bar to stick.
+                    console.log($(window).scrollTop())
+                    if ($(window).scrollTop() > 280) {
+                        $('#label_bar').addClass('label-fixed');
+                    }
+                    if ($(window).scrollTop() < 281) {
+                        $('#label_bar').removeClass('label-fixed');
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>*@
 
 
 
-            </div>
+
+    @{Html.RenderPartial("~/Views/Shared/partialDetails.cshtml");}
 
 
-            <div class="col-sm-10 text-left">
+    <div class="col-sm-10 blog-content">
 
 
-                <table class="tab">
+
+        <div class="col-sm-10 text-left">
+            <h1 class="text-center">Conference Sessions</h1>
+
+            <dl class="dl-horizontal">
+
+
+                <table class="table table-bordered  table-style">
                     <tr>
                         <th>Title</th>
                         <th>Venue</th>
-                        <th>Start Day</th>
+                        <th>Start Date</th>
                         <th>Start Time</th>
                         <th>End time</th>
                     </tr>
@@ -224,38 +299,16 @@ foreach (var ws in Model.participants)
                         </tr>
 
 
-                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+             
 
                     }
                 </table>
 
 
-
-
-            </div>
-
+            </dl>
 
         </div>
 
     </div>
-    <script>
-        $(document).ready(function () {
-
-            $(window).scroll(function () {
-                //if you hard code, then use console
-                //.log to determine when you want the
-                //nav bar to stick.
-                console.log($(window).scrollTop())
-                if ($(window).scrollTop() > 280) {
-                    $('#label_bar').addClass('label-fixed');
-                }
-                if ($(window).scrollTop() < 281) {
-                    $('#label_bar').removeClass('label-fixed');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        </div>
+    </div>

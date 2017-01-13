@@ -1,7 +1,9 @@
 ﻿@model CMS.Models.MyprofileModel
 
 @{
-    ViewBag.Title = "MyProfile";
+    ViewBag.Title = "My Profile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.action = "signin";
 }
 
 @*<h2>MyProfile</h2>*@
@@ -68,226 +70,272 @@
     }*@
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conference Management System</title>
+        <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
+        <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
+        <link href="nav%20bar.css" rel="stylesheet" type="text/css">
+        <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
 
 
-</head>
+    </head>
 
-<body onload="info()">
-
-
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
+    <body onload="info()">
 
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <header class="header">
+            <h1 style="text-align: center">Conference Management System</h1>
+            <img id="cms-logo" src="~/Pics/cms logo.png">
+        </header>
 
 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-default">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index")</li>
+                        <li>@Html.ActionLink("Search-Event", "Search")</li>
+                        <li>@Html.ActionLink("Create-Event", "create")</li>
+                        <li>@Html.ActionLink("My-Events", "myEvents")</li>
+                        <li>@Html.ActionLink("Search-User", "Search_User")</li>
+
+
+                    </ul>                <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+
+                                @Html.ActionLink("Signin", "signIn")}
+                            else
+                            {
+                                @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+
+                            }
+                        </li>
+                        <li>
+                            @if (Session["id"].Equals(0))
+                            {
+                                @Html.ActionLink("Signup", "signup")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Signout", "signout")
+                            }
+                        </li>
+
+                    </ul>
+
+
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "create")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
+        </nav>
 
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
 
-                            @Html.ActionLink("Signin", "signIn")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+        <center style="margin-top:-22px;">
+            <h1 style="background-color: #9d9d9d; padding:10px">My Profile</h1>
+        </center>
 
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signout")
-                        }
-                    </li>
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
-                </ul>
+
+
+
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+            <div class="container">
+                <section style="padding-bottom: 50px; padding-top: 50px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/assets/img/250x250.png" class="img-rounded img-responsive" />
+                            <br />
+                            <br />
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="name" id="names" placeholder="Demouser">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="jnondeao@gmail.com" id="email">
+                            <label>Country</label>
+                            <input type="text" class="form-control" name="country" placeholder="Pakistan etc" id="country">
+                            <label>City</label>
+                            <input type="text" class="form-control" name="city" placeholder="Lahore etc" id="city">
+                            <label>Research Area</label>
+                            <input type="text" class="form-control" placeholder="Computer Science etc" id="area" name="area">
+                            <label>Biography</label>
+
+                            <textarea rows="4" cols="50" type="text" class="form-control" name="bio" placeholder="Your basic info" id="bio"></textarea>
+
+                            <br>
+
+                            <br /><br />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="alert alert-info">
+                                <h2>User Bio : </h2>
+                                <p>
+                                    @Model.bio
+                                </p>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
+                            <div class="form-group col-md-8">
+                                <h3>Change Your Password</h3>
+                                <br />
+                                <label>Enter Old Password</label>
+                                <input type="password"  id="pass" class="form-control">
+                                <label>Enter New Password</label>
+                                <input type="password" name="pass" class="form-control">
+                                <label>Confirm New Password</label>
+                                <input type="password" class="form-control" name="confirm" />
+                                <br>
+                                <input type="submit" class="btn btn-success" value="Update Details">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </div>
+
+                     ROW END
+                    }*@
+
+
+<div class="row user-profile">
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <div class="text-center">
+                <img src="~/Pics/250x250.png" alt="Alternate Text" class="img-responsive img-circle" />
+                <span></span>
+            </div>
+        </div>
+        <div class="col-sm-9">
+
+            @using (Html.BeginForm("MyProfile", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
+           {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Username</label>
+                    <div class="col-md-6">
+                        <input type="text" name="name" id="names" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Email</label>
+                    <div class="col-md-6">
+                        <input type="email" name="email" id="email" class="form-control" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Country</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="country" id="country">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">City</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="city" id="city">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Research Area</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="area" name="area">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Biography</label>
+                    <div class="col-md-6">
+                        <textarea rows="4" cols="50" type="text" class="form-control" name="bio" id="bio"></textarea>
+                    </div>
+                </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-4">Password</label>
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="password" id="pass" class="form-control">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" id="eye">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-primary" value="Update Info">
+                    </div>
+
+
+
+           }
+
+                </div>
+
+
+
 
 
             </div>
         </div>
-    </nav>
+    
+<script>
 
+    function show() {
+        var p = document.getElementById('pass');
+        p.setAttribute('type', 'text');
+    }
 
-    <center style="margin-top:-22px;">
-        <h1 style="background-color: #9d9d9d; padding:10px">My Profile</h1>
-    </center>
+    function hide() {
+        var p = document.getElementById('pass');
+        p.setAttribute('type', 'password');
+    }
 
+    var pwShown = 0;
 
+    document.getElementById("eye").addEventListener("click", function () {
+        if (pwShown == 0) {
+            pwShown = 1;
+            show();
+        } else {
+            pwShown = 0;
+            hide();
+        }
+    }, false);
 
-
-
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        @*<div class="login">
-                <div class="form-group">
-
-                    @Html.LabelFor(model => model.name,
-                   new { @class = "control-label col-md-2" })
-
-                    <div class="col-md-6">
-                        <div class="input">
-                            @Html.TextBoxFor(model => model.name,
-                     new { style = "width: 400px" })
-                            @Html.ValidationMessageFor(model => model.name)
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.email,
-                   new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.email,
-                     new { style = "width: 400px" })
-                        @Html.ValidationMessageFor(model => model.email)
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.country,
-                   new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.country,
-                     new { style = "width: 400px" })
-                        @Html.ValidationMessageFor(model => model.country)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.city,
-                   new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.city,
-                     new { style = "width: 400px" })
-                        @Html.ValidationMessageFor(model => model.city)
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.bio,
-                   new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.bio,
-                     new { style = "width: 400px; height: 200px" })
-                        @Html.ValidationMessageFor(model => model.bio)
-                        <div class="butn">
-                                <input type="submit" value="Save" />
-                        </div>
-                        <div style="margin-top:1%;">
-                            @Html.ActionLink("To chnage password click here!!!", "ChangePassword")
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>*@
-
-        <div class="container">
-            <section style="padding-bottom: 50px; padding-top: 50px;">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="~/assets/img/250x250.png" class="img-rounded img-responsive" />
-                        <br />
-                        <br />
-                        <label>Username</label>
-                        <input type="text" class="form-control" name="name" id="names" placeholder="Demouser">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="jnondeao@gmail.com" id="email">
-                        <label>Country</label>
-                        <input type="text" class="form-control" name="country" placeholder="Pakistan etc" id="country">
-                        <label>City</label>
-                        <input type="text" class="form-control" name="city" placeholder="Lahore etc" id="city">
-                        <label>Research Area</label>
-                        <input type="text" class="form-control" placeholder="Computer Science etc" id="area" name="area">
-                        <label>Biography</label>
-                        
-                        <textarea rows="4" cols="50" type="text" class="form-control" name="bio" placeholder="Your basic info" id="bio"></textarea>
-
-                        <br>
-                        
-                        <br /><br />
-                    </div>
-                    <div class="col-md-8">
-                        <div class="alert alert-info">
-                            <h2>User Bio : </h2>
-                            <p>
-                                @Model.bio
-                            </p>
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-
-                        <div class="form-group col-md-8">
-                            <h3>Change Your Password</h3>
-                            <br />
-                            <label>Enter Old Password</label>
-                            <input type="password"  id="pass" class="form-control">
-                            <label>Enter New Password</label>
-                            <input type="password" name="pass" class="form-control">
-                            <label>Confirm New Password</label>
-                            <input type="password" class="form-control" name="confirm" />
-                            <br>
-                            <input type="submit" class="btn btn-success" value="Update Details">        
-                        </div>
-                    </div>
-                </div>
-            </section>
-            </div>
-        
-                <!-- ROW END -->
-                }
-    <script >
 
 
     function info() {
@@ -316,9 +364,5 @@
 
 
     }
-
-        </script>
-
-    </body>
-</html>
-
+    
+</script>

@@ -1,0 +1,51 @@
+﻿.display-none{
+
+    display:none;
+
+}
+
+.main_wrapper{
+        min-height: 80vh;
+}
+.navbar-brand > img{
+    height: 50px;
+    width: 50px;
+}
+
+body{
+
+   background-color:#e3e6e9;
+}
+#hidden{
+    margin-top: 20px;
+}
+#hidden .form-group{
+    margin-bottom: 8px;
+}
+.user-profile{
+    padding-top: 20px;
+}
+.user-profile img{
+        margin: 0px auto;
+}
+
+.form-margin{
+    margin:20px;
+}
+
+.table-style    {
+    background-color:gray;
+    border-radius: 3px;
+    padding: 10px;
+    
+}
+
+/*.recent-work-wrap{
+    border: 1px solid #f6f6f6;
+    margin: 4px;
+}*/
+
+#abc{
+        background-color: lightgrey;
+    text-align: center;
+}

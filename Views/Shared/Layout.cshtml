@@ -1,0 +1,156 @@
+﻿@{
+    string bodyKlass = "";
+    string navKlass = "";
+    if (@ViewBag.controller == "home"){
+        bodyKlass = "homepage";
+        navKlass = "both-div";
+    }
+    string action = @ViewBag.action;
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+
+    <!-- core CSS -->
+    <link href="~/New CSS/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/New CSS/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/New CSS/css/animate.min.css" rel="stylesheet">
+    <link href="~/New CSS/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/CSS/pikaday.css" rel="stylesheet" />
+    <link href="~/New CSS/css/main.css" rel="stylesheet">
+    <link href="~/New CSS/css/responsive.css" rel="stylesheet">
+    <link href="~/New CSS/css/custom.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body class="@bodyKlass" onload="info()">
+
+    <header id="header">
+        <div class="@navKlass">
+            @*<div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-4">
+                            <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
+                        </div>
+                        <div class="col-sm-6 col-xs-8">
+                            <div class="social">
+                                <ul class="social-share">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.container-->
+            </div><!--/.top-bar-->*@
+
+            <nav class="navbar navbar-inverse" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="~/Pics/cms logo.png" alt="logo"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class='@ApplicationHelper.is_active("index",action)'><a href=@Url.Action("Index", "Home")>Home</a></li>
+                            <li class='@ApplicationHelper.is_active("search",action)'><a href=@Url.Action("Search", "Home")>Search-Event</a></li>
+                            <li class='@ApplicationHelper.is_active("search_user",action)'><a href=@Url.Action("Search_User", "Home")>Search-User</a></li>
+                            <li class='@ApplicationHelper.is_active("create",action)'><a href=@Url.Action("create", "Home")>Create-Event</a></li>
+                            <li class='@ApplicationHelper.is_active("my_events",action)'><a href=@Url.Action("myEvents", "Home")>My-Events</a></li>
+                            <li class='@ApplicationHelper.is_active("signin",action)'>
+                                @if (Session["id"].Equals(0))
+                                {
+                                    //<a href=@Url.Action("sign", "Home")>My-Events</a>
+                                    @Html.ActionLink("Sign-In", "signIn")}
+                                else
+                                {
+                                    @Html.ActionLink(Session["email"].ToString(), "MyProfile")
+
+                                }
+                            </li>
+                            <li class='@ApplicationHelper.is_active("signup",action)'>
+                                @if (Session["id"].Equals(0))
+                                {
+                                    @Html.ActionLink("Sign-Up", "signup")
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Signout", "signout")
+                                }
+                            </li>
+
+                        </ul>
+                    </div>
+                </div><!--/.container-->
+            </nav><!--/nav-->
+        </div>
+
+    </header>
+
+    @if (@ViewBag.controller == "home" || @ViewBag.controller == "conference" || @ViewBag.controller == "dashboard")
+    {
+        
+            @RenderBody()
+
+    }
+    else
+    {
+        <div class="container main_wrapper">
+            @RenderBody()
+        </div>
+    }
+
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 <a  title="Free Twitter Bootstrap WordPress Themes and HTML templates">Team CMS</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href=@Url.Action("Index", "Home")>Home</a></li>
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="~/New CSS/js/jquery.js"></script>
+    <script src="~/New CSS/js/bootstrap.min.js"></script>
+    <script src="~/Bootstrap/js/bootstrap.js"></script>
+    <script src="~/New CSS/js/jquery.prettyPhoto.js"></script>
+    <script src="~/New CSS/js/jquery.isotope.min.js"></script>
+    <script src="~/New CSS/js/main.js"></script>
+    <script src="~/New CSS/js/wow.min.js"></script>
+    <script src="~/JS/pikaday.jquery.js"></script>
+    <script src="~/JS/pikaday.js"></script>
+    <script src="~/JS/custom.js"></script>
+
+</body>
+</html>

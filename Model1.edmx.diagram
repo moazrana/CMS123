@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="db_CMSModel.participants_list" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.vw_accepted_papers" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.vw_myevents" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_CMSModel.vw_myOrganizingEvents" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_CMSModel.vw_particapants" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="db_CMSModel.FK__organizin__confe__10E07F16" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__organizin__Ouser__0FEC5ADD" ManuallyRouted="false" />
@@ -34,6 +33,8 @@
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user1__0C1BC9F9" ManuallyRouted="false" />
         <AssociationConnector Association="db_CMSModel.FK__tblconver__user2__0D0FEE32" ManuallyRouted="false" />
         <EntityTypeShape EntityType="db_CMSModel.suser1" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_myOrganizingEvent" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="db_CMSModel.vw_myOrganizingEvents" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

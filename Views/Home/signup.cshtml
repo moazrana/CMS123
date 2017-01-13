@@ -1,6 +1,8 @@
 ﻿@model CMS.Models.signupModel
 @{
-    ViewBag.Title = "signup";
+    ViewBag.Title = "Conference Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.action = "signup";
 }
 
 @*<h2>signup</h2>
@@ -203,14 +205,14 @@
 
 
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Sign-up Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" media="screen" href="~/CSS/User-Profile.css">
-    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="~/Bootstrap/js/bootstrap.min.js"></script>
@@ -275,10 +277,12 @@
 
             </div>
         </div>
-    </nav>
-    <center style="margin-top:-22px;">
+    </nav>*@
+
+<h1 class="text-center">Sign-Up Page</h1>
+    @*<center style="margin-top:-22px;">
         <h1 style="background-color: #9d9d9d; padding:10px">Signup Page</h1>
-    </center>
+    </center>*@
     
         @using (Html.BeginForm("signup", "Home", null, FormMethod.Post, new { @class = "form-horizontal" }))
         {
@@ -286,8 +290,7 @@
             @Html.ValidationSummary(true)
             @*<form class="contact_form" name="contact_form">*@
 
-    <div class="row">
-
+    
         <div class="form-group">
 
 
@@ -310,7 +313,7 @@
             <div class="col-md-4">
 
                 <input type="email" class="form-control" name="email" placeholder="john_doe@example.com" required />
-                <span class="form_hint">Proper format "name@something.com"</span>
+                @*<span class="form_hint">Proper format "name@something.com"</span>*@
 
             </div>
 
@@ -379,10 +382,14 @@
 
 
 
-        <div class="wrapper">
+        @*<div class="wrapper">
             <input class="submit" type="submit" id="button" value="SignUp">
-        </div>
+        </div>*@
+
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="Sign-Up">
     </div>
+
 
 
         }
@@ -449,9 +456,6 @@
     </script>
 
 
-
-</body>
-</html>
 
 
 

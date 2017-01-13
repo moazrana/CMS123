@@ -1,9 +1,12 @@
 ﻿@model CMS.tblConference
-@*@{
+@{
         ViewBag.Title = "organize";
+     Layout = "~/Views/Shared/Layout.cshtml";
+     ViewBag.action = "create";
+     ViewBag.action = "my_events";  
     }
 
-
+@*
     <html>
         <head>
             <link rel="stylesheet" href="~/CSS/Main.css">
@@ -124,89 +127,12 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Conference Management System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript" rel="script"></script>
-    <script src="~/JS/pikaday.js"></script>
-    <link href="~/CSS/pikaday.css" rel="stylesheet" />
-    
-    <link href="nav%20bar.css" rel="stylesheet" type="text/css">
-    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css">
-
-</head>
-
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 
-    <header class="header">
-        <h1 style="text-align: center">Conference Management System</h1>
-        <img id="cms-logo" src="~/Pics/cms logo.png">
-    </header>
 
+<h1 class="text-center">Create Event</h1>
 
-    <nav class="navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-default">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Home", "Index")</li>
-                    <li>@Html.ActionLink("Search-Event", "Search")</li>
-                    <li>@Html.ActionLink("Create-Event", "organize")</li>
-                    <li>@Html.ActionLink("My-Events", "myEvents")</li>
-                    <li>@Html.ActionLink("Search-User", "Search_User")</li>
-
-                    @*  <li>@Html.ActionLink("Contact-Us", "Contact")</li>*@
-
-                </ul>                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-
-                            @Html.ActionLink("Signin", "sign")}
-                        else
-                        {
-                            @Html.ActionLink(Session["email"].ToString(), "sign")
-
-                        }
-                    </li>
-                    <li>
-                        @if (Session["id"].Equals(0))
-                        {
-                            @Html.ActionLink("Signup", "signup")
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Signout", "signup")
-                        }
-                    </li>
-                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
-                </ul>
-
-
-            </div>
-        </div>
-    </nav>
-
-
-    <center style="margin-top:-22px;"><h1 style="background-color: #9d9d9d; padding:10px;">Create an Event</h1></center>
-
-
-    @using (Html.BeginForm("organize", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("organize", "DashBoard", null, FormMethod.Post, new { @class = "form-horizontal form-margin" }))
     {
 
 
@@ -309,27 +235,12 @@
 
 
         <div class="text-center">
-            <input type="submit" value="Register" onclick="showAlert();">
+            <input type="submit" class="btn btn-primary" value="Register" onclick="showAlert();">
         </div>
 
-        <script type="text/javascript">
-            var spicker = new Pikaday({
-                field: document.getElementById('sdate')
-            });
-            var epicker = new Pikaday({
-                field: document.getElementById('edate')
-            });
-        </script>
-
+     
 
     }
-    <script>
-        function showAlert() {
-            alert("Wait for your event to be authenticated");
-            
-        }
-    </script>
-</body>
+   
 
-</html>
 
